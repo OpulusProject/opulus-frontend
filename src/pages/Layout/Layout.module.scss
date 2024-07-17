@@ -1,0 +1,11 @@
+.LayoutPage {
+  display: flex;
+  flex-direction: row;
+}
+
+.LayoutContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 96px;
+  gap: 32px;
+}
