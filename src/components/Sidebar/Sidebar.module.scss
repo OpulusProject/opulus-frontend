@@ -1,0 +1,38 @@
+.SidebarContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 32px 0;
+  gap: 24px;
+  width: 280px;
+  border-right: 1px solid #e4e4e7;
+}
+
+.Avatar {
+  padding: 0 24px;
+}
+
+.Menu {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  gap: 4px;
+}
+
+.FirstMenu {
+  flex-grow: 1;
+}
+
+.Option {
+  display: flex;
+  flex-direction: row;
+  padding: 0 8px;
+  gap: 8px;
+}
+
+.Button {
+  justify-content: flex-start;
+  width: 100%;
+  padding: 8px;
+  gap: 8px;
+}
