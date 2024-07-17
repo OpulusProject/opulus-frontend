@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { Accounts } from '@/pages/Accounts';
-import { Overview } from '@/pages/Overview';
+import { Dashboard } from '@/pages/Dashboard';
+import { Register } from '@/pages/Register';
 import { Transactions } from '@/pages/Transactions';
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/overview" element={<Overview />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/overview" element={<Dashboard />} />
           <Route path="/accounts" element={<Accounts />} />
           <Route path="/transactions" element={<Transactions />} />
         </Routes>

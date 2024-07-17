@@ -59,7 +59,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
       <div className={styles.Avatar}>
         <Avatar>
           <AvatarImage src={PLACEHOLDER_AVATAR_LINK} />
-          <AvatarFallback>A</AvatarFallback>
+          {/* <AvatarFallback>A</AvatarFallback> 
+          fallback renders before avatar image, brief moment where you can see the fallback before avatar */}
         </Avatar>
       </div>
       <div className={`${styles.Menu} ${styles.FirstMenu}`}>

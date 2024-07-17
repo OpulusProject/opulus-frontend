@@ -2,14 +2,17 @@ import React from 'react';
 
 import { Sidebar } from '@/components/Sidebar';
 
-import styles from './Layout.module.scss';
+import styles from './PageLayout.module.scss';
 
-interface LayoutProps {
+interface PageLayoutProps {
   children: React.ReactNode;
   currentPage: string;
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children, currentPage }) => {
+export const PageLayout: React.FC<PageLayoutProps> = ({
+  children,
+  currentPage,
+}) => {
   return (
     <div className={styles.LayoutPage}>
       <Sidebar currentPage={currentPage} />

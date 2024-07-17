@@ -10,6 +10,7 @@ type FontVariant =
   | 'medium-large'
   | 'large'
   | 'extra-large'
+  | 'extra-extra-large-500'
   | 'extra-extra-large';
 
 interface TypographyProps {
