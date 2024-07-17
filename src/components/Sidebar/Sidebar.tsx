@@ -9,6 +9,7 @@ import {
   Wallet,
 } from 'lucide-react';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import { Typography } from '@/components/Typography';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -29,22 +30,26 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
     icon?: React.ReactNode;
     text: string;
     isActive: boolean;
+    route: string;
   }
 
   const SidebarButton: React.FC<SidebarButtonProps> = ({
     icon,
     text,
     isActive,
+    route,
   }) => {
     return (
       <div className={styles.Option}>
-        <Button
-          variant={isActive ? 'default' : 'ghost'}
-          className={styles.Button}
-        >
-          {icon}
-          <Typography variant="small-medium">{text}</Typography>
-        </Button>
+        <NavLink to={route} className={styles.ButtonWrapper}>
+          <Button
+            variant={isActive ? 'default' : 'ghost'}
+            className={styles.Button}
+          >
+            {icon}
+            <Typography variant="small-medium">{text}</Typography>
+          </Button>
+        </NavLink>
       </div>
     );
   };
@@ -62,26 +67,31 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
           icon={<LayoutGrid size={18} />}
           text="Overview"
           isActive={currentPage === 'overview'}
+          route="/overview"
         />
         <SidebarButton
           icon={<ArrowDownUp size={18} />}
           text="Transactions"
           isActive={currentPage === 'transactions'}
+          route="/transactions"
         />
         <SidebarButton
           icon={<Wallet size={18} />}
           text="Accounts"
           isActive={currentPage === 'accounts'}
+          route="/accounts"
         />
         <SidebarButton
           icon={<PieChart size={18} />}
           text="Reports"
           isActive={currentPage === 'reports'}
+          route="/reports"
         />
         <SidebarButton
           icon={<Settings2 size={18} />}
           text="Settings"
           isActive={currentPage === 'settings'}
+          route="/settings"
         />
       </div>
       <Separator />
@@ -90,16 +100,19 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
           icon={<CircleHelp size={18} />}
           text="Help Center"
           isActive={currentPage === 'help'}
+          route="/help"
         />
         <SidebarButton
           icon={<MessageCircle size={18} />}
           text="Support"
           isActive={currentPage === 'support'}
+          route="/support"
         />
         <SidebarButton
           icon={<LogOut size={18} />}
           text="Sign out"
           isActive={currentPage === 'signout'}
+          route="/signout"
         />
       </div>
     </div>
