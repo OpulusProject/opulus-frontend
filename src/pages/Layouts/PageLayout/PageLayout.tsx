@@ -14,9 +14,9 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
   currentPage,
 }) => {
   return (
-    <div className={styles.LayoutPage}>
+    <div className={styles.pageLayout}>
       <Sidebar currentPage={currentPage} />
-      <div className={styles.LayoutContainer}>{children}</div>
+      <div className={styles.children}>{children}</div>
     </div>
   );
 };

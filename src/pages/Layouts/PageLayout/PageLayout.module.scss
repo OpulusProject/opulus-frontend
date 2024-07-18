@@ -1,9 +1,9 @@
-.LayoutPage {
+.pageLayout {
   display: flex;
   flex-direction: row;
 }
 
-.LayoutContainer {
+.children {
   display: flex;
   flex-direction: column;
   padding: 32px 96px;

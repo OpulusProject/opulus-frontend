@@ -1,10 +1,11 @@
-.LayoutPage {
+.authLayout {
   display: flex;
   flex-direction: row;
 }
 
-.LayoutContainer {
+.children {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  margin: auto;
   width: 50vw;
 }

@@ -1,22 +1,24 @@
 import './Typography.scss';
 
+import classNames from 'classnames';
 import { ReactNode } from 'react';
-
 type FontVariant =
   | 'tiny'
   | 'small'
   | 'small-medium'
+  | 'small-medium-400'
   | 'medium'
   | 'medium-large'
   | 'large'
   | 'extra-large'
+  | 'extra-large-600'
   | 'extra-extra-large-500'
   | 'extra-extra-large';
 
 interface TypographyProps {
   id?: string;
   variant: FontVariant;
-  color?: string;
+  className?: string;
   children:
     | string
     | string[]
@@ -32,11 +34,11 @@ interface TypographyProps {
 export const Typography: React.FC<TypographyProps> = ({
   id,
   variant,
-  color,
+  className,
   children,
 }) => {
   return (
-    <p id={id} className={variant} style={{ color }}>
+    <p id={id} className={classNames(variant, className)}>
       {children}
     </p>
   );
