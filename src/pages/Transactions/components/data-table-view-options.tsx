@@ -17,6 +17,13 @@ interface DataTableViewOptionsProps<TData> {
   table: Table<TData>;
 }
 
+// Utility function to split camelCase and capitalize words
+const formatColumnName = (name: string) => {
+  return name
+    .replace(/([A-Z])/g, ' $1') // Insert space before capital letters
+    .replace(/^./, (str) => str.toUpperCase()); // Capitalize the first letter
+};
+
 export function DataTableViewOptions<TData>({
   table,
 }: DataTableViewOptionsProps<TData>) {
@@ -32,7 +39,7 @@ export function DataTableViewOptions<TData>({
           View
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-[150px]">
+      <DropdownMenuContent align="end" className="w-[200px]">
         <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {table
@@ -49,7 +56,7 @@ export function DataTableViewOptions<TData>({
                 checked={column.getIsVisible()}
                 onCheckedChange={(value) => column.toggleVisibility(!!value)}
               >
-                {column.id}
+                {formatColumnName(column.id)}
               </DropdownMenuCheckboxItem>
             );
           })}

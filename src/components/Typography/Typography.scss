@@ -5,9 +5,12 @@ $font-family: 'Inter', sans-serif;
   font-family: $font-family;
 }
 
+// used
 .small {
   font-size: 14px;
   font-family: $font-family;
+  font-weight: 500;
+  line-height: 20px;
 }
 
 .small-medium {
@@ -29,7 +32,7 @@ $font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-family: $font-family;
   font-weight: 500;
-  line-height: 26px;
+  line-height: 26px; // inconsistent line-heights in designs
 }
 
 .medium-large {

@@ -1,18 +1,22 @@
 'use client';
 
 import { ColumnDef } from '@tanstack/react-table';
+import { format } from 'date-fns';
 
-import { Badge } from '@/components/ui/badge';
+import { Typography } from '@/components/Typography';
 import { Checkbox } from '@/components/ui/checkbox';
-import {
-  labels,
-  priorities,
-  statuses,
-} from '@/pages/Transactions/data/data.tsx';
 import { Task } from '@/pages/Transactions/data/schema.ts';
 
 import { DataTableColumnHeader } from './data-table-column-header';
 import { DataTableRowActions } from './data-table-row-actions';
+
+const MERCHANT_LOGO_FALLBACK =
+  'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0b3JlIj48cGF0aCBkPSJtMiA3IDQuNDEtNC40MUEyIDIgMCAwIDEgNy44MyAyaDguMzRhMiAyIDAgMCAxIDEuNDIuNTlMMjIgNyIvPjxwYXRoIGQ9Ik00IDEydjhhMiAyIDAgMCAwIDIgMmgxMmEyIDIgMCAwIDAgMi0ydi04Ii8+PHBhdGggZD0iTTE1IDIydi00YTIgMiAwIDAgMC0yLTJoLTJhMiAyIDAgMCAwLTIgMnY0Ii8+PHBhdGggZD0iTTIgN2gyMCIvPjxwYXRoIGQ9Ik0yMiA3djNhMiAyIDAgMCAxLTIgMmEyLjcgMi43IDAgMCAxLTEuNTktLjYzLjcuNyAwIDAgMC0uODIgMEEyLjcgMi43IDAgMCAxIDE2IDEyYTIuNyAyLjcgMCAwIDEtMS41OS0uNjMuNy43IDAgMCAwLS44MiAwQTIuNyAyLjcgMCAwIDEgMTIgMTJhMi43IDIuNyAwIDAgMS0xLjU5LS42My43LjcgMCAwIDAtLjgyIDBBMi43IDIuNyAwIDAgMSA4IDEyYTIuNyAyLjcgMCAwIDEtMS41OS0uNjMuNy43IDAgMCAwLS44MiAwQTIuNyAyLjcgMCAwIDEgNCAxMmEyIDIgMCAwIDEtMi0yVjciLz48L3N2Zz4=';
+
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  return format(date, 'MMMM d, yyyy');
+};
 
 export const columns: ColumnDef<Task>[] = [
   {
@@ -25,7 +29,7 @@ export const columns: ColumnDef<Task>[] = [
         }
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
-        className="translate-y-[2px]"
+        className="translate-y-[-2px]"
       />
     ),
     cell: ({ row }) => (
@@ -33,95 +37,87 @@ export const columns: ColumnDef<Task>[] = [
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
         aria-label="Select row"
-        className="translate-y-[2px]"
+        className="translate-y-[-2px]"
       />
     ),
     enableSorting: false,
     enableHiding: false,
   },
   {
-    accessorKey: 'id',
+    accessorKey: 'accountName',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Task" />
+      <DataTableColumnHeader column={column} title="Account" />
     ),
-    cell: ({ row }) => <div className="w-[80px]">{row.getValue('id')}</div>,
+    cell: ({ row }) => <div>{row.getValue('accountName')}</div>,
     enableSorting: false,
     enableHiding: false,
   },
   {
-    accessorKey: 'title',
+    accessorKey: 'date',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Title" />
+      <DataTableColumnHeader column={column} title="Transaction Date" />
     ),
     cell: ({ row }) => {
-      const label = labels.find((label) => label.value === row.original.label);
-
-      return (
-        <div className="flex space-x-2">
-          {label && <Badge variant="outline">{label.label}</Badge>}
-          <span className="max-w-[500px] truncate font-medium">
-            {row.getValue('title')}
-          </span>
-        </div>
-      );
+      const date = row.getValue('date');
+      return <div>{formatDate(date)}</div>;
     },
+    enableSorting: false,
+    enableHiding: false,
   },
   {
-    accessorKey: 'status',
+    accessorKey: 'type',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Status" />
+      <DataTableColumnHeader column={column} title="Type" />
     ),
-    cell: ({ row }) => {
-      const status = statuses.find(
-        (status) => status.value === row.getValue('status')
-      );
-
-      if (!status) {
-        return null;
-      }
-
-      return (
-        <div className="flex w-[100px] items-center">
-          {status.icon && (
-            <status.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-          )}
-          <span>{status.label}</span>
-        </div>
-      );
-    },
+  },
+  {
+    accessorKey: 'merchantName',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Merchant" />
+    ),
+    cell: ({ row }) => (
+      <div className="flex flex-row gap-2">
+        <img
+          src={
+            row.original.merchantLogo
+              ? row.original.merchantLogo
+              : MERCHANT_LOGO_FALLBACK
+          }
+          className="size-5 rounded-md"
+        />
+        {row.getValue('merchantName')}
+      </div>
+    ),
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id));
     },
   },
   {
-    accessorKey: 'priority',
+    accessorKey: 'amount',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Priority" />
+      <DataTableColumnHeader
+        column={column}
+        title="Amount"
+        className="justify-end"
+      />
     ),
-    cell: ({ row }) => {
-      const priority = priorities.find(
-        (priority) => priority.value === row.getValue('priority')
-      );
-
-      if (!priority) {
-        return null;
-      }
-
-      return (
-        <div className="flex items-center">
-          {priority.icon && (
-            <priority.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-          )}
-          <span>{priority.label}</span>
-        </div>
-      );
-    },
+    cell: ({ row }) => (
+      <div className="flex flex-row gap-1 justify-end mr-3">
+        <Typography variant="medium">
+          {row.getValue('amount').toFixed(2)}
+        </Typography>
+        <Typography variant="small" className="mt-1 text-zinc-500">
+          {row.original.currencyCode}
+        </Typography>
+      </div>
+    ),
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id));
     },
+    enableHiding: false,
   },
-  {
-    id: 'actions',
-    cell: ({ row }) => <DataTableRowActions row={row} />,
-  },
+  // {
+  //   id: 'actions',
+  //   cell: ({ row }) => <DataTableRowActions row={row} />,
+  // },
 ];
