@@ -1,5 +1,8 @@
 .loginContainer {
+  display: flex;
+  flex-direction: column;
   width: 400px;
+  gap: 24px;
 }
 
 .icon {
@@ -12,17 +15,23 @@
   border-radius: 50px;
 }
 
-.header {
+.text {
+  color: hsl(var(--primary));
+}
+
+.caption {
+  color: hsl(var(--muted-foreground));
+}
+
+.body {
   display: flex;
   flex-direction: column;
   text-align: center;
   gap: 8px;
+}
 
-  &Text {
-    color: hsl(var(--primary));
-  }
-
-  &Caption {
-    // color: hsl(var(--background)); not the right color
-  }
+.footer {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
 }

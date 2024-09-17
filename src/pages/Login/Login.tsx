@@ -42,14 +42,11 @@ export const Login: React.FC = () => {
         <div className={styles.icon}>
           <Gem size={28} />
         </div>
-        <div className={styles.header}>
-          <Typography variant="extra-large-600" className={styles.headerText}>
+        <div className={styles.body}>
+          <Typography variant="extra-large-600" className={styles.text}>
             Welcome to Opulus
           </Typography>
-          <Typography
-            variant="small-medium-400"
-            className={styles.headerCaption}
-          >
+          <Typography variant="small-medium-400" className={styles.caption}>
             Select one of the options below to sign in.
           </Typography>
         </div>
@@ -96,6 +93,11 @@ export const Login: React.FC = () => {
             </Button>
           </form>
         </Form>
+        <div className={styles.footer}>
+          <Typography variant="small-medium-400" className={styles.caption}>
+            Don't have an account yet?
+          </Typography>
+        </div>
       </div>
     </AuthLayout>
   );
