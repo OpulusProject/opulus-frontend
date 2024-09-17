@@ -2,7 +2,19 @@
   width: 400px;
 }
 
+.icon {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--background));
+  margin: auto;
+  padding: 14px;
+  margin-bottom: 16px;
+  width: 56px;
+  border-radius: 50px;
+}
+
 .header {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   gap: 8px;
 
