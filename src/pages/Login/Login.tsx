@@ -15,6 +15,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { Separator } from '@/components/ui/separator';
 import { AuthLayout } from '@/pages/Layouts/AuthLayout';
 
 import styles from './Login.module.scss';
@@ -51,6 +52,16 @@ export const Login: React.FC = () => {
           </Typography>
         </div>
         <Form {...form}>
+          <Button type="submit" className="w-full">
+            Continue with Google
+          </Button>
+          <div className={styles.separatorContainer}>
+            <Separator className={styles.separator} />
+            <Typography variant="small" className={styles.caption}>
+              or
+            </Typography>
+            <Separator className={styles.separator} />
+          </div>
           <form
             onSubmit={() => {
               form.handleSubmit(onSubmit);

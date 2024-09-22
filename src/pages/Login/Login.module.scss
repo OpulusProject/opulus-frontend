@@ -30,6 +30,18 @@
   gap: 8px;
 }
 
+.separatorContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.separator {
+  width: 185px;
+  margin: auto;
+}
+
+
 .footer {
   display: flex;
   flex-direction: row;
