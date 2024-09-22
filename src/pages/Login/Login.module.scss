@@ -23,11 +23,30 @@
   color: hsl(var(--muted-foreground));
 }
 
-.body {
+.header {
   display: flex;
   flex-direction: column;
   text-align: center;
   gap: 8px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  text-align: center;
+  gap: 4px;
+}
+
+.footerButton {
+  padding: 0;
+  height: 24px;
 }
 
 .separatorContainer {
@@ -38,12 +57,5 @@
 
 .separator {
   width: 185px;
-  margin: auto;
-}
-
-
-.footer {
-  display: flex;
-  flex-direction: row;
   margin: auto;
 }
