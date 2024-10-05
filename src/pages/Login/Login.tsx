@@ -86,7 +86,7 @@ export const Login: React.FC = () => {
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input {...field} variant="masked" />
                   </FormControl>
                 </FormItem>
               )}
