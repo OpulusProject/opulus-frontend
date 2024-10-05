@@ -19,6 +19,14 @@ module.exports = {
   },
   plugins: ['react-refresh', 'prettier', 'simple-import-sort'],
   rules: {
+    '@typescript-eslint/no-misused-promises': [
+      2,
+      {
+        checksVoidReturn: {
+          attributes: false,
+        },
+      },
+    ],
     'react/prop-types': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',

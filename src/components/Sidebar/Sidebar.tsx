@@ -15,6 +15,7 @@ import { Typography } from '@/components/Typography';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { ROUTES } from '@/pages/routes';
 
 import styles from './Sidebar.module.scss';
 
@@ -68,31 +69,31 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
           icon={<LayoutGrid size={18} />}
           text="Overview"
           isActive={currentPage === 'overview'}
-          route="/home/overview"
+          route={ROUTES.OVERVIEW}
         />
         <SidebarButton
           icon={<ArrowDownUp size={18} />}
           text="Transactions"
           isActive={currentPage === 'transactions'}
-          route="/home/transactions"
+          route={ROUTES.TRANSACTIONS}
         />
         <SidebarButton
           icon={<Wallet size={18} />}
           text="Accounts"
           isActive={currentPage === 'accounts'}
-          route="/accounts"
+          route={ROUTES.ACCOUNTS}
         />
         <SidebarButton
           icon={<PieChart size={18} />}
           text="Reports"
           isActive={currentPage === 'reports'}
-          route="/reports"
+          route={ROUTES.REPORTS}
         />
         <SidebarButton
           icon={<Settings2 size={18} />}
           text="Settings"
           isActive={currentPage === 'settings'}
-          route="/settings"
+          route={ROUTES.SETTINGS}
         />
       </div>
       <Separator />
@@ -101,19 +102,19 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
           icon={<CircleHelp size={18} />}
           text="Help Center"
           isActive={currentPage === 'help'}
-          route="/help"
+          route={ROUTES.HELP}
         />
         <SidebarButton
           icon={<MessageCircle size={18} />}
           text="Support"
           isActive={currentPage === 'support'}
-          route="/support"
+          route={ROUTES.SUPPORT}
         />
         <SidebarButton
           icon={<LogOut size={18} />}
           text="Sign out"
           isActive={currentPage === 'signout'}
-          route="/signout"
+          route={ROUTES.HOME}
         />
       </div>
     </div>

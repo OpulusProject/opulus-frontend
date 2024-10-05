@@ -8,11 +8,9 @@ import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
@@ -32,9 +30,9 @@ export const Login: React.FC = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
     console.log(values);
-  }
+  };
 
   return (
     <div className={styles.loginContainer}>
@@ -51,9 +49,7 @@ export const Login: React.FC = () => {
       </div>
       <Form {...form}>
         <div className={styles.body}>
-          <Button type="submit" className="w-full">
-            Continue with Google
-          </Button>
+          <Button className="w-full">Continue with Google</Button>
           <div className={styles.separatorContainer}>
             <Separator className={styles.separator} />
             <Typography variant="small" className={styles.caption}>
@@ -61,18 +57,13 @@ export const Login: React.FC = () => {
             </Typography>
             <Separator className={styles.separator} />
           </div>
-          <form
-            onSubmit={() => {
-              form.handleSubmit(onSubmit);
-            }}
-            className="space-y-4"
-          >
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField
               control={form.control}
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email address</FormLabel>
+                  <FormLabel variant="required">Email address</FormLabel>
                   <FormControl>
                     <Input placeholder="e.g. name@example.com" {...field} />
                   </FormControl>
@@ -84,9 +75,9 @@ export const Login: React.FC = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel variant="required">Password</FormLabel>
                   <FormControl>
-                    <Input {...field} variant="masked" />
+                    <Input variant="masked" {...field} />
                   </FormControl>
                 </FormItem>
               )}
