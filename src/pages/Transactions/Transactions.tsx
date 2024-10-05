@@ -1,10 +1,7 @@
-import fs from 'fs/promises';
-import path from 'path';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { z } from 'zod';
 
 import { Typography } from '@/components/Typography';
-import { PageLayout } from '@/pages/Layouts/PageLayout';
 import { columns } from '@/pages/Transactions/components/columns';
 import { DataTable } from '@/pages/Transactions/components/data-table';
 import { taskSchema } from '@/pages/Transactions/data/schema';
@@ -81,9 +78,9 @@ const data = [
 export const Transactions: React.FC = () => {
   const tasks = z.array(taskSchema).parse(data);
   return (
-    <PageLayout currentPage="transactions">
+    <div>
       <Typography variant="extra-extra-large">Transactions</Typography>
       <DataTable data={tasks} columns={columns} />
-    </PageLayout>
+    </div>
   );
 };

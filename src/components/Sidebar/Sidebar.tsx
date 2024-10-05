@@ -68,13 +68,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
           icon={<LayoutGrid size={18} />}
           text="Overview"
           isActive={currentPage === 'overview'}
-          route="/overview"
+          route="/home/overview"
         />
         <SidebarButton
           icon={<ArrowDownUp size={18} />}
           text="Transactions"
           isActive={currentPage === 'transactions'}
-          route="/transactions"
+          route="/home/transactions"
         />
         <SidebarButton
           icon={<Wallet size={18} />}

@@ -1,5 +1,5 @@
 {
-  "name": "opulus",
+  "name": "opulus-frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "@maskito/core": "^3.0.2",
+    "@maskito/react": "^3.0.2",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.1",
