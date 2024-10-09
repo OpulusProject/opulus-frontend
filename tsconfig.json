@@ -12,7 +12,8 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@lib/*": ["./src/lib/*"],
-      "@layouts/*": ["./src/layouts/*"]
+      "@layouts/*": ["./src/layouts/*"],
+      "@services/*": ["./src/services/*"]
     },
 
     /* Bundler mode */

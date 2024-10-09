@@ -33,6 +33,7 @@
     "@visx/marker": "^3.5.0",
     "@visx/mock-data": "^3.3.0",
     "@visx/shape": "^3.5.0",
+    "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",

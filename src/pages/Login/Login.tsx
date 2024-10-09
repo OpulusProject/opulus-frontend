@@ -16,6 +16,8 @@ import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 
 import styles from './Login.module.scss';
+import { useNavigate } from 'react-router-dom';
+import { loginUser } from '@/services/auth/loginUser';
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -23,6 +25,8 @@ const formSchema = z.object({
 });
 
 export const Login: React.FC = () => {
+  const navigate = useNavigate();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -30,8 +34,13 @@ export const Login: React.FC = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      await loginUser(values);
+      navigate('/home');
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
