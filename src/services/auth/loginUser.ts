@@ -9,17 +9,11 @@ interface LoginRequest {
   password: string;
 }
 
-interface LoginResponse {
-  accessToken: string;
-  refreshToken: string;
-}
-
 export const loginUser = async (request: LoginRequest): Promise<void> => {
   try {
-    const response = await axios.post<LoginResponse>(API_URL, request);
-
-    document.cookie = `accessToken=${response.data.accessToken}; HttpOnly; Secure; SameSite=Strict`;
-    document.cookie = `refreshToken=${response.data.refreshToken}; HttpOnly; Secure; SameSite=Strict`;
+    await axios.post(API_URL, request, {
+      withCredentials: true,
+    });
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {
       throw new Error(JSON.stringify(error.response.data));
