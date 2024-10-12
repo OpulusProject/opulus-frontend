@@ -2,6 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { Auth } from '@/layouts/Auth';
 import { Dashboard } from '@/layouts/Dashboard';
+import { Loading } from '@/pages/Loading';
 import { Login } from '@/pages/Login';
 import { Overview } from '@/pages/Overview';
 import { ROUTES } from '@/pages/routes';
@@ -24,6 +25,8 @@ function App() {
             <Route path={ROUTES.OVERVIEW} element={<Overview />} />
             <Route path={ROUTES.TRANSACTIONS} element={<Transactions />} />
           </Route>
+
+          <Route path={ROUTES.LOADING} element={<Loading />} />
 
           {/* 404 Catch-All */}
           <Route path={ROUTES.NOT_FOUND} element={<div>404 Not Found</div>} />

@@ -14,5 +14,7 @@ export const ROUTES = {
   REPORTS: '/home/reports',
   SETTINGS: '/home/settings',
 
+  LOADING: '/loading',
+
   NOT_FOUND: '*',
 };
