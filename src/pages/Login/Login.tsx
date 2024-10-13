@@ -45,9 +45,6 @@ export const Login: React.FC = () => {
 
   return (
     <div className={styles.loginContainer}>
-      <div className={styles.icon}>
-        <Gem size={28} />
-      </div>
       <div className={styles.header}>
         <Typography variant="extra-large-600" className={styles.text}>
           Welcome to Opulus
