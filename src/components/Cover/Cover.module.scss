@@ -16,6 +16,8 @@
 }
 
 .quote {
+  display: flex;
+  flex-direction: column;
   gap: 12px;
   color: hsl(var(--primary-foreground));
 }
