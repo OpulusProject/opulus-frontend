@@ -14,10 +14,9 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
+import { useLogin } from '@/hooks/auth/useLogin';
 
 import styles from './Login.module.scss';
-import { useNavigate } from 'react-router-dom';
-import { loginUser } from '@/services/auth/loginUser';
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -25,7 +24,7 @@ const formSchema = z.object({
 });
 
 export const Login: React.FC = () => {
-  const navigate = useNavigate();
+  const { mutate: login, isPending } = useLogin();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -34,13 +33,12 @@ export const Login: React.FC = () => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    try {
-      await loginUser(values);
-      navigate('/home');
-    } catch (error) {
-      console.error(error);
-    }
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    login(values, {
+      onError: (err) => {
+        console.error(err);
+      },
+    });
   };
 
   return (
@@ -95,15 +93,16 @@ export const Login: React.FC = () => {
               Icon={Mail}
               iconPlacement="left"
               iconSize={16}
+              disabled={isPending}
             >
-              Sign in with email
+              {isPending ? 'Signing in...' : 'Sign in with email'}
             </Button>
           </form>
         </div>
       </Form>
       <div className={styles.footer}>
         <Typography variant="small-medium-400" className={styles.caption}>
-          Don't have an account yet?
+          Don&apos;t have an account yet?
         </Typography>
         <Button variant="link" className={styles.footerButton}>
           <Typography variant="small-medium-400" className={styles.text}>
