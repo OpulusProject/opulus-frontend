@@ -1,18 +1,17 @@
 import { useMutation } from '@tanstack/react-query';
+import axios from 'axios';
 
-const deleteCookie = (name: string) => {
-  const date = new Date();
-  date.setTime(date.getTime() + -1 * 24 * 60 * 60 * 1000);
-  document.cookie = name + '=; expires=' + date.toUTCString() + '; path=/';
-};
+import { serverURL } from '@/hooks/apiConfig';
 
-const deleteSession = () => {
-  deleteCookie('accessToken');
-  deleteCookie('refreshToken');
+const API_URL = `${serverURL}/sessions/invalidate`;
+
+const invalidateSession = async () => {
+  const response = await axios.post(API_URL, {}, { withCredentials: true });
+  console.log(response);
 };
 
 export const useLogout = () => {
   return useMutation({
-    mutationFn: () => Promise.resolve(deleteSession()),
+    mutationFn: () => invalidateSession(),
   });
 };
