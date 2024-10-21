@@ -9,12 +9,13 @@ import {
   Wallet,
 } from 'lucide-react';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import { Typography } from '@/components/Typography';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { useLogout } from '@/hooks/auth/useLogout';
 import { ROUTES } from '@/pages/routes';
 
 import styles from './Sidebar.module.scss';
@@ -26,34 +27,39 @@ interface SidebarProps {
   currentPage: string;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
-  interface SidebarButtonProps {
-    icon?: React.ReactNode;
-    text: string;
-    isActive: boolean;
-    route: string;
-  }
+interface SidebarButtonProps {
+  icon?: React.ReactNode;
+  text: string;
+  isActive: boolean;
+  route: string;
+  onClick?: () => void;
+}
 
-  const SidebarButton: React.FC<SidebarButtonProps> = ({
-    icon,
-    text,
-    isActive,
-    route,
-  }) => {
-    return (
-      <div className={styles.Option}>
-        <NavLink to={route} className={styles.ButtonWrapper}>
-          <Button
-            variant={isActive ? 'default' : 'ghost'}
-            className={styles.Button}
-          >
-            {icon}
-            <Typography variant="small-medium">{text}</Typography>
-          </Button>
-        </NavLink>
-      </div>
-    );
-  };
+const SidebarButton: React.FC<SidebarButtonProps> = ({
+  icon,
+  text,
+  isActive,
+  route,
+  onClick,
+}) => {
+  const navigate = useNavigate();
+
+  return (
+    <div className={styles.Option}>
+      <Button
+        variant={isActive ? 'default' : 'ghost'}
+        className={styles.Button}
+        onClick={onClick}
+      >
+        {icon}
+        <Typography variant="small-medium">{text}</Typography>
+      </Button>
+    </div>
+  );
+};
+
+export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
+  const { mutate: logout } = useLogout();
 
   return (
     <div className={styles.SidebarContainer}>
@@ -114,7 +120,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
           icon={<LogOut size={18} />}
           text="Sign out"
           isActive={currentPage === 'signout'}
-          route={ROUTES.HOME}
+          route={ROUTES.LOGIN}
+          onClick={logout}
         />
       </div>
     </div>

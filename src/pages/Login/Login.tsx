@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Gem, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
