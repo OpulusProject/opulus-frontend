@@ -24,5 +24,6 @@ export const useMe = () => {
   return useQuery({
     queryKey: ['currentUser'],
     queryFn: () => getMe(),
+    retry: false,
   });
 };

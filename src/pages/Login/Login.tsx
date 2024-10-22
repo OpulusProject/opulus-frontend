@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Mail } from 'lucide-react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 
 import { Typography } from '@/components/Typography';
@@ -25,6 +26,7 @@ const formSchema = z.object({
 
 export const Login: React.FC = () => {
   const { mutate: login, isPending } = useLogin();
+  const navigate = useNavigate();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -33,10 +35,10 @@ export const Login: React.FC = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
+  const handleLogin = (values: z.infer<typeof formSchema>) => {
     login(values, {
-      onError: (err) => {
-        console.error(err);
+      onSuccess: () => {
+        navigate('/home');
       },
     });
   };
@@ -61,7 +63,7 @@ export const Login: React.FC = () => {
             </Typography>
             <Separator className={styles.separator} />
           </div>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(handleLogin)} className="space-y-4">
             <FormField
               control={form.control}
               name="email"
