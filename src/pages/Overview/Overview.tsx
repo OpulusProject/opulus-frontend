@@ -6,6 +6,7 @@ import { useMe } from '@/hooks/user/useMe';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 
 import styles from './Overview.module.scss';
+import {OverviewCard} from '@/components/Chart/OverviewCard'
 
 export const Overview: React.FC = () => {
   const { data: user } = useMe();
@@ -16,15 +17,9 @@ export const Overview: React.FC = () => {
         Hello Mr {user?.firstName}
       </Typography>
       <Chart width={1448} height={600} />
-      <Card>
-        <CardHeader>
-          <CardTitle>Assets</CardTitle>
-        </CardHeader>
-        <CardContent>$158,960.00</CardContent>
-        <CardFooter>
-          <CardDescription>5.08% higher than last year</CardDescription>
-        </CardFooter>
-      </Card>
+      <OverviewCard assetClass={'Assets'} amount={123.45}></OverviewCard>
+      
+      
     </div>
   );
 };
