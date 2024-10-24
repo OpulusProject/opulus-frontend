@@ -8,6 +8,14 @@
   gap: 24px;
   width: 280px;
   border-right: 1px solid #e4e4e7;
+  transition: transform 0.12s linear, width 0.12s  linear; /* Transition both transform and width linearly over 1s */
+  transform: translateX(0); /* Default position */
+}
+
+.SidebarContainer.closed {
+  transform: translateX(-100%); /* Slide the sidebar off-screen */
+  width: 0; /* Linearly shrink the width to 0 */
+  overflow: hidden; /* Ensure no content spills out */
 }
 
 .Avatar {
@@ -21,7 +29,7 @@
   gap: 4px;
 }
 
-.FirstMenu {
+.Body {
   flex-grow: 1;
 }
 

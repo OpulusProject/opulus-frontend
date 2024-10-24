@@ -7,8 +7,9 @@ import {
   PieChart,
   Settings2,
   Wallet,
+  PanelRightOpen,
 } from 'lucide-react';
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import { Typography } from '@/components/Typography';
@@ -60,17 +61,21 @@ const SidebarButton: React.FC<SidebarButtonProps> = ({
 
 export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
   const { mutate: logout } = useLogout();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const handleOnSidebarToggle = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  }
 
   return (
-    <div className={styles.SidebarContainer}>
-      <div className={styles.Avatar}>
-        <Avatar>
-          <AvatarImage src={PLACEHOLDER_AVATAR_LINK} />
-          {/* <AvatarFallback>A</AvatarFallback> 
-          fallback renders before avatar image, brief moment where you can see the fallback before avatar */}
-        </Avatar>
+    <div className={`${styles.SidebarContainer} ${!isSidebarOpen ? styles.closed : ''}`}>
+      <div className={`${styles.Menu}`}>
+        <Button  onClick={handleOnSidebarToggle}>
+          <PanelRightOpen />
+        </Button>
       </div>
-      <div className={`${styles.Menu} ${styles.FirstMenu}`}>
+      <Separator />
+      <div className={`${styles.Menu} ${styles.Body}`}>
         <SidebarButton
           icon={<LayoutGrid size={18} />}
           text="Overview"
@@ -103,7 +108,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
         />
       </div>
       <Separator />
-      <div className={`${styles.Menu} ${styles.SecondMenu}`}>
+      <div className={`${styles.Menu}`}>
         <SidebarButton
           icon={<CircleHelp size={18} />}
           text="Help Center"
