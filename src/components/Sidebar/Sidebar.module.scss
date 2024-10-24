@@ -29,6 +29,11 @@
   gap: 4px;
 }
 
+.Header {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .Body {
   flex-grow: 1;
 }
@@ -45,4 +50,23 @@
   padding: 8px;
   gap: 8px;
   width: 100%;
+}
+
+.GemButton {
+  background-color: black;
+  border-radius: 50%;
+  padding: 8px; /* Adjust as needed to make it look good */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CollapseButton {
+  color: black;
+  background: none;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Light ghost effect */
+    color: #000; /* You can change the color if necessary */
+  }
 }

@@ -1,4 +1,5 @@
 import {
+  Gem,
   ArrowDownUp,
   CircleHelp,
   LayoutGrid,
@@ -69,9 +70,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
 
   return (
     <div className={`${styles.SidebarContainer} ${!isSidebarOpen ? styles.closed : ''}`}>
-      <div className={`${styles.Menu}`}>
-        <Button  onClick={handleOnSidebarToggle}>
-          <PanelRightOpen />
+      <div className={`${styles.Menu} ${styles.Header}`}>
+        <Button className={styles.GemButton}>
+          <Gem />
+        </Button>
+        <Button  onClick={handleOnSidebarToggle} className={styles.CollapseButton}>
+          <PanelRightOpen size={18}/>
         </Button>
       </div>
       <Separator />
