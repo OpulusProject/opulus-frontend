@@ -13,10 +13,11 @@
 }
 
 .SidebarContainer.closed {
-  transform: translateX(-100%); /* Slide the sidebar off-screen */
-  width: 0; /* Linearly shrink the width to 0 */
-  overflow: hidden; /* Ensure no content spills out */
+  transform: translateX(0); 
+  width: 90px;
+  overflow: hidden; 
 }
+
 
 .Avatar {
   padding: 0 24px;
@@ -50,7 +51,15 @@
   padding: 8px;
   gap: 8px;
   width: 100%;
+
 }
+
+.SidebarContainer.closed .Button {
+  justify-content: center;
+  padding: 8px;
+
+}
+
 
 .GemButton {
   background-color: black;
@@ -69,4 +78,6 @@
     background-color: rgba(0, 0, 0, 0.05); /* Light ghost effect */
     color: #000; /* You can change the color if necessary */
   }
+
+
 }

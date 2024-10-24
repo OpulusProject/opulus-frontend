@@ -33,6 +33,7 @@ interface SidebarButtonProps {
   icon?: React.ReactNode;
   text: string;
   isActive: boolean;
+  isSidebarOpen: boolean;
   route: string;
   onClick?: () => void;
 }
@@ -41,6 +42,7 @@ const SidebarButton: React.FC<SidebarButtonProps> = ({
   icon,
   text,
   isActive,
+  isSidebarOpen,
   route,
   onClick,
 }) => {
@@ -54,7 +56,9 @@ const SidebarButton: React.FC<SidebarButtonProps> = ({
         onClick={onClick}
       >
         {icon}
+        {!isSidebarOpen && (
         <Typography variant="small-medium">{text}</Typography>
+        )}
       </Button>
     </div>
   );
@@ -71,9 +75,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
   return (
     <div className={`${styles.SidebarContainer} ${!isSidebarOpen ? styles.closed : ''}`}>
       <div className={`${styles.Menu} ${styles.Header}`}>
-        <Button className={styles.GemButton}>
+        {isSidebarOpen && (<Button className={styles.GemButton}>
           <Gem />
         </Button>
+        )}
         <Button  onClick={handleOnSidebarToggle} className={styles.CollapseButton}>
           <PanelRightOpen size={18}/>
         </Button>
@@ -84,30 +89,35 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
           icon={<LayoutGrid size={18} />}
           text="Overview"
           isActive={currentPage === 'overview'}
+          isSidebarOpen = {!isSidebarOpen}
           route={ROUTES.OVERVIEW}
         />
         <SidebarButton
           icon={<ArrowDownUp size={18} />}
           text="Transactions"
           isActive={currentPage === 'transactions'}
+          isSidebarOpen = {!isSidebarOpen}
           route={ROUTES.TRANSACTIONS}
         />
         <SidebarButton
           icon={<Wallet size={18} />}
           text="Accounts"
           isActive={currentPage === 'accounts'}
+          isSidebarOpen = {!isSidebarOpen}
           route={ROUTES.ACCOUNTS}
         />
         <SidebarButton
           icon={<PieChart size={18} />}
           text="Reports"
           isActive={currentPage === 'reports'}
+          isSidebarOpen = {!isSidebarOpen}
           route={ROUTES.REPORTS}
         />
         <SidebarButton
           icon={<Settings2 size={18} />}
           text="Settings"
           isActive={currentPage === 'settings'}
+          isSidebarOpen = {!isSidebarOpen}
           route={ROUTES.SETTINGS}
         />
       </div>
@@ -117,18 +127,21 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
           icon={<CircleHelp size={18} />}
           text="Help Center"
           isActive={currentPage === 'help'}
+          isSidebarOpen = {!isSidebarOpen}
           route={ROUTES.HELP}
         />
         <SidebarButton
           icon={<MessageCircle size={18} />}
           text="Support"
           isActive={currentPage === 'support'}
+          isSidebarOpen = {!isSidebarOpen}
           route={ROUTES.SUPPORT}
         />
         <SidebarButton
           icon={<LogOut size={18} />}
           text="Sign out"
           isActive={currentPage === 'signout'}
+          isSidebarOpen = {!isSidebarOpen}
           route={ROUTES.LOGIN}
           onClick={logout}
         />
