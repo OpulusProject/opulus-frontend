@@ -9,6 +9,7 @@ import {
   Settings2,
   Wallet,
   PanelRightOpen,
+  PanelRightClose,
 } from 'lucide-react';
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -80,7 +81,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
         </Button>
         )}
         <Button  onClick={handleOnSidebarToggle} className={styles.CollapseButton}>
-          <PanelRightOpen size={18}/>
+          {isSidebarOpen?<PanelRightOpen size={18}/>:<PanelRightClose size={18}/>}
         </Button>
       </div>
       <Separator />
