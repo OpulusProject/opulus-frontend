@@ -63,8 +63,9 @@
 
 .GemButton {
   background-color: black;
-  border-radius: 50%;
+  border-radius: 90%;
   padding: 8px; /* Adjust as needed to make it look good */
+  gap: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
