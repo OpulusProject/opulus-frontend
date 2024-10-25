@@ -16,7 +16,7 @@ const createUser = async (request: CreateUserRequest) => {
   });
 };
 
-export const useCreateUser = () => {
+export const useRegister = () => {
   return useMutation({
     mutationFn: (request: CreateUserRequest) => createUser(request),
   });

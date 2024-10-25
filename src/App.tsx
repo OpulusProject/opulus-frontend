@@ -6,6 +6,7 @@ import { Loading } from '@/pages/Loading';
 import { Login } from '@/pages/Login';
 import { Overview } from '@/pages/Overview';
 import { ROUTES } from '@/pages/routes';
+import { Signup } from '@/pages/Signup';
 import { Transactions } from '@/pages/Transactions';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path={ROUTES.ROOT} element={<Auth />}>
             <Route index element={<Navigate to={ROUTES.LOGIN} replace />} />
             <Route path={ROUTES.LOGIN} element={<Login />} />
+            <Route path={ROUTES.SIGNUP} element={<Signup />} />
           </Route>
 
           {/* Protected routes with Dashboard layout */}

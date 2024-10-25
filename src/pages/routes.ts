@@ -5,6 +5,7 @@ export const ROUTES = {
 
   // Auth Routes
   LOGIN: '/login',
+  SIGNUP: '/signup',
 
   // Dashboard Routes
   HOME: '/home',

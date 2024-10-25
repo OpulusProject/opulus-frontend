@@ -8,12 +8,13 @@ import { ROUTES } from '@/pages/routes';
 import styles from './Auth.module.scss';
 
 export const Auth: React.FC = () => {
-  const { data: user, isSuccess } = useMe();
-  const isLoggedIn = isSuccess && user !== undefined;
+  // some weird stuff with staying in Auth layout while onboarding, since user needs to be logged in to input their first and last name and link their bank account
+  // const { data: user, isSuccess } = useMe();
+  // const isLoggedIn = isSuccess && user !== undefined;
 
-  if (isLoggedIn) {
-    return <Navigate to={ROUTES.HOME} />;
-  }
+  // if (isLoggedIn) {
+  //   return <Navigate to={ROUTES.HOME} />;
+  // }
 
   return (
     <div className={styles.authLayout}>
