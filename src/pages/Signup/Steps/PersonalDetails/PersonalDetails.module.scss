@@ -1,0 +1,20 @@
+.text {
+  color: hsl(var(--primary));
+}
+
+.caption {
+  color: hsl(var(--muted-foreground));
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 8px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
