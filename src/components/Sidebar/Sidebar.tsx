@@ -1,15 +1,17 @@
 import {
-  Gem,
   ArrowDownUp,
   CircleHelp,
+  Gem,
   LayoutGrid,
   LogOut,
   MessageCircle,
+  PanelLeft,
+  PanelLeftOpen,
+  PanelRight,
+  PanelRightOpen,
   PieChart,
   Settings2,
   Wallet,
-  PanelRightOpen,
-  PanelRightClose,
 } from 'lucide-react';
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -58,7 +60,7 @@ const SidebarButton: React.FC<SidebarButtonProps> = ({
       >
         {icon}
         {!isSidebarOpen && (
-        <Typography variant="small-medium">{text}</Typography>
+          <Typography variant="small-medium">{text}</Typography>
         )}
       </Button>
     </div>
@@ -68,20 +70,47 @@ const SidebarButton: React.FC<SidebarButtonProps> = ({
 export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
   const { mutate: logout } = useLogout();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarToggleHovered, setIsSidebarToggleHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsSidebarToggleHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsSidebarToggleHovered(false);
+  };
 
   const handleOnSidebarToggle = () => {
     setIsSidebarOpen(!isSidebarOpen);
-  }
+  };
 
   return (
-    <div className={`${styles.SidebarContainer} ${!isSidebarOpen ? styles.closed : ''}`}>
+    <div
+      className={`${styles.SidebarContainer} ${!isSidebarOpen ? styles.closed : ''}`}
+    >
       <div className={`${styles.Menu} ${styles.Header}`}>
-        {isSidebarOpen && (<Button className={styles.GemButton}>
-          <Gem />
-        </Button>
+        {isSidebarOpen && (
+          <Button className={styles.GemButton}>
+            <Gem />
+          </Button>
         )}
-        <Button  onClick={handleOnSidebarToggle} className={styles.CollapseButton}>
-          {isSidebarOpen?<PanelRightOpen size={18}/>:<PanelRightClose size={18}/>}
+        <Button
+          onClick={handleOnSidebarToggle}
+          className={styles.CollapseButton}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {isSidebarOpen ? (
+            isSidebarToggleHovered ? (
+              <PanelRightOpen size={18} />
+            ) : (
+              <PanelRight size={18} />
+            )
+          ) : isSidebarToggleHovered ? (
+            <PanelLeftOpen size={18} />
+          ) : (
+            <PanelLeft size={18} />
+          )}
         </Button>
       </div>
       <Separator />
@@ -90,35 +119,35 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
           icon={<LayoutGrid size={18} />}
           text="Overview"
           isActive={currentPage === 'overview'}
-          isSidebarOpen = {!isSidebarOpen}
+          isSidebarOpen={!isSidebarOpen}
           route={ROUTES.OVERVIEW}
         />
         <SidebarButton
           icon={<ArrowDownUp size={18} />}
           text="Transactions"
           isActive={currentPage === 'transactions'}
-          isSidebarOpen = {!isSidebarOpen}
+          isSidebarOpen={!isSidebarOpen}
           route={ROUTES.TRANSACTIONS}
         />
         <SidebarButton
           icon={<Wallet size={18} />}
           text="Accounts"
           isActive={currentPage === 'accounts'}
-          isSidebarOpen = {!isSidebarOpen}
+          isSidebarOpen={!isSidebarOpen}
           route={ROUTES.ACCOUNTS}
         />
         <SidebarButton
           icon={<PieChart size={18} />}
           text="Reports"
           isActive={currentPage === 'reports'}
-          isSidebarOpen = {!isSidebarOpen}
+          isSidebarOpen={!isSidebarOpen}
           route={ROUTES.REPORTS}
         />
         <SidebarButton
           icon={<Settings2 size={18} />}
           text="Settings"
           isActive={currentPage === 'settings'}
-          isSidebarOpen = {!isSidebarOpen}
+          isSidebarOpen={!isSidebarOpen}
           route={ROUTES.SETTINGS}
         />
       </div>
@@ -128,21 +157,21 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
           icon={<CircleHelp size={18} />}
           text="Help Center"
           isActive={currentPage === 'help'}
-          isSidebarOpen = {!isSidebarOpen}
+          isSidebarOpen={!isSidebarOpen}
           route={ROUTES.HELP}
         />
         <SidebarButton
           icon={<MessageCircle size={18} />}
           text="Support"
           isActive={currentPage === 'support'}
-          isSidebarOpen = {!isSidebarOpen}
+          isSidebarOpen={!isSidebarOpen}
           route={ROUTES.SUPPORT}
         />
         <SidebarButton
           icon={<LogOut size={18} />}
           text="Sign out"
           isActive={currentPage === 'signout'}
-          isSidebarOpen = {!isSidebarOpen}
+          isSidebarOpen={!isSidebarOpen}
           route={ROUTES.LOGIN}
           onClick={logout}
         />
