@@ -1,4 +1,5 @@
 import {
+  Gem,
   ArrowDownUp,
   CircleHelp,
   LayoutGrid,
@@ -7,8 +8,10 @@ import {
   PieChart,
   Settings2,
   Wallet,
+  PanelRightOpen,
+  PanelRightClose,
 } from 'lucide-react';
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import { Typography } from '@/components/Typography';
@@ -31,6 +34,7 @@ interface SidebarButtonProps {
   icon?: React.ReactNode;
   text: string;
   isActive: boolean;
+  isSidebarOpen: boolean;
   route: string;
   onClick?: () => void;
 }
@@ -39,6 +43,7 @@ const SidebarButton: React.FC<SidebarButtonProps> = ({
   icon,
   text,
   isActive,
+  isSidebarOpen,
   route,
   onClick,
 }) => {
@@ -52,7 +57,9 @@ const SidebarButton: React.FC<SidebarButtonProps> = ({
         onClick={onClick}
       >
         {icon}
+        {!isSidebarOpen && (
         <Typography variant="small-medium">{text}</Typography>
+        )}
       </Button>
     </div>
   );
@@ -60,66 +67,82 @@ const SidebarButton: React.FC<SidebarButtonProps> = ({
 
 export const Sidebar: React.FC<SidebarProps> = ({ currentPage }) => {
   const { mutate: logout } = useLogout();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const handleOnSidebarToggle = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  }
 
   return (
-    <div className={styles.SidebarContainer}>
-      <div className={styles.Avatar}>
-        <Avatar>
-          <AvatarImage src={PLACEHOLDER_AVATAR_LINK} />
-          {/* <AvatarFallback>A</AvatarFallback> 
-          fallback renders before avatar image, brief moment where you can see the fallback before avatar */}
-        </Avatar>
+    <div className={`${styles.SidebarContainer} ${!isSidebarOpen ? styles.closed : ''}`}>
+      <div className={`${styles.Menu} ${styles.Header}`}>
+        {isSidebarOpen && (<Button className={styles.GemButton}>
+          <Gem />
+        </Button>
+        )}
+        <Button  onClick={handleOnSidebarToggle} className={styles.CollapseButton}>
+          {isSidebarOpen?<PanelRightOpen size={18}/>:<PanelRightClose size={18}/>}
+        </Button>
       </div>
-      <div className={`${styles.Menu} ${styles.FirstMenu}`}>
+      <Separator />
+      <div className={`${styles.Menu} ${styles.Body}`}>
         <SidebarButton
           icon={<LayoutGrid size={18} />}
           text="Overview"
           isActive={currentPage === 'overview'}
+          isSidebarOpen = {!isSidebarOpen}
           route={ROUTES.OVERVIEW}
         />
         <SidebarButton
           icon={<ArrowDownUp size={18} />}
           text="Transactions"
           isActive={currentPage === 'transactions'}
+          isSidebarOpen = {!isSidebarOpen}
           route={ROUTES.TRANSACTIONS}
         />
         <SidebarButton
           icon={<Wallet size={18} />}
           text="Accounts"
           isActive={currentPage === 'accounts'}
+          isSidebarOpen = {!isSidebarOpen}
           route={ROUTES.ACCOUNTS}
         />
         <SidebarButton
           icon={<PieChart size={18} />}
           text="Reports"
           isActive={currentPage === 'reports'}
+          isSidebarOpen = {!isSidebarOpen}
           route={ROUTES.REPORTS}
         />
         <SidebarButton
           icon={<Settings2 size={18} />}
           text="Settings"
           isActive={currentPage === 'settings'}
+          isSidebarOpen = {!isSidebarOpen}
           route={ROUTES.SETTINGS}
         />
       </div>
       <Separator />
-      <div className={`${styles.Menu} ${styles.SecondMenu}`}>
+      <div className={`${styles.Menu}`}>
         <SidebarButton
           icon={<CircleHelp size={18} />}
           text="Help Center"
           isActive={currentPage === 'help'}
+          isSidebarOpen = {!isSidebarOpen}
           route={ROUTES.HELP}
         />
         <SidebarButton
           icon={<MessageCircle size={18} />}
           text="Support"
           isActive={currentPage === 'support'}
+          isSidebarOpen = {!isSidebarOpen}
           route={ROUTES.SUPPORT}
         />
         <SidebarButton
           icon={<LogOut size={18} />}
           text="Sign out"
           isActive={currentPage === 'signout'}
+          isSidebarOpen = {!isSidebarOpen}
           route={ROUTES.LOGIN}
           onClick={logout}
         />
