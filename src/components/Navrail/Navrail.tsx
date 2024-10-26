@@ -28,7 +28,7 @@ import {
 
 import styles from './Navrail.module.scss';
 
-const menuOne = [
+const Menu = [
   {
     title: 'Search',
     url: '#',
@@ -56,7 +56,7 @@ const menuOne = [
   },
 ];
 
-const menuTwo = [
+const Footer = [
   {
     title: 'Settings',
     url: '#',
@@ -82,7 +82,7 @@ const renderSidebarMenuItems = (
     <SidebarMenuItem key={item.title}>
       <SidebarMenuButton asChild>
         <a href={item.url}>
-          <item.icon size={18} /> {/* Set icon size */}
+          <item.icon />
           <span>{item.title}</span>
         </a>
       </SidebarMenuButton>
