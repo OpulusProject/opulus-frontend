@@ -99,7 +99,7 @@ export const Navrail: FC = () => {
         <SidebarHeader className={`${styles.Header}`}>
           {state === 'expanded' && (
             <SidebarMenuButton className={`${styles.Gem}`}>
-              <Gem />
+              <Gem/>
             </SidebarMenuButton>
           )}
 
