@@ -28,7 +28,7 @@ import {
 
 import styles from './Navrail.module.scss';
 
-const menuOne = [
+const Menu = [
   {
     title: 'Search',
     url: '#',
