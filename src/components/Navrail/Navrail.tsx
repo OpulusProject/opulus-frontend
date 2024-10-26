@@ -56,7 +56,7 @@ const Menu = [
   },
 ];
 
-const menuTwo = [
+const Footer = [
   {
     title: 'Settings',
     url: '#',
