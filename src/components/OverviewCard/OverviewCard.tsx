@@ -20,7 +20,10 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
   amount,
   insight,
 }) => {
-  const [integerPart, decimalPart] = amount.toFixed(2).split('.');
+  const [integerPart, decimalPart] = amount
+    .toFixed(2)
+    .split('.')
+    .map((part, index) => (index === 0 ? Number(part).toLocaleString() : part));
 
   return (
     <Card className={styles.Container}>
@@ -37,3 +40,4 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     </Card>
   );
 };
+
