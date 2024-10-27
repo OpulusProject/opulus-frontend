@@ -28,7 +28,7 @@ import {
 
 import styles from './Navrail.module.scss';
 
-const Menu = [
+const menu = [
   {
     title: 'Search',
     url: '#',
@@ -56,7 +56,7 @@ const Menu = [
   },
 ];
 
-const Footer = [
+const footer = [
   {
     title: 'Settings',
     url: '#',
@@ -109,13 +109,13 @@ export const Navrail: FC = () => {
         <SidebarSeparator />
 
         <SidebarContent className={`${styles.Menu}`}>
-          <SidebarMenu>{renderSidebarMenuItems(menuOne)}</SidebarMenu>
+          <SidebarMenu>{renderSidebarMenuItems(menu)}</SidebarMenu>
         </SidebarContent>
 
         <SidebarSeparator />
 
         <SidebarFooter className={`${styles.Footer}`}>
-          <SidebarMenu>{renderSidebarMenuItems(menuTwo)}</SidebarMenu>
+          <SidebarMenu>{renderSidebarMenuItems(footer)}</SidebarMenu>
         </SidebarFooter>
       </Sidebar>
     </div>

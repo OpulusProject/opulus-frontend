@@ -1,0 +1,30 @@
+.Container {
+  border: none;
+  box-shadow: none;
+  width: 190px;
+  height: 70px;
+  overflow: hidden;
+}
+
+.Header {
+  padding: 0;
+}
+
+.Title {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.Amount {
+  font-size: 36px;
+  margin-top: 8px;
+  padding: 0;
+
+  .Integer {
+    font-size: 36px;
+  }
+
+  .Decimal {
+    font-size: 20px;
+  }
+}
