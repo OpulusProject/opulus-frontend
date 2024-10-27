@@ -12,9 +12,9 @@ export const Dashboard: React.FC = () => {
   const { data: user, isSuccess } = useMe();
   const isLoggedIn = isSuccess && user !== undefined;
 
-  if (!isLoggedIn) {
-    return <Navigate to={ROUTES.LOGIN} />;
-  }
+  // if (!isLoggedIn) {
+  //   return <Navigate to={ROUTES.LOGIN} />;
+  // }
 
   return (
     <div className={styles.dashboardLayout}>
