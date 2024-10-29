@@ -24,7 +24,8 @@
    Open your browser and navigate to http://localhost:5173 to view the application.
 
 ## Scripts
-  - dev: Runs Vite development server and watches for changes in Sass files.
-  - build: Builds the project using TypeScript compiler and Vite bundler.
-  - lint: Lints TypeScript and TypeScript JSX files using ESLint.
-  - preview: Starts Vite preview server for the built project.
+
+- dev: Runs Vite development server and watches for changes in Sass files.
+- build: Builds the project using TypeScript compiler and Vite bundler.
+- lint: Lints TypeScript and TypeScript JSX files using ESLint.
+- preview: Starts Vite preview server for the built project.

@@ -19,7 +19,7 @@ export const Dashboard: React.FC = () => {
   return (
     <div className={styles.dashboardLayout}>
       <SidebarProvider>
-        <Navrail/>
+        <Navrail />
       </SidebarProvider>
       <div className={styles.dashboardContent}>
         <Outlet />
