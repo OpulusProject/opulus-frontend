@@ -34,22 +34,22 @@ const menu = [
   },
   {
     title: 'Overview',
-    url: '#',
+    url: '/home/overview',
     icon: LayoutGrid,
   },
   {
     title: 'Expenses',
-    url: '#',
+    url: '/home/transactions',
     icon: CircleDollarSign,
   },
   {
     title: 'Accounts',
-    url: '#',
+    url: '/home/accounts',
     icon: Wallet,
   },
   {
     title: 'Insights',
-    url: '#',
+    url: '/home/reports',
     icon: Zap,
   },
 ];
@@ -57,7 +57,7 @@ const menu = [
 const footer = [
   {
     title: 'Settings',
-    url: '#',
+    url: '/home/settings',
     icon: Settings2,
   },
   {
