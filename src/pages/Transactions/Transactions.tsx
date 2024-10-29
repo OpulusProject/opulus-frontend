@@ -6,8 +6,6 @@ import { columns } from '@/pages/Transactions/components/columns';
 import { DataTable } from '@/pages/Transactions/components/data-table';
 import { taskSchema } from '@/pages/Transactions/data/schema';
 
-import styles from './Transactions.module.scss';
-
 const data = [
   {
     accountName: 'Plaid checking',

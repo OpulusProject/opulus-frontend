@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import { PersonalDetails } from '@/pages/Signup/Steps/PersonalDetails';
-import { Register } from '@/pages/Signup/Steps/Register';
 
 import styles from './Signup.module.scss';
 

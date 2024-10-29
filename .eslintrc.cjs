@@ -10,12 +10,16 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'prettier',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs', '/config'],
+  ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
+    project: [
+      './tsconfig.json',
+      './tsconfig.node.json',
+      './src/components/ui/**/*',
+    ],
     tsconfigRootDir: __dirname,
   },
   plugins: ['react-refresh', 'prettier', 'simple-import-sort'],
