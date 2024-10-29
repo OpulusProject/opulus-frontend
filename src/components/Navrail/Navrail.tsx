@@ -1,22 +1,20 @@
 import {
-  Search,
-  LayoutGrid,
   CircleDollarSign,
+  CircleHelp,
+  Gem,
+  Gift,
+  LayoutGrid,
+  Search,
+  Settings2,
   Wallet,
   Zap,
-  Gem,
-  Settings2,
-  CircleHelp,
-  Gift,
 } from 'lucide-react';
 import React, { FC } from 'react';
+
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,

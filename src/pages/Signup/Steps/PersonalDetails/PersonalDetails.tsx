@@ -22,7 +22,7 @@ const formSchema = z.object({
   lastName: z.string(),
 });
 
-export const PersonalDetails: React.FC<StepProps> = ({ step, setStep }) => {
+export const PersonalDetails: React.FC<StepProps> = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {

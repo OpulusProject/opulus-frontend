@@ -8,7 +8,6 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Task } from '@/pages/Transactions/data/schema.ts';
 
 import { DataTableColumnHeader } from './data-table-column-header';
-import { DataTableRowActions } from './data-table-row-actions';
 
 const MERCHANT_LOGO_FALLBACK =
   'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0b3JlIj48cGF0aCBkPSJtMiA3IDQuNDEtNC40MUEyIDIgMCAwIDEgNy44MyAyaDguMzRhMiAyIDAgMCAxIDEuNDIuNTlMMjIgNyIvPjxwYXRoIGQ9Ik00IDEydjhhMiAyIDAgMCAwIDIgMmgxMmEyIDIgMCAwIDAgMi0ydi04Ii8+PHBhdGggZD0iTTE1IDIydi00YTIgMiAwIDAgMC0yLTJoLTJhMiAyIDAgMCAwLTIgMnY0Ii8+PHBhdGggZD0iTTIgN2gyMCIvPjxwYXRoIGQ9Ik0yMiA3djNhMiAyIDAgMCAxLTIgMmEyLjcgMi43IDAgMCAxLTEuNTktLjYzLjcuNyAwIDAgMC0uODIgMEEyLjcgMi43IDAgMCAxIDE2IDEyYTIuNyAyLjcgMCAwIDEtMS41OS0uNjMuNy43IDAgMCAwLS44MiAwQTIuNyAyLjcgMCAwIDEgMTIgMTJhMi43IDIuNyAwIDAgMS0xLjU5LS42My43LjcgMCAwIDAtLjgyIDBBMi43IDIuNyAwIDAgMSA4IDEyYTIuNyAyLjcgMCAwIDEtMS41OS0uNjMuNy43IDAgMCAwLS44MiAwQTIuNyAyLjcgMCAwIDEgNCAxMmEyIDIgMCAwIDEtMi0yVjciLz48L3N2Zz4=';
@@ -58,7 +57,7 @@ export const columns: ColumnDef<Task>[] = [
       <DataTableColumnHeader column={column} title="Transaction Date" />
     ),
     cell: ({ row }) => {
-      const date = row.getValue('date');
+      const date: string = row.getValue('date');
       return <div>{formatDate(date)}</div>;
     },
     enableSorting: false,
@@ -88,7 +87,7 @@ export const columns: ColumnDef<Task>[] = [
         {row.getValue('merchantName')}
       </div>
     ),
-    filterFn: (row, id, value) => {
+    filterFn: (row, id, value: string[]) => {
       return value.includes(row.getValue(id));
     },
   },
@@ -101,23 +100,24 @@ export const columns: ColumnDef<Task>[] = [
         className="justify-end"
       />
     ),
-    cell: ({ row }) => (
-      <div className="flex flex-row gap-1 justify-end mr-3">
-        <Typography variant="medium">
-          {row.getValue('amount').toFixed(2)}
-        </Typography>
-        <Typography variant="small" className="mt-1 text-zinc-500">
-          {row.original.currencyCode}
-        </Typography>
-      </div>
-    ),
-    filterFn: (row, id, value) => {
+    cell: ({ row }) => {
+      const amountValue = row.getValue('amount');
+
+      const formattedAmount =
+        typeof amountValue === 'number' ? amountValue.toFixed(2) : '0.00'; // Default value if it's not a number
+
+      return (
+        <div className="flex flex-row gap-1 justify-end mr-3">
+          <Typography variant="medium">{formattedAmount}</Typography>
+          <Typography variant="small" className="mt-1 text-zinc-500">
+            {row.original.currencyCode}
+          </Typography>
+        </div>
+      );
+    },
+    filterFn: (row, id, value: number[]) => {
       return value.includes(row.getValue(id));
     },
     enableHiding: false,
   },
-  // {
-  //   id: 'actions',
-  //   cell: ({ row }) => <DataTableRowActions row={row} />,
-  // },
 ];
