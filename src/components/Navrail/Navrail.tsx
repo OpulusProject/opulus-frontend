@@ -23,9 +23,9 @@ import {
   SidebarTrigger,
   useSidebar,
 } from '@/components/ui/sidebar';
+import { ROUTES } from '@/pages/routes';
 
 import styles from './Navrail.module.scss';
-import { ROUTES } from '@/pages/routes';
 
 const menu = [
   {
