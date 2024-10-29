@@ -25,6 +25,7 @@ import {
 } from '@/components/ui/sidebar';
 
 import styles from './Navrail.module.scss';
+import { ROUTES } from '@/pages/routes';
 
 const menu = [
   {
@@ -34,22 +35,22 @@ const menu = [
   },
   {
     title: 'Overview',
-    url: '/home/overview',
+    url: ROUTES.OVERVIEW,
     icon: LayoutGrid,
   },
   {
     title: 'Expenses',
-    url: '/home/transactions',
+    url: ROUTES.TRANSACTIONS,
     icon: CircleDollarSign,
   },
   {
     title: 'Accounts',
-    url: '/home/accounts',
+    url: ROUTES.ACCOUNTS,
     icon: Wallet,
   },
   {
     title: 'Insights',
-    url: '/home/reports',
+    url: ROUTES.REPORTS,
     icon: Zap,
   },
 ];
@@ -57,7 +58,7 @@ const menu = [
 const footer = [
   {
     title: 'Settings',
-    url: '/home/settings',
+    url: ROUTES.SETTINGS,
     icon: Settings2,
   },
   {
