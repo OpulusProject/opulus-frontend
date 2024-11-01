@@ -1,29 +1,54 @@
 module.exports = {
-  root: true,
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
   env: { browser: true, es2020: true },
+  plugins: ['react-refresh', 'prettier', 'import', 'sort-exports'],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
+    'plugin:import/recommended',
     'plugin:@tanstack/query/recommended',
     'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:react-hooks/recommended',
     'prettier',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: [
-      './tsconfig.json',
-      './tsconfig.node.json',
-      './src/components/ui/**/*',
-    ],
-    tsconfigRootDir: __dirname,
-  },
-  plugins: ['react-refresh', 'prettier', 'simple-import-sort'],
   rules: {
+    'sort-imports': [
+      'error',
+      {
+        ignoreCase: false,
+        ignoreDeclarationSort: true,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+        allowSeparatedGroups: false,
+      },
+    ],
+    'import/no-unresolved': 'error',
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          ['sibling', 'parent'],
+          'index',
+          'unknown',
+        ],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
+    'sort-exports/sort-exports': ['error', { sortDir: 'asc' }],
     '@typescript-eslint/no-misused-promises': [
       2,
       {
@@ -33,8 +58,6 @@ module.exports = {
       },
     ],
     'react/prop-types': 'off',
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
@@ -58,6 +81,12 @@ module.exports = {
     ],
   },
   settings: {
+    'import/resolver': {
+      typescript: {
+        project: './tsconfig.json',
+      },
+    },
     react: { version: 'detect' },
   },
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'src/components/ui/**'],
 };

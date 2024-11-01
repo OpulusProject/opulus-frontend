@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+export type Task = z.infer<typeof taskSchema>;
+
 // We're keeping a simple non-relational schema here.
 // IRL, you will have a schema for your data models.
 export const taskSchema = z.object({
@@ -12,5 +14,3 @@ export const taskSchema = z.object({
   amount: z.number(),
   currencyCode: z.string(),
 });
-
-export type Task = z.infer<typeof taskSchema>;
