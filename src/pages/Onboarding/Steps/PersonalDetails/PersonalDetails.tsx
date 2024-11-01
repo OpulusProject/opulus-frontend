@@ -13,7 +13,7 @@ import {
   FormLabel,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { StepProps } from '@/pages/Signup/Steps/StepProps';
+import { StepProps } from '@/pages/Onboarding/Steps/StepProps';
 
 import styles from './PersonalDetails.module.scss';
 
