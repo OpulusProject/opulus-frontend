@@ -16,6 +16,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { useLogin } from '@/hooks/auth/useLogin';
+import { ROUTES } from '@/pages/routes';
 
 import styles from './Login.module.scss';
 
@@ -38,9 +39,13 @@ export const Login: React.FC = () => {
   const handleLogin = (values: z.infer<typeof formSchema>) => {
     login(values, {
       onSuccess: () => {
-        navigate('/home');
+        navigate(ROUTES.HOME);
       },
     });
+  };
+
+  const handleNavigateToSignup = () => {
+    navigate(ROUTES.SIGNUP);
   };
 
   return (
@@ -106,7 +111,11 @@ export const Login: React.FC = () => {
         <Typography variant="small-medium-400" className={styles.caption}>
           Don&apos;t have an account yet?
         </Typography>
-        <Button variant="link" className={styles.footerButton}>
+        <Button
+          variant="link"
+          className={styles.footerButton}
+          onClick={handleNavigateToSignup}
+        >
           <Typography variant="small-medium-400" className={styles.text}>
             Sign up
           </Typography>
