@@ -1,12 +1,16 @@
-/** @type {import('tailwindcss').Config} */
-export const darkMode = ['class'];
 export const content = [
   './pages/**/*.{ts,tsx}',
   './components/**/*.{ts,tsx}',
   './app/**/*.{ts,tsx}',
   './src/**/*.{ts,tsx}',
 ];
+/** @type {import('tailwindcss').Config} */
+export const darkMode = ['class'];
+export const plugins = [tailwindcssAnimate];
 export const prefix = '';
+
+import tailwindcssAnimate from 'tailwindcss-animate';
+
 export const theme = {
   container: {
     center: 'true',
@@ -90,7 +94,3 @@ export const theme = {
     },
   },
 };
-
-import tailwindcssAnimate from 'tailwindcss-animate';
-
-export const plugins = [tailwindcssAnimate];
