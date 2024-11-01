@@ -24,11 +24,6 @@ const yScale = scaleLinear<number>({
   domain: [0, max(series, getY) as number],
 });
 
-export type CurveProps = {
-  width: number;
-  height: number;
-};
-
 export const Chart: React.FC<CurveProps> = ({ width, height }) => {
   const svgHeight = height;
 
@@ -60,4 +55,9 @@ export const Chart: React.FC<CurveProps> = ({ width, height }) => {
       </svg>
     </div>
   );
+};
+
+export type CurveProps = {
+  width: number;
+  height: number;
 };

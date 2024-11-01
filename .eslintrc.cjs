@@ -88,5 +88,5 @@ module.exports = {
     },
     react: { version: 'detect' },
   },
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'src/components/ui/**'],
 };
