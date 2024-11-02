@@ -7,7 +7,7 @@ import {
   MultiStepFormStep,
   createStepSchema,
 } from '@/components/ui/multi-step-form';
-import { PersonalDetails } from '@/pages/Onboarding/Steps/PersonalDetails';
+import { PersonalDetails } from '@/pages/Onboarding/PersonalDetails';
 
 import styles from './Onboarding.module.scss';
 
