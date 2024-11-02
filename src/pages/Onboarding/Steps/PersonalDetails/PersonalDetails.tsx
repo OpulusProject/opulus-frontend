@@ -1,7 +1,4 @@
-import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRight } from 'lucide-react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 
 import { Typography } from '@/components/Typography';
 import { Button } from '@/components/ui/button';
@@ -13,23 +10,12 @@ import {
   FormLabel,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { StepProps } from '@/pages/Onboarding/Steps/StepProps';
+import { useMultiStepFormContext } from '@/components/ui/multi-step-form';
 
 import styles from './PersonalDetails.module.scss';
 
-const formSchema = z.object({
-  firstName: z.string(),
-  lastName: z.string(),
-});
-
-export const PersonalDetails: React.FC<StepProps> = () => {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      firstName: '',
-      lastName: '',
-    },
-  });
+export const PersonalDetails: React.FC = () => {
+  const { form, nextStep, isStepValid } = useMultiStepFormContext();
 
   return (
     <>
@@ -46,7 +32,7 @@ export const PersonalDetails: React.FC<StepProps> = () => {
           <form onSubmit={form.handleSubmit(() => {})} className="space-y-4">
             <FormField
               control={form.control}
-              name="firstName"
+              name="personalDetails.firstName"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel variant="required">First name</FormLabel>
@@ -58,7 +44,7 @@ export const PersonalDetails: React.FC<StepProps> = () => {
             />
             <FormField
               control={form.control}
-              name="lastName"
+              name="personalDetails.lastName"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel variant="required">Last name</FormLabel>
@@ -75,6 +61,8 @@ export const PersonalDetails: React.FC<StepProps> = () => {
               Icon={ArrowRight}
               iconPlacement="right"
               iconSize={16}
+              onClick={nextStep}
+              disabled={!isStepValid()}
             >
               Continue
             </Button>

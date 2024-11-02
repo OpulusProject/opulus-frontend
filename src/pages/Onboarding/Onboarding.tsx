@@ -1,15 +1,52 @@
-import { useState } from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 
+import {
+  MultiStepForm,
+  MultiStepFormStep,
+  createStepSchema,
+} from '@/components/ui/multi-step-form';
 import { PersonalDetails } from '@/pages/Onboarding/Steps/PersonalDetails';
 
 import styles from './Onboarding.module.scss';
 
+const FormSchema = createStepSchema({
+  personalDetails: z.object({
+    firstName: z.string().min(1),
+    lastName: z.string().min(1),
+  }),
+});
+
+type FormValues = z.infer<typeof FormSchema>;
+
 export const Onboarding: React.FC = () => {
-  const [step, setStep] = useState(1);
+  const form = useForm<FormValues>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      personalDetails: {
+        firstName: '',
+        lastName: '',
+      },
+    },
+    reValidateMode: 'onBlur',
+    mode: 'onBlur',
+  });
+
+  const onSubmit = (data: FormValues) => {
+    console.log('Form submitted:', data);
+  };
 
   return (
-    <div className={styles.onboardingContainer}>
-      <PersonalDetails step={step} setStep={setStep} />
-    </div>
+    <MultiStepForm
+      schema={FormSchema}
+      form={form}
+      onSubmit={onSubmit}
+      className={styles.onboardingContainer}
+    >
+      <MultiStepFormStep name="personalDetails">
+        <PersonalDetails />
+      </MultiStepFormStep>
+    </MultiStepForm>
   );
 };
