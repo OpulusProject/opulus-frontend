@@ -11,6 +11,7 @@ import { Auth } from '@/layouts/Auth';
 import { Dashboard } from '@/layouts/Dashboard';
 import { Accounts } from '@/pages/Accounts';
 import { Login } from '@/pages/Login';
+import { Onboarding } from '@/pages/Onboarding';
 import { Overview } from '@/pages/Overview';
 import { ROUTES } from '@/pages/routes';
 import { Signup } from '@/pages/Signup';
@@ -52,6 +53,10 @@ function App() {
 
           {/* Protected routes with Dashboard layout */}
           <Route element={<ProtectedRoute />}>
+            <Route path={ROUTES.ROOT} element={<Auth />}>
+              <Route path={ROUTES.ONBOARDING} element={<Onboarding />} />
+            </Route>
+
             <Route path={ROUTES.HOME} element={<Dashboard />}>
               <Route
                 index
