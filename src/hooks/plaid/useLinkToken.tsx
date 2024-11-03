@@ -1,11 +1,11 @@
-import { useMutation } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
 import { client } from '@/hooks/client';
 
 const API_URL = '/plaid/link-token';
 
 interface createLinkTokenRequest {
-  userID: string;
+  userId: string;
 }
 
 const createLinkToken = async (request: createLinkTokenRequest) => {
@@ -14,9 +14,10 @@ const createLinkToken = async (request: createLinkTokenRequest) => {
   });
 };
 
-export const useLinkToken = () => {
-  return useMutation({
-    mutationFn: (request: createLinkTokenRequest) => createLinkToken(request),
+export const useLinkToken = (userId: string) => {
+  return useQuery({
+    queryKey: ['linkToken', userId],
+    queryFn: () => createLinkToken({ userId }),
     retry: false,
   });
 };
