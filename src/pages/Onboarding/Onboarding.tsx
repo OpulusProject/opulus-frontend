@@ -7,6 +7,7 @@ import {
   MultiStepFormStep,
   createStepSchema,
 } from '@/components/ui/multi-step-form';
+import { LinkInstitution } from '@/pages/Onboarding/LinkInstitution';
 import { PersonalDetails } from '@/pages/Onboarding/PersonalDetails';
 
 import styles from './Onboarding.module.scss';
@@ -46,6 +47,9 @@ export const Onboarding: React.FC = () => {
     >
       <MultiStepFormStep name="personalDetails">
         <PersonalDetails />
+      </MultiStepFormStep>
+      <MultiStepFormStep name="linkInstitution">
+        <LinkInstitution />
       </MultiStepFormStep>
     </MultiStepForm>
   );
