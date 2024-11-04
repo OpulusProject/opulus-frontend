@@ -8,6 +8,7 @@ import { Overview } from '@/pages/Overview';
 import { ROUTES } from '@/pages/routes';
 import { Signup } from '@/pages/Signup';
 import { Transactions } from '@/pages/Transactions';
+import { Accounts } from '@/pages/Accounts';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route index element={<Navigate to={ROUTES.OVERVIEW} replace />} />
             <Route path={ROUTES.OVERVIEW} element={<Overview />} />
             <Route path={ROUTES.TRANSACTIONS} element={<Transactions />} />
+            <Route path={ROUTES.ACCOUNTS} element={<Accounts />} />
           </Route>
 
           <Route path={ROUTES.LOADING} element={<Loading />} />
