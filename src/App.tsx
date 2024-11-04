@@ -2,13 +2,13 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { Auth } from '@/layouts/Auth';
 import { Dashboard } from '@/layouts/Dashboard';
+import { Accounts } from '@/pages/Accounts';
 import { Loading } from '@/pages/Loading';
 import { Login } from '@/pages/Login';
 import { Overview } from '@/pages/Overview';
 import { ROUTES } from '@/pages/routes';
 import { Signup } from '@/pages/Signup';
 import { Transactions } from '@/pages/Transactions';
-import { Accounts } from '@/pages/Accounts';
 
 function App() {
   return (
