@@ -2,6 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { Auth } from '@/layouts/Auth';
 import { Dashboard } from '@/layouts/Dashboard';
+import { Accounts } from '@/pages/Accounts';
 import { Loading } from '@/pages/Loading';
 import { Login } from '@/pages/Login';
 import { Overview } from '@/pages/Overview';
@@ -26,6 +27,7 @@ function App() {
             <Route index element={<Navigate to={ROUTES.OVERVIEW} replace />} />
             <Route path={ROUTES.OVERVIEW} element={<Overview />} />
             <Route path={ROUTES.TRANSACTIONS} element={<Transactions />} />
+            <Route path={ROUTES.ACCOUNTS} element={<Accounts />} />
           </Route>
 
           <Route path={ROUTES.LOADING} element={<Loading />} />
