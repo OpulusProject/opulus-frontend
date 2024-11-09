@@ -97,8 +97,10 @@ export const Navrail: FC = () => {
       <Sidebar collapsible="icon">
         <SidebarHeader className={`${styles.Header}`}>
           {state === 'expanded' && (
-            <SidebarMenuButton className={`${styles.Gem}`}>
-              <Gem />
+            <SidebarMenuButton className={`${styles.Gem}`} asChild>
+              <a href={ROUTES.OVERVIEW}>
+                <Gem />
+              </a>
             </SidebarMenuButton>
           )}
 
