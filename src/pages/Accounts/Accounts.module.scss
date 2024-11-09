@@ -1,0 +1,16 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.tab {
+    padding-top: 24px;
+}
+
+.button {
+    width: 142px;
+    height: 40px;
+    gap: 8px;
+}
