@@ -1,11 +1,8 @@
 import { Plus } from 'lucide-react';
-
 import React from 'react';
 
 import { Typography } from '@/components/Typography';
-
 import { Button } from '@/components/ui/button';
-
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 import styles from './Accounts.module.scss';
