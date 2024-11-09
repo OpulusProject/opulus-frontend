@@ -1,12 +1,14 @@
+import { Plus } from 'lucide-react';
+
 import React from 'react';
 
 import { Typography } from '@/components/Typography';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-import styles from './Accounts.module.scss';
 import { Button } from '@/components/ui/button';
 
-import { Plus } from 'lucide-react';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+
+import styles from './Accounts.module.scss';
 
 export const Accounts: React.FC = () => {
   return (
@@ -14,7 +16,7 @@ export const Accounts: React.FC = () => {
       <div className={styles.header}>
         <Typography variant="extra-extra-large">Accounts</Typography>
         <Button className={styles.button}>
-          <Plus size={16}/>
+          <Plus size={16} />
           Add account
         </Button>
       </div>
