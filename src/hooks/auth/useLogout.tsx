@@ -1,12 +1,11 @@
 import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
 
-import { serverURL } from '@/hooks/apiConfig';
+import { client } from '@/hooks/client';
 
-const API_URL = `${serverURL}/sessions/invalidate`;
+const API_URL = '/sessions/invalidate';
 
 const invalidateSession = async () => {
-  const response = await axios.post(API_URL, {}, { withCredentials: true });
+  const response = await client.post(API_URL, {}, { withCredentials: true });
   console.log(response);
 };
 
