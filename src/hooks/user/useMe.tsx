@@ -7,7 +7,7 @@ import { serverURL } from '@/hooks/apiConfig';
 const API_URL = `${serverURL}/users/me`;
 
 const userSchema = z.object({
-  id: z.number(),
+  id: z.string(),
   firstName: z.string().nullable(),
   lastName: z.string().nullable(),
   email: z.string(),
