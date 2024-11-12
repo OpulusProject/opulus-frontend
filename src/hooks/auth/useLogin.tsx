@@ -1,9 +1,8 @@
 import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
 
-import { serverURL } from '@/hooks/apiConfig';
+import { client } from '@/hooks/client';
 
-const API_URL = `${serverURL}/sessions`;
+const API_URL = '/sessions';
 
 interface LoginRequest {
   email: string;
@@ -11,7 +10,7 @@ interface LoginRequest {
 }
 
 const createSession = async (request: LoginRequest) => {
-  await axios.post(API_URL, request, {
+  await client.post(API_URL, request, {
     withCredentials: true,
   });
 };

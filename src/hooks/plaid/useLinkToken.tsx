@@ -1,16 +1,15 @@
 import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
 
-import { serverURL } from '@/hooks/apiConfig';
+import { client } from '@/hooks/client';
 
-const API_URL = `${serverURL}/plaid/link-token`;
+const API_URL = '/plaid/link-token';
 
 interface createLinkTokenRequest {
   userID: string;
 }
 
 const createLinkToken = async (request: createLinkTokenRequest) => {
-  return await axios.post(API_URL, request, {
+  return await client.post(API_URL, request, {
     withCredentials: true,
   });
 };
