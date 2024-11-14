@@ -88,5 +88,10 @@ module.exports = {
     },
     react: { version: 'detect' },
   },
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'tailwind.config.js', 'src/components/ui/**'],
+  ignorePatterns: [
+    'dist',
+    '.eslintrc.cjs',
+    'tailwind.config.js',
+    'src/components/ui/**',
+  ],
 };
