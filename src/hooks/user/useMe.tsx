@@ -5,7 +5,6 @@ import { client } from '@/hooks/client';
 
 const API_URL = '/users/me';
 
-<<<<<<< HEAD
 const userSchema = z.object({
   id: z.string(),
   firstName: z.string().nullable(),
@@ -14,18 +13,6 @@ const userSchema = z.object({
   createdAt: z.string(),
   updatedAt: z.string(),
 });
-=======
-const userSchema = z
-  .object({
-    id: z.string(),
-    firstName: z.string().nullable(),
-    lastName: z.string().nullable(),
-    email: z.string(),
-    createdAt: z.string(),
-    updatedAt: z.string(),
-  })
-  .partial();
->>>>>>> 29c80c9 (need to figure out how to render link)
 
 const getMe = async () => {
   const response = await client.get(API_URL, { withCredentials: true });
