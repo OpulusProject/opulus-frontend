@@ -49,7 +49,7 @@ export const PersonalDetails: React.FC = () => {
                 <FormItem>
                   <FormLabel variant="required">Last name</FormLabel>
                   <FormControl>
-                    <Input placeholder="e.g. Doe" {...field} />
+                    <Input placeholder="e.g. Smith" {...field} />
                   </FormControl>
                 </FormItem>
               )}

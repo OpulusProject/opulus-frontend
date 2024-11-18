@@ -1,1 +1,0 @@
-export { LinkInstitution } from './LinkInstitution';
