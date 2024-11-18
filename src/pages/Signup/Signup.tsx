@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRight } from 'lucide-react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 
 import { Typography } from '@/components/Typography';
@@ -16,6 +17,7 @@ import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { useLogin } from '@/hooks/auth/useLogin';
 import { useRegister } from '@/hooks/user/useRegister';
+import { ROUTES } from '@/pages/routes';
 
 import styles from './Signup.module.scss';
 
@@ -27,6 +29,7 @@ const formSchema = z.object({
 export const Signup: React.FC = () => {
   const { mutate: register, isPending } = useRegister();
   const { mutate: login } = useLogin();
+  const navigate = useNavigate();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -35,12 +38,20 @@ export const Signup: React.FC = () => {
     },
   });
 
-  const handleLogin = (values: z.infer<typeof formSchema>) => {
+  const handleRegister = (values: z.infer<typeof formSchema>) => {
     register(values, {
       onSuccess: () => {
-        login(values);
+        login(values, {
+          onSuccess: () => {
+            navigate(ROUTES.ONBOARDING);
+          },
+        });
       },
     });
+  };
+
+  const handleNavigateToLogin = () => {
+    navigate(ROUTES.LOGIN);
   };
 
   return (
@@ -63,7 +74,10 @@ export const Signup: React.FC = () => {
             </Typography>
             <Separator className={styles.separator} />
           </div>
-          <form onSubmit={form.handleSubmit(handleLogin)} className="space-y-4">
+          <form
+            onSubmit={form.handleSubmit(handleRegister)}
+            className="space-y-4"
+          >
             <FormField
               control={form.control}
               name="email"
@@ -106,7 +120,11 @@ export const Signup: React.FC = () => {
         <Typography variant="small-medium-400" className={styles.caption}>
           Already have an account?
         </Typography>
-        <Button variant="link" className={styles.footerButton}>
+        <Button
+          variant="link"
+          className={styles.footerButton}
+          onClick={handleNavigateToLogin}
+        >
           <Typography variant="small-medium-400" className={styles.text}>
             Sign in
           </Typography>
