@@ -10,6 +10,7 @@ import { useMe } from '@/hooks/user/useMe';
 import { Auth } from '@/layouts/Auth';
 import { Dashboard } from '@/layouts/Dashboard';
 import { Accounts } from '@/pages/Accounts';
+import { Loading } from '@/pages/Loading';
 import { Login } from '@/pages/Login';
 import { Onboarding } from '@/pages/Onboarding';
 import { Overview } from '@/pages/Overview';
