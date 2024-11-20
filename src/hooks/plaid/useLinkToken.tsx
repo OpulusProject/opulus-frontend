@@ -1,23 +1,30 @@
-import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
+import { z } from 'zod';
 
-import { serverURL } from '@/hooks/apiConfig';
+import { client } from '@/hooks/client';
 
-const API_URL = `${serverURL}/plaid/link-token`;
+const API_URL = '/plaid/link-token';
+
+const linkTokenSchema = z.object({
+  linkToken: z.string(),
+});
 
 interface createLinkTokenRequest {
-  userID: string;
+  userId: string;
 }
 
 const createLinkToken = async (request: createLinkTokenRequest) => {
-  return await axios.post(API_URL, request, {
+  const response = await client.post(API_URL, request, {
     withCredentials: true,
   });
+  return linkTokenSchema.parse(response.data);
 };
 
-export const useLinkToken = () => {
-  return useMutation({
-    mutationFn: (request: createLinkTokenRequest) => createLinkToken(request),
-    retry: false,
+export const useLinkToken = (userId: string) => {
+  return useQuery({
+    queryKey: ['linkToken', userId],
+    queryFn: () => createLinkToken({ userId }),
+    retry: 3,
+    enabled: !!userId,
   });
 };

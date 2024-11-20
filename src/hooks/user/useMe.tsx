@@ -1,13 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 import { z } from 'zod';
 
-import { serverURL } from '@/hooks/apiConfig';
+import { client } from '@/hooks/client';
 
-const API_URL = `${serverURL}/users/me`;
+const API_URL = '/users/me';
 
 const userSchema = z.object({
-  id: z.number(),
+  id: z.string(),
   firstName: z.string().nullable(),
   lastName: z.string().nullable(),
   email: z.string(),
@@ -16,7 +15,7 @@ const userSchema = z.object({
 });
 
 const getMe = async () => {
-  const response = await axios.get(API_URL, { withCredentials: true });
+  const response = await client.get(API_URL, { withCredentials: true });
   return userSchema.parse(response.data);
 };
 

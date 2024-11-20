@@ -3,11 +3,12 @@ export const ROUTES = {
   HELP: '/help',
   SUPPORT: '/support',
 
-  // Auth Routes
   LOGIN: '/login',
   SIGNUP: '/signup',
 
-  // Dashboard Routes
+  // Protected Routes
+  ONBOARDING: '/onboarding',
+
   HOME: '/home',
   OVERVIEW: '/home/overview',
   TRANSACTIONS: '/home/transactions',
