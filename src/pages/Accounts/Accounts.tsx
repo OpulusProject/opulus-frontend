@@ -9,7 +9,7 @@ import styles from './Accounts.module.scss';
 
 export const Accounts: React.FC = () => {
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.header}>
         <Typography variant="extra-extra-large">Accounts</Typography>
         <Button className={styles.button}>
@@ -27,6 +27,6 @@ export const Accounts: React.FC = () => {
           <TabsTrigger value="creditcards">Credit Cards</TabsTrigger>
         </TabsList>
       </Tabs>
-    </>
+    </div>
   );
 };
