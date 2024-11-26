@@ -9,12 +9,8 @@ const linkTokenSchema = z.object({
   linkToken: z.string(),
 });
 
-interface createLinkTokenRequest {
-  userId: string;
-}
-
-const createLinkToken = async (request: createLinkTokenRequest) => {
-  const response = await client.post(API_URL, request, {
+const createLinkToken = async () => {
+  const response = await client.post(API_URL, {
     withCredentials: true,
   });
   return linkTokenSchema.parse(response.data);
@@ -23,7 +19,7 @@ const createLinkToken = async (request: createLinkTokenRequest) => {
 export const useLinkToken = (userId: string) => {
   return useQuery({
     queryKey: ['linkToken', userId],
-    queryFn: () => createLinkToken({ userId }),
+    queryFn: () => createLinkToken(),
     retry: 3,
     enabled: !!userId,
   });
