@@ -1,6 +1,7 @@
 import { Plus } from 'lucide-react';
 import React from 'react';
 
+import { DistributionBar } from '@/components/DistributionBar';
 import { Typography } from '@/components/Typography';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -27,6 +28,14 @@ export const Accounts: React.FC = () => {
           <TabsTrigger value="creditcards">Credit Cards</TabsTrigger>
         </TabsList>
       </Tabs>
+
+      <div className="p-6">
+        <h1 className="text-white">Distribution</h1>
+        <DistributionBar
+          values={[33, 44, 23]} // Percentages
+          colors={['#FF5733', '#3498DB', '#2ECC71']} // Red, Blue, Green
+        />
+      </div>
     </div>
   );
 };
