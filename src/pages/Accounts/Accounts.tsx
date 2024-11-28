@@ -28,14 +28,6 @@ export const Accounts: React.FC = () => {
           <TabsTrigger value="creditcards">Credit Cards</TabsTrigger>
         </TabsList>
       </Tabs>
-
-      <div className="p-6">
-        <h1 className="text-white">Distribution</h1>
-        <DistributionBar
-          values={[33, 44, 23]} // Percentages
-          colors={['#FF5733', '#3498DB', '#2ECC71']} // Red, Blue, Green
-        />
-      </div>
     </div>
   );
 };
