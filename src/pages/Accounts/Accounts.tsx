@@ -1,7 +1,6 @@
 import { Plus } from 'lucide-react';
 import React from 'react';
 
-import { DistributionBar } from '@/components/DistributionBar';
 import { Typography } from '@/components/Typography';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
