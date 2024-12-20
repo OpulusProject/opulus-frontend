@@ -42,7 +42,7 @@ export const CashFlow: React.FC<BarChartProps> = ({
   outflow,
   positiveColor,
   negativeColor,
-  title = 'Cash Flow Chart',
+  title,
   description,
   footer,
   gap = 8,
@@ -86,7 +86,6 @@ export const CashFlow: React.FC<BarChartProps> = ({
             margin={{ top: 10, right: 30, left: 30, bottom: 40 }}
           >
             <CartesianGrid vertical={false} />
-            {/* Shared X and Y Axis */}
             <XAxis
               xAxisId="inflow"
               dataKey="label"
@@ -107,9 +106,9 @@ export const CashFlow: React.FC<BarChartProps> = ({
                   hideLabel
                   className="w-[180px]"
                   formatter={(value, name, item, index) => {
-                    const total = item.payload.total; // Access the 'total' field from the payload
+                    const total = item.payload.total;
 
-                    // Check if the item is part of the 'line' and exclude it from the tooltip
+                    // Exclude the line from the tooltip
                     if (name === 'total') return null;
 
                     return (
@@ -119,9 +118,7 @@ export const CashFlow: React.FC<BarChartProps> = ({
                           className="h-2.5 w-2.5 shrink-0 rounded-[2px]"
                           style={{
                             backgroundColor:
-                              name === 'Inflow'
-                                ? positiveColor
-                                : negativeColor,
+                              name === 'Inflow' ? positiveColor : negativeColor,
                           }}
                         />
                         {/* Render individual values for Inflow and Outflow */}
@@ -169,8 +166,8 @@ export const CashFlow: React.FC<BarChartProps> = ({
               dataKey="outflow"
               name={chartConfig.outflow.label}
               radius={[8, 8, 0, 0]}
-              barSize={64} // Adjust the size of the outflow bar
-              offset={-8} // Shift the outflow bar to the left (use negative value)
+              barSize={64}
+              offset={-8}
             >
               {combinedData.map((item, index) => (
                 <Cell
@@ -184,12 +181,12 @@ export const CashFlow: React.FC<BarChartProps> = ({
               xAxisId="inflow"
               dataKey="total"
               type="monotone"
-              stroke="hsl(var(--chart-1))"
+              stroke="#000"
               strokeWidth={2}
               activeDot={{
                 r: 6,
               }}
-              zIndex={10} // Ensure the line is on top of bars
+              zIndex={10}
             />
           </ComposedChart>
         </ChartContainer>
