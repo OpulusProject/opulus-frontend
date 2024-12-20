@@ -1,14 +1,14 @@
 import React from 'react';
 import {
+  ComposedChart,
   Bar,
-  BarChart,
   CartesianGrid,
-  Cell,
   XAxis,
   YAxis,
   Tooltip,
-  LineChart,
+  Cell,
   Line,
+  Legend,
 } from 'recharts';
 
 import {
@@ -60,11 +60,12 @@ export const CashFlow: React.FC<BarChartProps> = ({
   // Combine inflow and outflow data into a single dataset, adding the 'total' field
   const combinedData = inflow.map((inItem, idx) => {
     const outItem = outflow[idx];
-    const total = inItem.value + (outItem?.value || 0); // Correct total calculation with negative outflows
+    // The total represents net cash flow (inflow - outflow)
+    const total = inItem.value + (outItem?.value || 0);
     return {
       label: inItem.label,
       inflow: inItem.value,
-      outflow: outItem?.value || 0,
+      outflow: outItem?.value || 0, // Treat outflow as a negative value
       total: total, // Add total (net cash flow)
     };
   });
@@ -76,18 +77,29 @@ export const CashFlow: React.FC<BarChartProps> = ({
         {description && <CardDescription>{description}</CardDescription>}
       </CardHeader>
       <CardContent>
-        {/* Wrapping the BarChart in a ChartContainer */}
+        {/* Wrapping the chart in a ChartContainer */}
         <ChartContainer config={chartConfig}>
-          <BarChart
+          <ComposedChart
             data={combinedData}
             width={500}
             height={300}
             margin={{ top: 10, right: 30, left: 30, bottom: 40 }}
-            stackOffset="sign"
           >
             <CartesianGrid vertical={false} />
-            <XAxis dataKey="label" tickLine={false} axisLine={false} />
-            <YAxis tickLine={false} axisLine={false} />
+            {/* Shared X and Y Axis */}
+            <XAxis
+              xAxisId="inflow"
+              dataKey="label"
+              tickLine={false}
+              axisLine={false}
+              position="bottom"
+            />
+            <XAxis xAxisId="outflow" dataKey="label" hide={true} />
+            <YAxis
+              tickLine={false}
+              axisLine={false}
+              domain={['auto', 'auto']}
+            />
             <Tooltip
               cursor={false}
               content={
@@ -96,6 +108,10 @@ export const CashFlow: React.FC<BarChartProps> = ({
                   className="w-[180px]"
                   formatter={(value, name, item, index) => {
                     const total = item.payload.total; // Access the 'total' field from the payload
+
+                    // Check if the item is part of the 'line' and exclude it from the tooltip
+                    if (name === 'total') return null;
+
                     return (
                       <>
                         {/* Render the color box based on the data key */}
@@ -103,13 +119,14 @@ export const CashFlow: React.FC<BarChartProps> = ({
                           className="h-2.5 w-2.5 shrink-0 rounded-[2px]"
                           style={{
                             backgroundColor:
-                              name === 'inflow'
-                                ? chartConfig.inflow.color
-                                : chartConfig.outflow.color,
+                              name === 'Inflow'
+                                ? positiveColor
+                                : negativeColor,
                           }}
                         />
                         {/* Render individual values for Inflow and Outflow */}
-                        {chartConfig[name as keyof typeof chartConfig]?.label || name}
+                        {chartConfig[name as keyof typeof chartConfig]?.label ||
+                          name}
                         <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
                           {value}
                           <span className="font-normal text-muted-foreground">
@@ -136,21 +153,24 @@ export const CashFlow: React.FC<BarChartProps> = ({
             />
             {/* Inflow Bar */}
             <Bar
+              xAxisId="inflow"
               dataKey="inflow"
               name={chartConfig.inflow.label}
-              stackId="cashFlow"
-              radius={16}
+              radius={[8, 8, 0, 0]}
+              barSize={64} // Adjust the size of the inflow bar
             >
               {combinedData.map((item, index) => (
                 <Cell key={`inflow-${index}`} fill={chartConfig.inflow.color} />
               ))}
             </Bar>
-            {/* Outflow Bar */}
+            {/* Outflow Bar (shifted to the left) */}
             <Bar
+              xAxisId="outflow"
               dataKey="outflow"
               name={chartConfig.outflow.label}
-              stackId="cashFlow"
-              radius={16}
+              radius={[8, 8, 0, 0]}
+              barSize={64} // Adjust the size of the outflow bar
+              offset={-8} // Shift the outflow bar to the left (use negative value)
             >
               {combinedData.map((item, index) => (
                 <Cell
@@ -159,57 +179,19 @@ export const CashFlow: React.FC<BarChartProps> = ({
                 />
               ))}
             </Bar>
-          </BarChart>
-        </ChartContainer>
-
-        {/* Wrapping the LineChart in a separate container for proper layout */}
-        <ChartContainer config={chartConfig}>
-          <LineChart
-            data={combinedData}
-            width={500}
-            height={300}
-            margin={{ top: 10, right: 30, left: 30, bottom: 40 }}
-          >
-            <CartesianGrid vertical={false} />
-            <XAxis dataKey="label" tickLine={false} axisLine={false} />
-            <YAxis tickLine={false} axisLine={false} />
-            <Tooltip
-              cursor={false}
-              content={
-                <ChartTooltipContent
-                  hideLabel
-                  className="w-[180px]"
-                  formatter={(value, name, item, index) => {
-                    const total = item.payload.total;
-                    return (
-                      <>
-                        <div
-                          className="h-2.5 w-2.5 shrink-0 rounded-[2px]"
-                          style={{
-                            backgroundColor: 'var(--color-primary)', // Use a color for the total line
-                          }}
-                        />
-                        Total
-                        <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
-                          {total}
-                          <span className="font-normal text-muted-foreground">USD</span>
-                        </div>
-                      </>
-                    );
-                  }}
-                />
-              }
-            />
             {/* Total Line */}
             <Line
+              xAxisId="inflow"
               dataKey="total"
               type="monotone"
-              stroke="hsl(var(--chart-1))" // You can replace with any color you want
+              stroke="hsl(var(--chart-1))"
               strokeWidth={2}
-              dot={false}
-              activeDot={{ r: 6 }}
+              activeDot={{
+                r: 6,
+              }}
+              zIndex={10} // Ensure the line is on top of bars
             />
-          </LineChart>
+          </ComposedChart>
         </ChartContainer>
       </CardContent>
       {footer && (
