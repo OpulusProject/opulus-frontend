@@ -1,14 +1,13 @@
 import React from 'react';
 import {
-  ComposedChart,
   Bar,
   CartesianGrid,
+  Cell,
+  ComposedChart,
+  Line,
+  Tooltip,
   XAxis,
   YAxis,
-  Tooltip,
-  Cell,
-  Line,
-  Legend,
 } from 'recharts';
 
 import {
@@ -22,7 +21,6 @@ import {
 import {
   ChartConfig,
   ChartContainer,
-  ChartTooltip,
   ChartTooltipContent,
 } from '@/components/ui/chart';
 
