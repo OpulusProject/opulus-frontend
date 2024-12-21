@@ -26,8 +26,6 @@ import {
 } from '@/components/ui/sidebar';
 import { ROUTES } from '@/pages/routes';
 
-import styles from './Navrail.module.scss';
-
 interface SidebarItem {
   title: string;
   url: string;
@@ -105,9 +103,12 @@ export const Navrail: FC = () => {
   return (
     <div className="dark">
       <Sidebar collapsible="icon">
-        <SidebarHeader className={`${styles.Header}`}>
+        <SidebarHeader className="flex-row justify-between my-4 mx-2">
           {state === 'expanded' && (
-            <SidebarMenuButton className={`${styles.Gem}`} asChild>
+            <SidebarMenuButton
+              className="p-1.5 rounded-[10px] w-fit h-fit"
+              asChild
+            >
               <div onClick={() => navigate(ROUTES.OVERVIEW)}>
                 <Gem />
               </div>
@@ -119,13 +120,13 @@ export const Navrail: FC = () => {
 
         <SidebarSeparator />
 
-        <SidebarContent className={`${styles.Menu}`}>
+        <SidebarContent className="p-2 my-4 mx-2">
           <SidebarMenu>{renderSidebarMenuItems(menu, navigate)}</SidebarMenu>
         </SidebarContent>
 
         <SidebarSeparator />
 
-        <SidebarFooter className={`${styles.Footer}`}>
+        <SidebarFooter className="mt-4 mx-2 mb-8">
           <SidebarMenu>{renderSidebarMenuItems(footer, navigate)}</SidebarMenu>
         </SidebarFooter>
       </Sidebar>
