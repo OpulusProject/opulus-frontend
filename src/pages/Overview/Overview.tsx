@@ -12,8 +12,13 @@ const chartData = [
   { month: 'April', desktop: 73 },
   { month: 'May', desktop: 209 },
   { month: 'June', desktop: 214 },
+  { month: 'July', desktop: 186 },
+  { month: 'August', desktop: 305 },
+  { month: 'September', desktop: 237 },
+  { month: 'October', desktop: 73 },
+  { month: 'November', desktop: 209 },
+  { month: 'December', desktop: 73 },
 ];
-
 
 export const Overview: React.FC = () => {
   const { data: user } = useMe();
@@ -27,8 +32,6 @@ export const Overview: React.FC = () => {
         data={chartData}
         dataKey="desktop" // This is the key we want to plot
         label="Desktop"
-        color="hsl(210, 100%, 50%)" // You can change the color to any valid CSS color
-        showXAxis={false}
       />
     </div>
   );
