@@ -12,6 +12,7 @@ import {
 import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { Button } from '@/components/ui/button';
 import {
   Sidebar,
   SidebarContent,
@@ -103,30 +104,27 @@ export const Navrail: FC = () => {
   return (
     <div className="dark">
       <Sidebar collapsible="icon">
-        <SidebarHeader className="flex-row justify-between my-4 mx-2">
-          {state === 'expanded' && (
-            <SidebarMenuButton
-              className="p-1.5 rounded-[10px] w-fit h-fit"
-              asChild
-            >
-              <div onClick={() => navigate(ROUTES.OVERVIEW)}>
-                <Gem />
-              </div>
-            </SidebarMenuButton>
-          )}
-
+        <SidebarHeader className="flex-row-reverse justify-between">
           <SidebarTrigger />
+          <Button
+            size="icon"
+            variant="ghost"
+            onClick={() => navigate(ROUTES.OVERVIEW)}
+            className={state === 'expanded' ? '' : 'hidden'}
+          >
+            <Gem size={16} />
+          </Button>
         </SidebarHeader>
 
         <SidebarSeparator />
 
-        <SidebarContent className="p-2 my-4 mx-2">
+        <SidebarContent>
           <SidebarMenu>{renderSidebarMenuItems(menu, navigate)}</SidebarMenu>
         </SidebarContent>
 
         <SidebarSeparator />
 
-        <SidebarFooter className="mt-4 mx-2 mb-8">
+        <SidebarFooter>
           <SidebarMenu>{renderSidebarMenuItems(footer, navigate)}</SidebarMenu>
         </SidebarFooter>
       </Sidebar>
