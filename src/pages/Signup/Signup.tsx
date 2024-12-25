@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 
+import { GoogleOAuthButton } from '@/components/GoogleOAuthButton';
 import { Typography } from '@/components/Typography';
 import { Button } from '@/components/ui/button';
 import {
@@ -66,7 +67,7 @@ export const Signup: React.FC = () => {
       </div>
       <Form {...form}>
         <div className={styles.body}>
-          <Button className="w-full">Continue with Google</Button>
+          <GoogleOAuthButton />
           <div className={styles.separatorContainer}>
             <Separator className={styles.separator} />
             <Typography variant="small" className={styles.caption}>
