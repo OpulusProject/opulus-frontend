@@ -12,6 +12,7 @@ import {
 import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { Button } from '@/components/ui/button';
 import {
   Sidebar,
   SidebarContent,
@@ -25,8 +26,6 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar';
 import { ROUTES } from '@/pages/routes';
-
-import styles from './Navrail.module.scss';
 
 interface SidebarItem {
   title: string;
@@ -105,27 +104,27 @@ export const Navrail: FC = () => {
   return (
     <div className="dark">
       <Sidebar collapsible="icon">
-        <SidebarHeader className={`${styles.Header}`}>
-          {state === 'expanded' && (
-            <SidebarMenuButton className={`${styles.Gem}`} asChild>
-              <div onClick={() => navigate(ROUTES.OVERVIEW)}>
-                <Gem />
-              </div>
-            </SidebarMenuButton>
-          )}
-
+        <SidebarHeader className="flex-row-reverse justify-between">
           <SidebarTrigger />
+          <Button
+            size="icon"
+            variant="ghost"
+            onClick={() => navigate(ROUTES.OVERVIEW)}
+            className={state === 'expanded' ? '' : 'hidden'}
+          >
+            <Gem size={16} />
+          </Button>
         </SidebarHeader>
 
         <SidebarSeparator />
 
-        <SidebarContent className={`${styles.Menu}`}>
+        <SidebarContent>
           <SidebarMenu>{renderSidebarMenuItems(menu, navigate)}</SidebarMenu>
         </SidebarContent>
 
         <SidebarSeparator />
 
-        <SidebarFooter className={`${styles.Footer}`}>
+        <SidebarFooter>
           <SidebarMenu>{renderSidebarMenuItems(footer, navigate)}</SidebarMenu>
         </SidebarFooter>
       </Sidebar>
