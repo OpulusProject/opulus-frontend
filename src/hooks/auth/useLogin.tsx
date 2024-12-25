@@ -2,7 +2,7 @@ import { useMutation } from '@tanstack/react-query';
 
 import { client } from '@/hooks/client';
 
-const API_URL = '/sessions';
+const API_URL = '/auth/login';
 
 interface LoginRequest {
   email: string;
