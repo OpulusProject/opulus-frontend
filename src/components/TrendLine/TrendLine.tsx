@@ -4,10 +4,6 @@ import React from 'react';
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
 } from '@/components/ui/card';
 import {
   ChartConfig,
@@ -66,10 +62,6 @@ export const TrendLine: React.FC<TrendLineProps> = ({
 
   return (
     <Card>
-      <CardHeader>
-        {title && <CardTitle>{title}</CardTitle>}
-        {description && <CardDescription>{description}</CardDescription>}
-      </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
           <LineChart
@@ -144,11 +136,6 @@ export const TrendLine: React.FC<TrendLineProps> = ({
           </LineChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        {footerText && (
-          <div className="leading-none text-muted-foreground">{footerText}</div>
-        )}
-      </CardFooter>
     </Card>
   );
 };
