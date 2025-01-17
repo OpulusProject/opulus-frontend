@@ -87,7 +87,7 @@ export const TrendLine: React.FC<TrendLineProps> = ({
           strokeWidth={2}
           dot={false}
         >
-          {/* Label the highest point (most recent occurrence) */}
+          {/* Label the most recent highest point */}
           <LabelList
             dataKey={dataKey}
             position="top"
@@ -105,7 +105,7 @@ export const TrendLine: React.FC<TrendLineProps> = ({
               ) : null
             }
           />
-          {/* Label the lowest point (most recent occurrence) */}
+          {/* Label the most recent lowest point */}
           <LabelList
             dataKey={dataKey}
             position="bottom"
