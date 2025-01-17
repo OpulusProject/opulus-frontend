@@ -1,7 +1,6 @@
 import { CartesianGrid, Line, LineChart, XAxis, LabelList } from 'recharts';
 import React from 'react';
 
-import { Card, CardContent } from '@/components/ui/card';
 import {
   ChartConfig,
   ChartContainer,
@@ -58,81 +57,74 @@ export const TrendLine: React.FC<TrendLineProps> = ({
   const minDataPoint = data[data.length - 1 - minIndex];
 
   return (
-    <Card>
-      <CardContent>
-        <ChartContainer config={chartConfig}>
-          <LineChart
-            accessibilityLayer
-            data={data}
-            margin={{
-              left: 12,
-              right: 12,
-            }}
-          >
-            {showGridLines && <CartesianGrid vertical={false} />}{' '}
-            {/* Conditionally render gridlines */}
-            {showXAxis && (
-              <XAxis
-                dataKey="month"
-                tickLine={false}
-                axisLine={false}
-                tickMargin={8}
-                tickFormatter={(value) => value.slice(0, 3)} // Shorten the month name (e.g., "January" -> "Jan")
-              />
-            )}
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
-            <Line
-              dataKey={dataKey}
-              type="linear"
-              stroke={color}
-              strokeWidth={2}
-              dot={false}
-            >
-              {/* Label the highest point (most recent occurrence) */}
-              <LabelList
-                dataKey={dataKey}
-                position="top"
-                content={({ x, y, value, index }) =>
-                  value === maxData &&
-                  data[index].month === maxDataPoint.month ? (
-                    <text
-                      x={x}
-                      y={y - 10} // Adjust to place the label above the point
-                      textAnchor="middle"
-                      fill={color}
-                      fontSize={12}
-                    >
-                      {`${maxData}`}
-                    </text>
-                  ) : null
-                }
-              />
-              {/* Label the lowest point (most recent occurrence) */}
-              <LabelList
-                dataKey={dataKey}
-                position="bottom"
-                content={({ x, y, value, index }) =>
-                  value === minData &&
-                  data[index].month === minDataPoint.month ? (
-                    <text
-                      x={x}
-                      y={y + 20} // Adjust to place the label below the point
-                      textAnchor="middle"
-                      fill={color}
-                      fontSize={12}
-                    >
-                      {`${minData}`}
-                    </text>
-                  ) : null
-                }
-              />
-            </Line>
-          </LineChart>
-        </ChartContainer>
-      </CardContent>
-    </Card>
+    <ChartContainer config={chartConfig} className="w-full h-full">
+      <LineChart
+        accessibilityLayer
+        data={data}
+        margin={{
+          top: 200,
+        }}
+      >
+        {showGridLines && <CartesianGrid vertical={false} />}{' '}
+        {/* Conditionally render gridlines */}
+        {showXAxis && (
+          <XAxis
+            dataKey="month"
+            tickLine={false}
+            axisLine={false}
+            tickMargin={8}
+            tickFormatter={(value) => value.slice(0, 3)} // Shorten the month name (e.g., "January" -> "Jan")
+          />
+        )}
+        <ChartTooltip
+          cursor={false}
+          content={<ChartTooltipContent hideLabel />}
+        />
+        <Line
+          dataKey={dataKey}
+          type="linear"
+          stroke={color}
+          strokeWidth={2}
+          dot={false}
+        >
+          {/* Label the highest point (most recent occurrence) */}
+          <LabelList
+            dataKey={dataKey}
+            position="top"
+            content={({ x, y, value, index }) =>
+              value === maxData && data[index].month === maxDataPoint.month ? (
+                <text
+                  x={x}
+                  y={y - 10} // Adjust to place the label above the point
+                  textAnchor="middle"
+                  fill={color}
+                  fontSize={12}
+                >
+                  {`${maxData}`}
+                </text>
+              ) : null
+            }
+          />
+          {/* Label the lowest point (most recent occurrence) */}
+          <LabelList
+            dataKey={dataKey}
+            position="bottom"
+            content={({ x, y, value, index }) =>
+              value === minData && data[index].month === minDataPoint.month ? (
+                <text
+                  x={x}
+                  y={y + 20} // Adjust to place the label below the point
+                  textAnchor="middle"
+                  fill={color}
+                  fontSize={12}
+                >
+                  {`${minData}`}
+                </text>
+              ) : null
+            }
+          />
+        </Line>
+      </LineChart>
+    </ChartContainer>
   );
 };
