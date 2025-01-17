@@ -1,1 +1,1 @@
-export { TrendLine } from './TrendLine'
+export { TrendLine } from './TrendLine';
