@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react';
+
 import { DistributionBar, DistributionBarProps } from './DistributionBar';
 
 // Default export to set up metadata about the story
