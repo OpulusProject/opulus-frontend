@@ -1,11 +1,8 @@
 import React from 'react';
-
-import { Chart } from '@/components/Chart';
-import { Typography } from '@/components/Typography';
-import { useMe } from '@/hooks/user/useMe';
 import { TrendLine } from '@/components/TrendLine';
+import { Typography } from '@/components/Typography';
 import { Card } from '@/components/ui/card';
-import { DistributionBar } from '@/components/DistributionBar';
+import { useMe } from '@/hooks/user/useMe';
 
 export const Overview: React.FC = () => {
   const { data: user } = useMe();
@@ -48,7 +45,7 @@ export const Overview: React.FC = () => {
       <Typography variant="extra-extra-large" className="m-4">
         Hello Mr {user?.firstName}
       </Typography>
-      <div class="flex flex-row">
+      <div className="flex flex-row">
         <Card className="w-[872px] h-[510px] m-4">
           <TrendLine
             data={days}

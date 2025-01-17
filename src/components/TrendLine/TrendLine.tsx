@@ -1,5 +1,6 @@
-import { CartesianGrid, Line, LineChart, XAxis, LabelList } from 'recharts';
 import React from 'react';
+
+import { CartesianGrid, LabelList, Line, LineChart, XAxis } from 'recharts';
 
 import {
   ChartConfig,
@@ -9,25 +10,19 @@ import {
 } from '@/components/ui/chart';
 
 type TrendLineProps = {
-  title?: string;
-  description?: string;
   data: { month: string; [key: string]: number }[];
   dataKey: string;
   label: string;
   color?: string;
-  footerText?: string;
   showXAxis?: boolean;
   showGridLines?: boolean;
 };
 
 export const TrendLine: React.FC<TrendLineProps> = ({
-  title,
-  description,
   data,
   dataKey,
   label,
   color = '#65FC9F',
-  footerText,
   showXAxis = false,
   showGridLines = false,
 }) => {
