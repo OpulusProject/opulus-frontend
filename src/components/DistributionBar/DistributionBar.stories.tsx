@@ -34,4 +34,3 @@ Default.args = {
   colors: ['#FF5733', '#33FF57', '#3357FF', '#F0F0F0'],
   gap: 4,
 };
-
