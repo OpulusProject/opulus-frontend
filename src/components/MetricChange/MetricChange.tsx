@@ -23,7 +23,7 @@ export const MetricChange: React.FC<MetricChangeProps> = ({
         <Typography variant="small">{`.${decimalPart}`}</Typography>
         </div>
         <div className="flex items-baseline">
-        <Typography variant="small">{`${amountChange} (${percentChange}%)`}</Typography>
+        <Typography className ="text-[#65FC9F]" variant="small">{`${amountChange} (${percentChange}%)`}</Typography>
         <Typography variant="small">{`since  last week`}</Typography>
         </div>
     </div>
