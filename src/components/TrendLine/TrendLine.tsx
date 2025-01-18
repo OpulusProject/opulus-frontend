@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { CartesianGrid, LabelList, Line, LineChart, XAxis } from 'recharts';
 
 import {
@@ -9,8 +8,13 @@ import {
   ChartTooltipContent,
 } from '@/components/ui/chart';
 
+type TrendData = {
+  month: string;
+  [key: string]: number; // This allows for dynamic properties
+};
+
 type TrendLineProps = {
-  data: { month: string; [key: string]: number }[];
+  data: TrendData[];
   dataKey: string;
   label: string;
   color?: string;
@@ -68,7 +72,7 @@ export const TrendLine: React.FC<TrendLineProps> = ({
             tickLine={false}
             axisLine={false}
             tickMargin={8}
-            tickFormatter={(value) => value.slice(0, 3)} // Shorten the month name (e.g., "January" -> "Jan")
+            tickFormatter={(value: string) => value.slice(0, 3)} // Shorten the month name (e.g., "January" -> "Jan")
           />
         )}
         <ChartTooltip
@@ -86,8 +90,9 @@ export const TrendLine: React.FC<TrendLineProps> = ({
           <LabelList
             dataKey={dataKey}
             position="top"
-            content={({ x, y, value, index }) =>
-              value === maxData && data[index].month === maxDataPoint.month ? (
+            content={({ x, y, value, index }) => {
+              const item = data[index] as TrendData; // Cast here
+              return value === maxData && item.month === maxDataPoint.month ? (
                 <text
                   x={x}
                   y={y - 10} // Adjust to place the label above the point
@@ -97,15 +102,16 @@ export const TrendLine: React.FC<TrendLineProps> = ({
                 >
                   {`${maxData}`}
                 </text>
-              ) : null
-            }
+              ) : null;
+            }}
           />
           {/* Label the most recent lowest point */}
           <LabelList
             dataKey={dataKey}
             position="bottom"
-            content={({ x, y, value, index }) =>
-              value === minData && data[index].month === minDataPoint.month ? (
+            content={({ x, y, value, index }) => {
+              const item = data[index] as TrendData; // Cast here
+              return value === minData && item.month === minDataPoint.month ? (
                 <text
                   x={x}
                   y={y + 20} // Adjust to place the label below the point
@@ -115,8 +121,8 @@ export const TrendLine: React.FC<TrendLineProps> = ({
                 >
                   {`${minData}`}
                 </text>
-              ) : null
-            }
+              ) : null;
+            }}
           />
         </Line>
       </LineChart>

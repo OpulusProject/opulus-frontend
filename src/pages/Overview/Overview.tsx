@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { TrendLine } from '@/components/TrendLine';
 import { Typography } from '@/components/Typography';
 import { Card } from '@/components/ui/card';
