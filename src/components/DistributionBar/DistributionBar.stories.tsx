@@ -21,7 +21,7 @@ export default {
       description: 'An array of colors for each segment',
     },
   },
-} as Meta;
+} as Meta<DistributionBarProps>;
 
 // Template for creating stories based on props
 const Template: StoryFn<DistributionBarProps> = (args) => (
@@ -29,7 +29,8 @@ const Template: StoryFn<DistributionBarProps> = (args) => (
 );
 
 // Default story using default args
-export const Default = Template.bind({});
+export const Default: StoryFn<DistributionBarProps> = Template.bind({});
+
 Default.args = {
   values: [35, 30, 20, 15],
   colors: ['#FF5733', '#33FF57', '#3357FF', '#F0F0F0'],

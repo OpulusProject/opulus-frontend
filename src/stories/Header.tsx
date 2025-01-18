@@ -5,13 +5,6 @@ type User = {
   name: string;
 };
 
-export interface HeaderProps {
-  user?: User;
-  onLogin?: () => void;
-  onLogout?: () => void;
-  onCreateAccount?: () => void;
-}
-
 export const Header = ({
   user,
   onLogin,
@@ -67,3 +60,10 @@ export const Header = ({
     </div>
   </header>
 );
+
+export interface HeaderProps {
+  user?: User;
+  onLogin?: () => void;
+  onLogout?: () => void;
+  onCreateAccount?: () => void;
+}
