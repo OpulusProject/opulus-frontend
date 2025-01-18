@@ -8,7 +8,17 @@ module.exports = {
   },
   env: { browser: true, es2020: true },
   plugins: ['react-refresh', 'prettier', 'import', 'sort-exports'],
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:import/recommended', 'plugin:@tanstack/query/recommended', 'plugin:@typescript-eslint/recommended-type-checked', 'plugin:react-hooks/recommended', 'prettier', 'plugin:storybook/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:import/recommended',
+    'plugin:@tanstack/query/recommended',
+    'plugin:@typescript-eslint/recommended-type-checked',
+    'plugin:react-hooks/recommended',
+    'prettier',
+    'plugin:storybook/recommended',
+  ],
   rules: {
     'sort-imports': [
       'error',
