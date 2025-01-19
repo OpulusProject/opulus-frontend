@@ -9,7 +9,7 @@ export const Overview: React.FC = () => {
 
   return (
     <div>
-      <Typography variant={'D4'}>Hello Mr {user?.firstName}</Typography>
+      <Typography variant={'h1'}>Hello Mr {user?.firstName}</Typography>
       <Chart width={1448} height={600} />
     </div>
   );
