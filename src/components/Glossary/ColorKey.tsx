@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface ColorKeyProps {
+interface GlossaryRowColorProps {
   color: string;
 }
 
-export const ColorKey: React.FC<ColorKeyProps> = ({ color }) => {
+export const GlossaryRowColor: React.FC<GlossaryRowColorProps> = ({ color }) => {
   return (
     <div
       style={{
