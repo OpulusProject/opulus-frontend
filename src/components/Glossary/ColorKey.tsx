@@ -4,7 +4,9 @@ interface GlossaryRowColorProps {
   color: string;
 }
 
-export const GlossaryRowColor: React.FC<GlossaryRowColorProps> = ({ color }) => {
+export const GlossaryRowColor: React.FC<GlossaryRowColorProps> = ({
+  color,
+}) => {
   return (
     <div
       style={{
