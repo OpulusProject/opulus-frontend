@@ -52,10 +52,10 @@ export const Login: React.FC = () => {
   return (
     <div className={styles.loginContainer}>
       <div className={styles.header}>
-        <Typography variant="extra-large-600" className={styles.text}>
+        <Typography variant={'h3'}>
           Welcome to Opulus
         </Typography>
-        <Typography variant="small-medium-400" className={styles.caption}>
+        <Typography variant={'p2'} color='#71717A'>
           Select one of the options below to sign in.
         </Typography>
       </div>
@@ -64,7 +64,7 @@ export const Login: React.FC = () => {
           <GoogleOAuthButton />
           <div className={styles.separatorContainer}>
             <Separator className={styles.separator} />
-            <Typography variant="small" className={styles.caption}>
+            <Typography variant={'p3'}>
               or
             </Typography>
             <Separator className={styles.separator} />
@@ -109,7 +109,7 @@ export const Login: React.FC = () => {
         </div>
       </Form>
       <div className={styles.footer}>
-        <Typography variant="small-medium-400" className={styles.caption}>
+        <Typography variant={'p2'} color='#71717A'>
           Don&apos;t have an account yet?
         </Typography>
         <Button
@@ -117,7 +117,7 @@ export const Login: React.FC = () => {
           className={styles.footerButton}
           onClick={handleNavigateToSignup}
         >
-          <Typography variant="small-medium-400" className={styles.text}>
+          <Typography variant={'l2'}>
             Sign up
           </Typography>
         </Button>
