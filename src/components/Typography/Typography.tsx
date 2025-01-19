@@ -38,33 +38,34 @@ interface TypographyProps {
     | null
     | (string | JSX.Element)[]
     | ReactNode;
+  color?: string;
 }
 
 const typographyClasses = {
-  D1: 'text-[64pt] leading-[80pt] font-[700]',
-  D2: 'text-[56pt] leading-[72pt] font-[700]',
-  D3: 'text-[48pt] leading-[64pt] font-[700]',
-  D4: 'text-[40pt] leading-[56pt] font-[700]',
+  d1: 'text-[64px] leading-[80px] font-[700]',
+  d2: 'text-[56px] leading-[72px] font-[700]',
+  d3: 'text-[48px] leading-[64px] font-[700]',
+  d4: 'text-[40px] leading-[56px] font-[700]',
 
-  H1: 'text-[32pt] leading-[40pt] font-[600]',
-  H2: 'text-[28pt] leading-[36pt] font-[600]',
-  H3: 'text-[24pt] leading-[32pt] font-[600]',
-  H4: 'text-[20pt] leading-[28pt] font-[600]',
+  h1: 'text-[32px] leading-[40px] font-[600]',
+  h2: 'text-[28px] leading-[36px] font-[600]',
+  h3: 'text-[24px] leading-[32px] font-[600]',
+  h4: 'text-[20px] leading-[28px] font-[600]',
 
-  S1: 'text-[18pt] leading-[24pt] font-[600]',
-  S2: 'text-[16pt] leading-[22pt] font-[600]',
-  S3: 'text-[14pt] leading-[20pt] font-[600]',
-  S4: 'text-[12pt] leading-[16pt] font-[600]',
+  s1: 'text-[18px] leading-[24px] font-[600]',
+  s2: 'text-[16px] leading-[24px] font-[600]',
+  s3: 'text-[14px] leading-[20px] font-[600]',
+  s4: 'text-[12px] leading-[16px] font-[600]',
 
-  L1: 'text-[18pt] leading-[24pt] font-[500]',
-  L2: 'text-[16pt] leading-[22pt] font-[500]',
-  L3: 'text-[14pt] leading-[20pt] font-[500]',
-  L4: 'text-[12pt] leading-[16pt] font-[500]',
+  l1: 'text-[18px] leading-[24px] font-[500]',
+  l2: 'text-[16px] leading-[24px] font-[500]',
+  l3: 'text-[14px] leading-[20px] font-[500]',
+  l4: 'text-[12px] leading-[16px] font-[500]',
 
-  P1: 'text-[18pt] leading-[24pt] font-[400]',
-  P2: 'text-[16pt] leading-[22pt] font-[400]',
-  P3: 'text-[14pt] leading-[20pt] font-[400]',
-  P4: 'text-[12pt] leading-[16pt] font-[400]',
+  p1: 'text-[18px] leading-[24px] font-[400]',
+  p2: 'text-[16px] leading-[24px] font-[400]',
+  p3: 'text-[14px] leading-[20px] font-[400]',
+  p4: 'text-[12px] leading-[16px] font-[400]',
 };
 
 export const Typography: React.FC<TypographyProps> = ({
@@ -72,6 +73,7 @@ export const Typography: React.FC<TypographyProps> = ({
   variant,
   className,
   children,
+  color,
 }) => {
   return (
     <p
@@ -81,6 +83,7 @@ export const Typography: React.FC<TypographyProps> = ({
         typographyClasses[variant],
         className
       )}
+      style={color? {color}:undefined}
     >
       {children}
     </p>
