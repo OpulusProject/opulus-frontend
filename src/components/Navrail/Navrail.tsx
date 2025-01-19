@@ -12,6 +12,7 @@ import {
 import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { Typography } from '@/components/Typography';
 import { Button } from '@/components/ui/button';
 import {
   Sidebar,
@@ -26,7 +27,6 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar';
 import { ROUTES } from '@/pages/routes';
-import { Typography } from '../Typography';
 
 interface SidebarItem {
   title: string;
