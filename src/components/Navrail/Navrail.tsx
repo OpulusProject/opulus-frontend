@@ -26,6 +26,7 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar';
 import { ROUTES } from '@/pages/routes';
+import { Typography } from '../Typography';
 
 interface SidebarItem {
   title: string;
@@ -89,8 +90,7 @@ const renderSidebarMenuItems = (
       <SidebarMenuButton asChild>
         <div onClick={() => navigate(item.url)}>
           <item.icon />
-          {/* todo: replace with typography component */}
-          <span>{item.title}</span>{' '}
+          <Typography variant={'l2'}>{item.title}</Typography>
         </div>
       </SidebarMenuButton>
     </SidebarMenuItem>
