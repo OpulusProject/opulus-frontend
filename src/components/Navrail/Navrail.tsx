@@ -90,7 +90,7 @@ const renderSidebarMenuItems = (
       <SidebarMenuButton asChild>
         <div onClick={() => navigate(item.url)}>
           <item.icon />
-          <Typography variant={'l2'}>{item.title}</Typography>
+          <Typography variant='l2'>{item.title}</Typography>
         </div>
       </SidebarMenuButton>
     </SidebarMenuItem>

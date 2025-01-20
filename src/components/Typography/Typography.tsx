@@ -2,26 +2,26 @@ import classNames from 'classnames';
 import { ReactNode } from 'react';
 
 type FontVariant =
-  | 'D1'
-  | 'D2'
-  | 'D3'
-  | 'D4'
-  | 'H1'
-  | 'H2'
-  | 'H3'
-  | 'H4'
-  | 'S1'
-  | 'S2'
-  | 'S3'
-  | 'S4'
-  | 'L1'
-  | 'L2'
-  | 'L3'
-  | 'L4'
-  | 'P1'
-  | 'P2'
-  | 'P3'
-  | 'P4';
+  | 'd1'
+  | 'd2'
+  | 'd3'
+  | 'd4'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 's1'
+  | 's2'
+  | 's3'
+  | 's4'
+  | 'l1'
+  | 'l2'
+  | 'l3'
+  | 'l4'
+  | 'p1'
+  | 'p2'
+  | 'p3'
+  | 'p4';
 
 interface TypographyProps {
   id?: string;
@@ -79,7 +79,7 @@ export const Typography: React.FC<TypographyProps> = ({
       id={id}
       className={classNames(
         'font-inter',
-        typographyClasses[variant] as string,
+        typographyClasses[variant],
         className
       )}
       style={color ? { color } : undefined}
