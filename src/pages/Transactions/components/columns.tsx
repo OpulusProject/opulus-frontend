@@ -108,10 +108,8 @@ export const columns: ColumnDef<Task>[] = [
 
       return (
         <div className="flex flex-row gap-1 justify-end mr-3">
-          <Typography variant="medium">{formattedAmount}</Typography>
-          <Typography variant="small" className="mt-1 text-zinc-500">
-            {row.original.currencyCode}
-          </Typography>
+          <Typography variant="p3">{formattedAmount}</Typography>
+          <Typography variant="p3">{row.original.currencyCode}</Typography>
         </div>
       );
     },

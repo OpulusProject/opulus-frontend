@@ -20,12 +20,8 @@ export const PersonalDetails: React.FC = () => {
   return (
     <>
       <div className={styles.header}>
-        <Typography variant="extra-large-600" className={styles.text}>
-          People call us “Oh-pull-us”
-        </Typography>
-        <Typography variant="small-medium-400" className={styles.caption}>
-          What should we call you?
-        </Typography>
+        <Typography variant="h3">People call us “Oh-pull-us”</Typography>
+        <Typography variant="p2">What should we call you?</Typography>
       </div>
       <Form {...form}>
         <div className={styles.body}>

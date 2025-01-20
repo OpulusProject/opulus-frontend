@@ -12,6 +12,7 @@ import {
 import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { Typography } from '@/components/Typography';
 import { Button } from '@/components/ui/button';
 import {
   Sidebar,
@@ -89,8 +90,7 @@ const renderSidebarMenuItems = (
       <SidebarMenuButton asChild>
         <div onClick={() => navigate(item.url)}>
           <item.icon />
-          {/* todo: replace with typography component */}
-          <span>{item.title}</span>{' '}
+          <Typography variant="l2">{item.title}</Typography>
         </div>
       </SidebarMenuButton>
     </SidebarMenuItem>
