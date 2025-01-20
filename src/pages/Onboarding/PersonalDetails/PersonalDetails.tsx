@@ -21,7 +21,7 @@ export const PersonalDetails: React.FC = () => {
     <>
       <div className={styles.header}>
         <Typography variant="h3">People call us “Oh-pull-us”</Typography>
-        <Typography variant="p2" color="#71717A">
+        <Typography variant="p2">
           What should we call you?
         </Typography>
       </div>

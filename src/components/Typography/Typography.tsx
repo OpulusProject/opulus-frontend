@@ -37,7 +37,6 @@ interface TypographyProps {
     | null
     | (string | JSX.Element)[]
     | ReactNode;
-  color?: string;
 }
 
 const typographyClasses = {
@@ -72,7 +71,6 @@ export const Typography: React.FC<TypographyProps> = ({
   variant,
   className,
   children,
-  color,
 }) => {
   return (
     <p
@@ -82,7 +80,6 @@ export const Typography: React.FC<TypographyProps> = ({
         typographyClasses[variant],
         className
       )}
-      style={color ? { color } : undefined}
     >
       {children}
     </p>

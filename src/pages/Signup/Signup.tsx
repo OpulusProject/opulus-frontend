@@ -59,7 +59,7 @@ export const Signup: React.FC = () => {
     <div className={styles.signupContainer}>
       <div className={styles.header}>
         <Typography variant="h3">Get started with Opulus</Typography>
-        <Typography variant="p2" color="#71717A">
+        <Typography variant="p2">
           Select one of the options below to sign up.
         </Typography>
       </div>
@@ -114,7 +114,7 @@ export const Signup: React.FC = () => {
         </div>
       </Form>
       <div className={styles.footer}>
-        <Typography variant="p2" color="#71717A">
+        <Typography variant="p2">
           Already have an account?
         </Typography>
         <Button

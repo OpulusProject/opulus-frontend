@@ -53,7 +53,7 @@ export const Login: React.FC = () => {
     <div className={styles.loginContainer}>
       <div className={styles.header}>
         <Typography variant="h3">Welcome to Opulus</Typography>
-        <Typography variant="p2" color="#71717A">
+        <Typography variant="p2">
           Select one of the options below to sign in.
         </Typography>
       </div>
@@ -105,7 +105,7 @@ export const Login: React.FC = () => {
         </div>
       </Form>
       <div className={styles.footer}>
-        <Typography variant="p2" color="#71717A">
+        <Typography variant="p2">
           Don&apos;t have an account yet?
         </Typography>
         <Button
