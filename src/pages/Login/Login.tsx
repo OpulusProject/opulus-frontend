@@ -105,9 +105,7 @@ export const Login: React.FC = () => {
         </div>
       </Form>
       <div className={styles.footer}>
-        <Typography variant="p2">
-          Don&apos;t have an account yet?
-        </Typography>
+        <Typography variant="p2">Don&apos;t have an account yet?</Typography>
         <Button
           variant="link"
           className={styles.footerButton}

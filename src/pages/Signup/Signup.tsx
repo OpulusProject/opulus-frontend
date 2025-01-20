@@ -114,9 +114,7 @@ export const Signup: React.FC = () => {
         </div>
       </Form>
       <div className={styles.footer}>
-        <Typography variant="p2">
-          Already have an account?
-        </Typography>
+        <Typography variant="p2">Already have an account?</Typography>
         <Button
           variant="link"
           className={styles.footerButton}

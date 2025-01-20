@@ -16,9 +16,7 @@ export const Cover: React.FC = () => {
           “A simple fact that is hard to learn is that the time to save money is
           when you have some.”
         </Typography>
-        <Typography variant="l1">
-          Jon Moore
-        </Typography>
+        <Typography variant="l1">Jon Moore</Typography>
       </div>
     </div>
   );
