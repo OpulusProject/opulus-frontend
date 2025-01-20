@@ -77,7 +77,7 @@ export const Transactions: React.FC = () => {
   const tasks = z.array(taskSchema).parse(data);
   return (
     <div>
-      <Typography variant='h1'>Transactions</Typography>
+      <Typography variant="h1">Transactions</Typography>
       <DataTable data={tasks} columns={columns} />
     </div>
   );

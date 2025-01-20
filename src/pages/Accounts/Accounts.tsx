@@ -11,7 +11,7 @@ export const Accounts: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <Typography variant='h1'>Accounts</Typography>
+        <Typography variant="h1">Accounts</Typography>
         <Button className={styles.button}>
           <Plus size={16} />
           Add account
