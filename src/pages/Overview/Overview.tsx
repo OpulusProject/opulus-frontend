@@ -11,7 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { GlossaryCell, GlossaryRowColor } from '@/components/Glossary';
+import { GlossaryLabel, GlossaryValue, GlossaryRowColor } from '@/components/Glossary';
 import { Separator } from '@radix-ui/react-separator';
 import { Card } from '@/components/ui/card';
 
@@ -29,23 +29,23 @@ export const Overview: React.FC = () => {
               <TableBody>
                 <TableRow>
                   <GlossaryRowColor color={'#14B8A6'} />
-                  <GlossaryCell text="Housing" />
-                  <GlossaryCell text="X%" type='value'/>
+                  <GlossaryLabel text="Housing" />
+                  <GlossaryValue text="X%" />
                 </TableRow>
                 <TableRow>
                   <GlossaryRowColor color={'#F4A261'} />
-                  <GlossaryCell text="Debt & Fees" />
-                  <GlossaryCell text="X%" type='value'/>
+                  <GlossaryLabel text="Debt & Fees" />
+                  <GlossaryValue text="X%" />
                 </TableRow>
                 <TableRow>
                   <GlossaryRowColor color={'#E35D6A'} />
-                  <GlossaryCell text="Food" />
-                  <GlossaryCell text="X%" type='value'/>
+                  <GlossaryLabel text="Food" />
+                  <GlossaryValue text="X%" />
                 </TableRow>
                 <TableRow>
                   <GlossaryRowColor color={'#3B82F6'} />
-                  <GlossaryCell text="Shopping" />
-                  <GlossaryCell text="X%" type='value'/>
+                  <GlossaryLabel text="Shopping" />
+                  <GlossaryValue text="X%" />
                 </TableRow>
               </TableBody>
             </Table>
@@ -53,23 +53,23 @@ export const Overview: React.FC = () => {
               <TableBody>
                 <TableRow>
                   <GlossaryRowColor color={'#14B8A6'} />
-                  <GlossaryCell text="Housing" />
-                  <GlossaryCell text="X%" type='value'/>
+                  <GlossaryLabel text="Housing" />
+                  <GlossaryValue text="X%" />
                 </TableRow>
                 <TableRow>
                   <GlossaryRowColor color={'#F4A261'} />
-                  <GlossaryCell text="Debt & Fees" />
-                  <GlossaryCell text="X%" type='value'/>
+                  <GlossaryLabel text="Debt & Fees" />
+                  <GlossaryValue text="X%" />
                 </TableRow>
                 <TableRow>
                   <GlossaryRowColor color={'#E35D6A'} />
-                  <GlossaryCell text="Food" />
-                  <GlossaryCell text="X%" type='value'/>
+                  <GlossaryLabel text="Food" />
+                  <GlossaryValue text="X%" />
                 </TableRow>
                 <TableRow>
                   <GlossaryRowColor color={'#3B82F6'} />
-                  <GlossaryCell text="Shopping" />
-                  <GlossaryCell text="X%" type='value'/>
+                  <GlossaryLabel text="Shopping" />
+                  <GlossaryValue text="X%" />
                 </TableRow>
               </TableBody>
             </Table>

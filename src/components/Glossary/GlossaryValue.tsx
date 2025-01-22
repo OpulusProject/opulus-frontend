@@ -3,31 +3,25 @@ import { ReactNode } from 'react';
 import { Typography } from '../Typography';
 import { TableCell } from '../ui/table';
 
-type CellVariant =
-  | 'text'
-  | 'value';
 
-interface GlossaryCellProps {
+interface GlossaryValueProps {
   fontVariant?: string;
   className?: string;
   text?: string;
-  type?: CellVariant;
 }
 
-export const GlossaryCell: React.FC<GlossaryCellProps> = ({
+export const GlossaryValue: React.FC<GlossaryValueProps> = ({
   fontVariant = 'l3',
   className,
   text,
-  type = 'text',
 }) => {
-
-  const cellClassName = classNames(className, {
-    'text-right': type === 'value',
-  });
 
   return (
     <TableCell>
-      <Typography variant={fontVariant} className={cellClassName}>
+      <Typography variant={fontVariant}  className={classNames(
+        'text-right',
+        className
+      )}>
         {text}
       </Typography>
     </TableCell>

@@ -1,2 +1,3 @@
 export { GlossaryRowColor } from './GlossaryRowColor';
-export { GlossaryCell } from './GlossaryCell';
+export { GlossaryLabel } from './GlossaryLabel';
+export { GlossaryValue } from './GlossaryValue';
