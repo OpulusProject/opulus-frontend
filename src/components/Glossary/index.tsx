@@ -1,1 +1,2 @@
-export { GlossaryRowColor } from './ColorKey';
+export { GlossaryRowColor } from './GlossaryRowColor';
+export { GlossaryCell } from './GlossaryCell';
