@@ -1,8 +1,7 @@
 import classNames from 'classnames';
-import { ReactNode } from 'react';
-import { Typography } from '../Typography';
-import { TableCell } from '../ui/table';
 
+import { Typography } from '@/components/Typography';
+import { TableCell } from '@/components/ui/table';
 
 interface GlossaryValueProps {
   fontVariant?: string;
@@ -15,13 +14,12 @@ export const GlossaryValue: React.FC<GlossaryValueProps> = ({
   className,
   text,
 }) => {
-
   return (
-    <TableCell className='px-0'>
-      <Typography variant={fontVariant}  className={classNames(
-        'text-right',
-        className
-      )}>
+    <TableCell className="px-0">
+      <Typography
+        variant={fontVariant}
+        className={classNames('text-right', className)}
+      >
         {text}
       </Typography>
     </TableCell>

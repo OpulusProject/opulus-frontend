@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { TableBody } from '../ui/table';
 
+import { TableBody } from '@/components/ui/table';
 
 interface GlossaryBodyProps {
   className?: string;
@@ -11,10 +11,5 @@ export const GlossaryBody: React.FC<GlossaryBodyProps> = ({
   className,
   children,
 }) => {
-
-  return (
-    <TableBody className={classNames(className)}>
-        {children}
-    </TableBody>
-  );
+  return <TableBody className={classNames(className)}>{children}</TableBody>;
 };

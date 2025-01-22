@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
-import { TableCell } from '../ui/table';
+
+import { TableCell } from '@/components/ui/table';
 
 interface GlossaryRowColorProps {
   color: string;

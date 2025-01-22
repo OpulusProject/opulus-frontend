@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { TableRow } from '../ui/table';
 
+import { TableRow } from '@/components/ui/table';
 
 interface GlossaryRowProps {
   className?: string;
@@ -11,13 +11,9 @@ export const GlossaryRow: React.FC<GlossaryRowProps> = ({
   className,
   children,
 }) => {
-
   return (
-    <TableRow className={classNames(
-        'pointer-events-none',
-        className
-      )}>
-        {children}
+    <TableRow className={classNames('pointer-events-none', className)}>
+      {children}
     </TableRow>
   );
 };
