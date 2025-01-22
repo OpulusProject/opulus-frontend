@@ -11,7 +11,7 @@ const meta: Meta<typeof DistributionBar> = {
 export default meta;
 type Story = StoryObj<typeof DistributionBar>;
 
-export const MultipleSegment: Story = {
+export const MultipleSegments: Story = {
   render: () => (
     <DistributionBar total={100}>
       <DistributionBarSegment value={65} color="#65FC9F" />
