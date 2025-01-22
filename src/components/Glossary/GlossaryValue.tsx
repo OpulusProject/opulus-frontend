@@ -11,13 +11,13 @@ interface GlossaryValueProps {
 }
 
 export const GlossaryValue: React.FC<GlossaryValueProps> = ({
-  fontVariant = 'l3',
+  fontVariant = 'p3',
   className,
   text,
 }) => {
 
   return (
-    <TableCell>
+    <TableCell className='px-0'>
       <Typography variant={fontVariant}  className={classNames(
         'text-right',
         className
