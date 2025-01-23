@@ -12,7 +12,11 @@ export const GlossaryColumn: React.FC<GlossaryColumnProps> = ({
 }) => {
   return (
     <TableBody
-      className={classNames('w-full flex flex-col gap-6', className, 'GlossaryColumn-root')}
+      className={classNames(
+        'w-full flex flex-col gap-6',
+        className,
+        'GlossaryColumn-root'
+      )}
     >
       {children}
     </TableBody>
