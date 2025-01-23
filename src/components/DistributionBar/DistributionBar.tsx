@@ -3,10 +3,10 @@ import React from 'react';
 
 import { DistributionBarProvider } from './DistributionBarContext';
 
-type DistributionBarProps = React.PropsWithChildren<{
+interface DistributionBarProps extends React.PropsWithChildren {
   total: number;
   className?: string;
-}>;
+}
 
 export const DistributionBar: React.FC<DistributionBarProps> = ({
   total,
