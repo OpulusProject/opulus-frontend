@@ -9,3 +9,6 @@ export * from '@/components/Glossary/GlossaryRow';
 export * from '@/components/Glossary/GlossaryRowColor';
 export * from '@/components/Glossary/GlossaryRowLabel';
 export * from '@/components/Glossary/GlossaryRowValue';
+
+// PieGraph
+export * from '@/components/PieGraph/PieGraph';
