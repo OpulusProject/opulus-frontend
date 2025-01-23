@@ -3,11 +3,11 @@ import React from 'react';
 
 import { useDistributionBarContext } from './DistributionBarContext';
 
-type DistributionBarSegmentProps = {
+interface DistributionBarSegmentProps {
   value: number;
   color: string;
   className?: string;
-};
+}
 
 export const DistributionBarSegment: React.FC<DistributionBarSegmentProps> = ({
   value,
