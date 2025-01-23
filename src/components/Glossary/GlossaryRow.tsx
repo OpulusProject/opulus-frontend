@@ -12,7 +12,7 @@ export const GlossaryRow: React.FC<GlossaryRowProps> = ({
   children,
 }) => {
   return (
-    <TableRow className={classNames('pointer-events-none', className)}>
+    <TableRow className={classNames('pointer-events-none border-0', className)}>
       {children}
     </TableRow>
   );
