@@ -2,9 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Glossary } from './Glossary';
 import { GlossaryColumn } from './GlossaryColumn';
-import { GlossaryRowLabel } from './GlossaryRowLabel';
 import { GlossaryRow } from './GlossaryRow';
 import { GlossaryRowColor } from './GlossaryRowColor';
+import { GlossaryRowLabel } from './GlossaryRowLabel';
 import { GlossaryRowValue } from './GlossaryRowValue';
 
 const meta: Meta<typeof Glossary> = {
@@ -20,45 +20,45 @@ export const BasicGlossary: Story = {
       <GlossaryColumn>
         <GlossaryRow>
           <GlossaryRowColor color={'#14B8A6'} />
-          <GlossaryRowLabel text="Housing" />
-          <GlossaryRowValue text="X%" />
+          <GlossaryRowLabel>Housing</GlossaryRowLabel>
+          <GlossaryRowValue>36.1%</GlossaryRowValue>
         </GlossaryRow>
         <GlossaryRow>
           <GlossaryRowColor color={'#F4A261'} />
-          <GlossaryRowLabel text="Debt & Fees" />
-          <GlossaryRowValue text="X%" />
+          <GlossaryRowLabel>Debt & Fees</GlossaryRowLabel>
+          <GlossaryRowValue>13.3%</GlossaryRowValue>
         </GlossaryRow>
         <GlossaryRow>
           <GlossaryRowColor color={'#E35D6A'} />
-          <GlossaryRowLabel text="Food" />
-          <GlossaryRowValue text="X%" />
+          <GlossaryRowLabel>Food</GlossaryRowLabel>
+          <GlossaryRowValue>13.2%</GlossaryRowValue>
         </GlossaryRow>
         <GlossaryRow>
           <GlossaryRowColor color={'#3B82F6'} />
-          <GlossaryRowLabel text="Shopping" />
-          <GlossaryRowValue text="X%" />
+          <GlossaryRowLabel>Shopping</GlossaryRowLabel>
+          <GlossaryRowValue>12.6%</GlossaryRowValue>
         </GlossaryRow>
       </GlossaryColumn>
       <GlossaryColumn>
         <GlossaryRow>
           <GlossaryRowColor color={'#6366F1'} />
-          <GlossaryRowLabel text="Entertainment" />
-          <GlossaryRowValue text="X%" />
+          <GlossaryRowLabel>Entertainment</GlossaryRowLabel>
+          <GlossaryRowValue>10.9%</GlossaryRowValue>
         </GlossaryRow>
         <GlossaryRow>
           <GlossaryRowColor color={'#EC4899'} />
-          <GlossaryRowLabel text="Transport & Travel" />
-          <GlossaryRowValue text="X%" />
+          <GlossaryRowLabel>Transport & Travel</GlossaryRowLabel>
+          <GlossaryRowValue>5.2%</GlossaryRowValue>
         </GlossaryRow>
         <GlossaryRow>
           <GlossaryRowColor color={'#F59E0B'} />
-          <GlossaryRowLabel text="Health & Wellness" />
-          <GlossaryRowValue text="X%" />
+          <GlossaryRowLabel>Health & Wellness</GlossaryRowLabel>
+          <GlossaryRowValue>5.7%</GlossaryRowValue>
         </GlossaryRow>
         <GlossaryRow>
           <GlossaryRowColor color={'#FACC15'} />
-          <GlossaryRowLabel text="Other" />
-          <GlossaryRowValue text="X%" />
+          <GlossaryRowLabel>Other</GlossaryRowLabel>
+          <GlossaryRowValue>2.8%</GlossaryRowValue>
         </GlossaryRow>
       </GlossaryColumn>
     </Glossary>

@@ -2,21 +2,20 @@ import classNames from 'classnames';
 
 import { Typography } from '@/components/Typography';
 
-interface GlossaryRowLabelProps {
+interface GlossaryRowLabelProps extends React.PropsWithChildren {
   className?: string;
-  text?: string;
 }
 
 export const GlossaryRowLabel: React.FC<GlossaryRowLabelProps> = ({
   className,
-  text,
+  children,
 }) => {
   return (
     <Typography
       variant="l3"
       className={classNames('w-full', className, 'GlossaryRowLabel-root')}
     >
-      {text}
+      {children}
     </Typography>
   );
 };
