@@ -14,7 +14,36 @@ const meta: Meta<typeof Glossary> = {
 export default meta;
 type Story = StoryObj<typeof Glossary>;
 
-export const BasicGlossary: Story = {
+export const SingleColumnGlossary: Story = {
+  render: () => (
+    <Glossary>
+      <GlossaryColumn>
+        <GlossaryRow>
+          <GlossaryRowColor color={'#14B8A6'} />
+          <GlossaryRowLabel>Housing</GlossaryRowLabel>
+          <GlossaryRowValue>36.1%</GlossaryRowValue>
+        </GlossaryRow>
+        <GlossaryRow>
+          <GlossaryRowColor color={'#F4A261'} />
+          <GlossaryRowLabel>Debt & Fees</GlossaryRowLabel>
+          <GlossaryRowValue>13.3%</GlossaryRowValue>
+        </GlossaryRow>
+        <GlossaryRow>
+          <GlossaryRowColor color={'#E35D6A'} />
+          <GlossaryRowLabel>Food</GlossaryRowLabel>
+          <GlossaryRowValue>13.2%</GlossaryRowValue>
+        </GlossaryRow>
+        <GlossaryRow>
+          <GlossaryRowColor color={'#3B82F6'} />
+          <GlossaryRowLabel>Shopping</GlossaryRowLabel>
+          <GlossaryRowValue>12.6%</GlossaryRowValue>
+        </GlossaryRow>
+      </GlossaryColumn>
+    </Glossary>
+  ),
+};
+
+export const MultiColumnGlossary: Story = {
   render: () => (
     <Glossary>
       <GlossaryColumn>

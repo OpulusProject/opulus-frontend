@@ -13,7 +13,7 @@ export const GlossaryRowValue: React.FC<GlossaryRowValueProps> = ({
   return (
     <Typography
       variant="p3"
-      className={classNames('text-right', className, 'GlossaryRowValue-root')}
+      className={classNames(className, 'GlossaryRowValue-root')}
     >
       {children}
     </Typography>
