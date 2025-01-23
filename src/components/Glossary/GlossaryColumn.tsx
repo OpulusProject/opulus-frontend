@@ -10,5 +10,11 @@ export const GlossaryColumn: React.FC<GlossaryColumnProps> = ({
   className,
   children,
 }) => {
-  return <TableBody className={classNames(className)}>{children}</TableBody>;
+  return (
+    <TableBody
+      className={classNames('w-full', className, 'GlossaryColumn-root')}
+    >
+      {children}
+    </TableBody>
+  );
 };

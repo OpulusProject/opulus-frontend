@@ -8,7 +8,13 @@ interface GlossaryProps extends React.PropsWithChildren {
 
 export const Glossary: React.FC<GlossaryProps> = ({ className, children }) => {
   return (
-    <Table className={classNames('flex flex-row gap-10', className)}>
+    <Table
+      className={classNames(
+        'flex flex-row gap-10 w-full',
+        className,
+        'Glossary-root'
+      )}
+    >
       {children}
     </Table>
   );

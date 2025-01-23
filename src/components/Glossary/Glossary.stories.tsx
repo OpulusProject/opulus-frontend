@@ -2,10 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Glossary } from './Glossary';
 import { GlossaryColumn } from './GlossaryColumn';
-import { GlossaryLabel } from './GlossaryLabel';
+import { GlossaryRowLabel } from './GlossaryRowLabel';
 import { GlossaryRow } from './GlossaryRow';
 import { GlossaryRowColor } from './GlossaryRowColor';
-import { GlossaryValue } from './GlossaryValue';
+import { GlossaryRowValue } from './GlossaryRowValue';
 
 const meta: Meta<typeof Glossary> = {
   title: 'Components/Glossary',
@@ -20,45 +20,45 @@ export const BasicGlossary: Story = {
       <GlossaryColumn>
         <GlossaryRow>
           <GlossaryRowColor color={'#14B8A6'} />
-          <GlossaryLabel text="Housing" />
-          <GlossaryValue text="X%" />
+          <GlossaryRowLabel text="Housing" />
+          <GlossaryRowValue text="X%" />
         </GlossaryRow>
         <GlossaryRow>
           <GlossaryRowColor color={'#F4A261'} />
-          <GlossaryLabel text="Debt & Fees" />
-          <GlossaryValue text="X%" />
+          <GlossaryRowLabel text="Debt & Fees" />
+          <GlossaryRowValue text="X%" />
         </GlossaryRow>
         <GlossaryRow>
           <GlossaryRowColor color={'#E35D6A'} />
-          <GlossaryLabel text="Food" />
-          <GlossaryValue text="X%" />
+          <GlossaryRowLabel text="Food" />
+          <GlossaryRowValue text="X%" />
         </GlossaryRow>
         <GlossaryRow>
           <GlossaryRowColor color={'#3B82F6'} />
-          <GlossaryLabel text="Shopping" />
-          <GlossaryValue text="X%" />
+          <GlossaryRowLabel text="Shopping" />
+          <GlossaryRowValue text="X%" />
         </GlossaryRow>
       </GlossaryColumn>
       <GlossaryColumn>
         <GlossaryRow>
           <GlossaryRowColor color={'#6366F1'} />
-          <GlossaryLabel text="Entertainment" />
-          <GlossaryValue text="X%" />
+          <GlossaryRowLabel text="Entertainment" />
+          <GlossaryRowValue text="X%" />
         </GlossaryRow>
         <GlossaryRow>
           <GlossaryRowColor color={'#EC4899'} />
-          <GlossaryLabel text="Transport & Travel" />
-          <GlossaryValue text="X%" />
+          <GlossaryRowLabel text="Transport & Travel" />
+          <GlossaryRowValue text="X%" />
         </GlossaryRow>
         <GlossaryRow>
           <GlossaryRowColor color={'#F59E0B'} />
-          <GlossaryLabel text="Health & Wellness" />
-          <GlossaryValue text="X%" />
+          <GlossaryRowLabel text="Health & Wellness" />
+          <GlossaryRowValue text="X%" />
         </GlossaryRow>
         <GlossaryRow>
           <GlossaryRowColor color={'#FACC15'} />
-          <GlossaryLabel text="Other" />
-          <GlossaryValue text="X%" />
+          <GlossaryRowLabel text="Other" />
+          <GlossaryRowValue text="X%" />
         </GlossaryRow>
       </GlossaryColumn>
     </Glossary>

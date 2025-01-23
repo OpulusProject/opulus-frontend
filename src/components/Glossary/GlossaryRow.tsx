@@ -11,7 +11,13 @@ export const GlossaryRow: React.FC<GlossaryRowProps> = ({
   children,
 }) => {
   return (
-    <TableRow className={classNames('pointer-events-none border-0', className)}>
+    <TableRow
+      className={classNames(
+        'pointer-events-none border-0 flex flex-row items-center gap-3 w-full',
+        className,
+        'GlossaryRow-root'
+      )}
+    >
       {children}
     </TableRow>
   );
