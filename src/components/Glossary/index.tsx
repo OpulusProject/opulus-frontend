@@ -1,5 +1,5 @@
 export { Glossary } from './Glossary';
-export { GlossaryBody } from './GlossaryBody';
+export { GlossaryColumn } from './GlossaryColumn';
 export { GlossaryLabel } from './GlossaryLabel';
 export { GlossaryRow } from './GlossaryRow';
 export { GlossaryRowColor } from './GlossaryRowColor';

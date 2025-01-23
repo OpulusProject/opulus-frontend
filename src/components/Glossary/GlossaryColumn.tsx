@@ -2,12 +2,11 @@ import classNames from 'classnames';
 
 import { TableBody } from '@/components/ui/table';
 
-interface GlossaryBodyProps {
+interface GlossaryColumnProps extends React.PropsWithChildren {
   className?: string;
-  children?: React.ReactNode;
 }
 
-export const GlossaryBody: React.FC<GlossaryBodyProps> = ({
+export const GlossaryColumn: React.FC<GlossaryColumnProps> = ({
   className,
   children,
 }) => {

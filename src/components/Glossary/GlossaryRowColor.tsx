@@ -10,18 +10,14 @@ interface GlossaryRowColorProps {
 
 export const GlossaryRowColor: React.FC<GlossaryRowColorProps> = ({
   color,
-  className = 'p-0',
+  className,
 }) => {
   return (
-    <TableCell className={classNames(className)}>
-      <div
-        style={{
-          width: '8px',
-          height: '8px',
-          borderRadius: '50%',
-          backgroundColor: color,
-        }}
-      />
-    </TableCell>
+    <TableCell
+      className={classNames(
+        `p-0 w-[8px] h-[8px] rounded-full bg-[${color}]`,
+        className
+      )}
+    />
   );
 };

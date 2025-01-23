@@ -2,9 +2,8 @@ import classNames from 'classnames';
 
 import { TableRow } from '@/components/ui/table';
 
-interface GlossaryRowProps {
+interface GlossaryRowProps extends React.PropsWithChildren {
   className?: string;
-  children?: React.ReactNode;
 }
 
 export const GlossaryRow: React.FC<GlossaryRowProps> = ({
