@@ -10,17 +10,20 @@ const linkTokenSchema = z.object({
 });
 
 const createLinkToken = async () => {
-  const response = await client.post(API_URL, {
-    withCredentials: true,
-  });
+  const response = await client.post(
+    API_URL,
+    {},
+    {
+      withCredentials: true,
+    }
+  );
   return linkTokenSchema.parse(response.data);
 };
 
-export const useLinkToken = (userId: string) => {
+export const useLinkToken = () => {
   return useQuery({
-    queryKey: ['linkToken', userId],
+    queryKey: ['linkToken'],
     queryFn: () => createLinkToken(),
     retry: 3,
-    enabled: !!userId,
   });
 };

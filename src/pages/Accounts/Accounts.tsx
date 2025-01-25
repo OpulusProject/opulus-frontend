@@ -1,6 +1,7 @@
 import { Plus } from 'lucide-react';
 import React from 'react';
 
+import { LaunchLink } from '@/components/LaunchLink/LaunchLink';
 import { Typography } from '@/components/Typography';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -8,11 +9,13 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import styles from './Accounts.module.scss';
 
 export const Accounts: React.FC = () => {
+  const [linkOpened, setLinkOpened] = React.useState(false);
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <Typography variant="h1">Accounts</Typography>
-        <Button className={styles.button}>
+        <Button className={styles.button} onClick={() => setLinkOpened(true)}>
           <Plus size={16} />
           Add account
         </Button>
@@ -27,6 +30,7 @@ export const Accounts: React.FC = () => {
           <TabsTrigger value="creditcards">Credit Cards</TabsTrigger>
         </TabsList>
       </Tabs>
+      {linkOpened && <LaunchLink onClose={() => setLinkOpened(false)} />}
     </div>
   );
 };
