@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   BrowserRouter,
   Navigate,
@@ -38,6 +39,9 @@ const ProtectedRoute: React.FC = () => {
 };
 
 function App() {
+  //todo: build a toggle for light and dark mode, force dark mode for now
+  document.documentElement.classList.add('dark');
+
   return (
     <div>
       <BrowserRouter>
