@@ -17,7 +17,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { useLogin } from '@/hooks/auth/useLogin';
-import { useRegister } from '@/hooks/user/useRegister';
+import { useCreateUser } from '@/hooks/user/useCreateUser';
 import { ROUTES } from '@/pages/routes';
 
 import styles from './Signup.module.scss';
@@ -28,7 +28,7 @@ const formSchema = z.object({
 });
 
 export const Signup: React.FC = () => {
-  const { mutate: register, isPending } = useRegister();
+  const { mutate: createUser, isPending } = useCreateUser();
   const { mutate: login } = useLogin();
   const navigate = useNavigate();
 
@@ -39,8 +39,8 @@ export const Signup: React.FC = () => {
     },
   });
 
-  const handleRegister = (values: z.infer<typeof formSchema>) => {
-    register(values, {
+  const handleCreateUser = (values: z.infer<typeof formSchema>) => {
+    createUser(values, {
       onSuccess: () => {
         login(values, {
           onSuccess: () => {
@@ -72,7 +72,7 @@ export const Signup: React.FC = () => {
             <Separator className={styles.separator} />
           </div>
           <form
-            onSubmit={form.handleSubmit(handleRegister)}
+            onSubmit={form.handleSubmit(handleCreateUser)}
             className="space-y-4"
           >
             <FormField
