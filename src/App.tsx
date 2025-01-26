@@ -6,7 +6,7 @@ import {
   Routes,
 } from 'react-router-dom';
 
-import { useMe } from '@/hooks/user/useMe';
+import { useGetUser } from '@/hooks/user/useGetUser';
 import { Auth } from '@/layouts/Auth';
 import { Dashboard } from '@/layouts/Dashboard';
 import { Accounts } from '@/pages/Accounts';
@@ -18,7 +18,7 @@ import { Signup } from '@/pages/Signup';
 import { Transactions } from '@/pages/Transactions';
 
 const PublicRoute: React.FC = () => {
-  const { data: user, isLoading } = useMe();
+  const { data: user, isLoading } = useGetUser();
 
   if (isLoading) {
     return;
@@ -28,7 +28,7 @@ const PublicRoute: React.FC = () => {
 };
 
 const ProtectedRoute: React.FC = () => {
-  const { data: user, isLoading } = useMe();
+  const { data: user, isLoading } = useGetUser();
 
   if (isLoading) {
     return;

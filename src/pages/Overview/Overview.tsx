@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { Typography } from '@/components/Typography';
-import { useMe } from '@/hooks/user/useMe';
+import { useGetUser } from '@/hooks/user/useGetUser';
 
 export const Overview: React.FC = () => {
-  const { data: user } = useMe();
+  const { data: user } = useGetUser();
 
   return (
     <div>

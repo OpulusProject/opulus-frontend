@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 import { client } from '@/hooks/client';
 
-const API_URL = '/users/me';
+const API_URL = '/user';
 
 const userSchema = z.object({
   id: z.string(),
@@ -14,15 +14,15 @@ const userSchema = z.object({
   updatedAt: z.string(),
 });
 
-const getMe = async () => {
+const getUser = async () => {
   const response = await client.get(API_URL, { withCredentials: true });
   return userSchema.parse(response.data);
 };
 
-export const useMe = () => {
+export const useGetUser = () => {
   return useQuery({
     queryKey: ['currentUser'],
-    queryFn: () => getMe(),
+    queryFn: () => getUser(),
     retry: false,
   });
 };

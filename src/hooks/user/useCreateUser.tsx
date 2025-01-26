@@ -2,7 +2,7 @@ import { useMutation } from '@tanstack/react-query';
 
 import { client } from '@/hooks/client';
 
-const API_URL = '/users';
+const API_URL = '/user';
 
 interface CreateUserRequest {
   email: string;
@@ -15,7 +15,7 @@ const createUser = async (request: CreateUserRequest) => {
   });
 };
 
-export const useRegister = () => {
+export const useCreateUser = () => {
   return useMutation({
     mutationFn: (request: CreateUserRequest) => createUser(request),
   });
