@@ -20,11 +20,6 @@ const segments = [
   { label: 'Other', value: 68, fill: '#FACC15' }, // 5% of 1350
 ];
 
-
 export const Transactions: Story = {
-  render: () => (
-    <PieGraph
-    segments={segments}
-    ></PieGraph>
-  ),
+  render: () => <PieGraph title="Transactions" segments={segments}></PieGraph>,
 };
