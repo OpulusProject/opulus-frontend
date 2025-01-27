@@ -1,63 +1,31 @@
 import * as React from 'react';
 import { Label, Pie, PieChart } from 'recharts';
 
-interface PieData {
-  category: string;
+interface PieGraphData {
+  label: string;
   percent: number;
   fill: string;
 }
 
-interface PieGraphProps {
-  percentValues: number[];
-  transactionCount: number;
-  colors?: string[];
+interface PieGraphSegment {
+  label: string;
+  value: number;
+  fill: string;
 }
 
-const defaultCategories = [
-  'Housing',
-  'Debt & Fees',
-  'Food',
-  'Shopping',
-  'Entertainment',
-  'Transport & Travel',
-  'Health & Wellness',
-  'Other',
-];
+interface PieGraphProps {
+  segments: PieGraphSegment[];
+}
 
-const defaultColors = [
-  '#14B8A6',
-  '#F4A261',
-  '#E35D6A',
-  '#3B82F6',
-  '#6366F1',
-  '#EC4899',
-  '#F59E0B',
-  '#FACC15',
-];
-
-export function PieGraph({
-  percentValues,
-  transactionCount,
-  colors = defaultColors,
-}: PieGraphProps) {
-  if (percentValues.length !== defaultCategories.length) {
-    throw new Error(
-      `percentValues must have ${defaultCategories.length} elements`
-    );
-  }
-
-  const chartData: PieData[] = React.useMemo(() => {
-    return defaultCategories.map((category, index) => ({
-      category,
-      percent: percentValues[index],
-      fill: colors[index],
-    }));
-  }, [percentValues, colors]);
+export function PieGraph({ segments }: PieGraphProps) {
+  const totalValue = React.useMemo(() => {
+    return segments.reduce((sum, segment) => sum + segment.value, 0);
+  }, [segments]);
 
   return (
     <PieChart width={300} height={300}>
       <Pie
-        data={chartData}
+        data={segments}
         dataKey="percent"
         nameKey="category"
         outerRadius={100}
@@ -76,20 +44,21 @@ export function PieGraph({
                   y={viewBox.cy}
                   textAnchor="middle"
                   dominantBaseline="middle"
+                  className="font-inter"
                 >
                   <tspan
                     x={viewBox.cx}
-                    y={viewBox.cy + 12}
-                    className="font-inter text-xl leading-8 font-semibold fill-foreground"
+                    y={viewBox.cy || 0 - 12}
+                    className="text-sm leading-5 font-medium fill-muted-foreground"
                   >
-                    {transactionCount.toLocaleString()}
+                    Transactions
                   </tspan>
                   <tspan
                     x={viewBox.cx}
-                    y={(viewBox.cy || 0) - 12}
-                    className="font-inter text-sm leading-5 font-medium fill-muted-foreground"
+                    y={viewBox.cy || 0 + 12}
+                    className="text-xl leading-8 font-semibold fill-foreground"
                   >
-                    Transactions
+                    {totalValue.toLocaleString()}
                   </tspan>
                 </text>
               );
