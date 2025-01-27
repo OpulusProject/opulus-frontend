@@ -5,7 +5,7 @@ import { client } from '@/hooks/client';
 const API_URL = '/item';
 
 type GetItemFilters = {
-  userId?: string;
+  userId: string;
   institutionId?: string;
 };
 
