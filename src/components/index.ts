@@ -10,5 +10,8 @@ export * from '@/components/Glossary/GlossaryRowColor';
 export * from '@/components/Glossary/GlossaryRowLabel';
 export * from '@/components/Glossary/GlossaryRowValue';
 
+// LineChart
+export * from '@/components/LineChart/LineChart';
+
 // PieGraph
 export * from '@/components/PieGraph/PieGraph';
