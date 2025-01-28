@@ -6,6 +6,9 @@ export * from '@/components/Card/CardHeader';
 export * from '@/components/Card/CardHeaderTabsList';
 export * from '@/components/Card/CardHeaderTabsTrigger';
 
+// Color
+export * from '@/components/Color/Color'
+
 // Distribution Bar
 export * from '@/components/DistributionBar/DistributionBar';
 export * from '@/components/DistributionBar/DistributionBarSegment';
