@@ -2,12 +2,12 @@ import classNames from 'classnames';
 
 import { TabsContent } from '@/components/ui/tabs';
 
-interface PageCardContentProps extends React.PropsWithChildren {
+interface CardContentProps extends React.PropsWithChildren {
   value: string;
   className?: string;
 }
 
-export const PageCardContent: React.FC<PageCardContentProps> = ({
+export const CardContent: React.FC<CardContentProps> = ({
   value,
   className,
   children,
@@ -18,7 +18,7 @@ export const PageCardContent: React.FC<PageCardContentProps> = ({
       className={classNames(
         'flex flex-col gap-8 items-center justify-center mt-8',
         className,
-        'PageCardContent-root'
+        'CardContent-root'
       )}
     >
       {children}

@@ -4,12 +4,12 @@ import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { TabsList } from '@/components/ui/tabs';
 
-interface PageCardHeaderTabsListProps extends React.PropsWithChildren {
+interface CardHeaderTabsListProps extends React.PropsWithChildren {
   defaultValue: string;
   className?: string;
 }
 
-export const PageCardHeaderTabsList: React.FC<PageCardHeaderTabsListProps> = ({
+export const CardHeaderTabsList: React.FC<CardHeaderTabsListProps> = ({
   defaultValue,
   className,
   children,
@@ -22,7 +22,7 @@ export const PageCardHeaderTabsList: React.FC<PageCardHeaderTabsListProps> = ({
       className={classNames(
         'border-none bg-transparant',
         className,
-        'PageCardHeaderTabsList-root'
+        'CardHeaderTabsList-root'
       )}
     >
       {childrenArray.map((child, index) => (

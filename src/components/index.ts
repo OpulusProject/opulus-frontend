@@ -11,12 +11,12 @@ export * from '@/components/Glossary/GlossaryRowLabel';
 export * from '@/components/Glossary/GlossaryRowValue';
 
 // Page Card
-export * from '@/components/PageCard/PageCard';
-export * from '@/components/PageCard/PageCardContent';
-export * from '@/components/PageCard/PageCardFooter';
-export * from '@/components/PageCard/PageCardHeader';
-export * from '@/components/PageCard/PageCardHeaderTabsList';
-export * from '@/components/PageCard/PageCardHeaderTabsTrigger';
+export * from '@/components/Card/Card';
+export * from '@/components/Card/CardContent';
+export * from '@/components/Card/CardFooter';
+export * from '@/components/Card/CardHeader';
+export * from '@/components/Card/CardHeaderTabsList';
+export * from '@/components/Card/CardHeaderTabsTrigger';
 
 // PieGraph
 export * from '@/components/PieGraph/PieGraph';

@@ -8,11 +8,11 @@ import { GlossaryRowLabel } from '@/components/Glossary/GlossaryRowLabel';
 import { GlossaryRowValue } from '@/components/Glossary/GlossaryRowValue';
 import { PieGraph } from '@/components/PieGraph/PieGraph';
 
-import { PageCard } from './PageCard';
-import { PageCardContent } from './PageCardContent';
-import { PageCardHeader } from './PageCardHeader';
-import { PageCardHeaderTabsList } from './PageCardHeaderTabsList';
-import { PageCardHeaderTabsTrigger } from './PageCardHeaderTabsTrigger';
+import { Card } from './Card';
+import { CardContent } from './CardContent';
+import { CardHeader } from './CardHeader';
+import { CardHeaderTabsList } from './CardHeaderTabsList';
+import { CardHeaderTabsTrigger } from './CardHeaderTabsTrigger';
 
 const CardGlossary: React.FC = () => (
   <Glossary>
@@ -74,26 +74,26 @@ const segments = [
   { label: 'Other', value: 68, fill: '#FACC15' }, // 5% of 1350
 ];
 
-const meta: Meta<typeof PageCard> = {
-  title: 'Components/PageCard',
-  component: PageCard,
+const meta: Meta<typeof Card> = {
+  title: 'Components/Card',
+  component: Card,
 };
 
 export default meta;
-type Story = StoryObj<typeof PageCard>;
+type Story = StoryObj<typeof Card>;
 
 export const Default: Story = {
   render: () => (
-    <PageCard defaultValue="Spending Insights">
-      <PageCardHeader>
-        <PageCardHeaderTabsList defaultValue="Spending Insights">
-          <PageCardHeaderTabsTrigger value="Spending Insights" />
-        </PageCardHeaderTabsList>
-      </PageCardHeader>
-      <PageCardContent value="Spending Insights">
+    <Card defaultValue="Spending Insights">
+      <CardHeader>
+        <CardHeaderTabsList defaultValue="Spending Insights">
+          <CardHeaderTabsTrigger value="Spending Insights" />
+        </CardHeaderTabsList>
+      </CardHeader>
+      <CardContent value="Spending Insights">
         <PieGraph segments={segments} title="Transactions" />
         <CardGlossary />
-      </PageCardContent>
-    </PageCard>
+      </CardContent>
+    </Card>
   ),
 };
