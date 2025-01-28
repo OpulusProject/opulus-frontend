@@ -1,3 +1,11 @@
+// Card
+export * from '@/components/Card/Card';
+export * from '@/components/Card/CardContent';
+export * from '@/components/Card/CardFooter';
+export * from '@/components/Card/CardHeader';
+export * from '@/components/Card/CardHeaderTabsList';
+export * from '@/components/Card/CardHeaderTabsTrigger';
+
 // Distribution Bar
 export * from '@/components/DistributionBar/DistributionBar';
 export * from '@/components/DistributionBar/DistributionBarSegment';
