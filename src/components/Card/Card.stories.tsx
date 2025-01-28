@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { Calendar } from 'lucide-react';
 
 import { Glossary } from '@/components/Glossary/Glossary';
 import { GlossaryColumn } from '@/components/Glossary/GlossaryColumn';
@@ -7,6 +8,8 @@ import { GlossaryRowColor } from '@/components/Glossary/GlossaryRowColor';
 import { GlossaryRowLabel } from '@/components/Glossary/GlossaryRowLabel';
 import { GlossaryRowValue } from '@/components/Glossary/GlossaryRowValue';
 import { PieGraph } from '@/components/PieGraph/PieGraph';
+import { Typography } from '@/components/Typography';
+import { Button } from '@/components/ui/button';
 
 import { Card } from './Card';
 import { CardContent } from './CardContent';
@@ -89,6 +92,15 @@ export const Default: Story = {
         <CardHeaderTabsList defaultValue="Spending Insights">
           <CardHeaderTabsTrigger value="Spending Insights" />
         </CardHeaderTabsList>
+        {/* todo: make a custom button component icon not showing up, need to redo LOL */}
+        <Button
+          variant="expandIcon"
+          Icon={Calendar}
+          iconPlacement="left"
+          iconSize={14}
+        >
+          <Typography variant="l3">Feb 2025</Typography>
+        </Button>
       </CardHeader>
       <CardContent value="Spending Insights">
         <PieGraph segments={segments} title="Transactions" />

@@ -9,7 +9,13 @@ export const CardHeader: React.FC<CardHeaderProps> = ({
   children,
 }) => {
   return (
-    <div className={classNames('flex flex-row', className, 'CardHeader-root')}>
+    <div
+      className={classNames(
+        'flex flex-row justify-between',
+        className,
+        'CardHeader-root'
+      )}
+    >
       {children}
     </div>
   );
