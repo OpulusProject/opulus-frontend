@@ -24,16 +24,3 @@ export const PageCardHeaderTabsTrigger: React.FC<
     </TabsTrigger>
   );
 };
-
-/*
-
-<PageCard>
-    <PageCardHeader>
-        <PageCardHeaderTabsList>
-            <PageCardHeaderTabsTrigger>
-            <PageCardHeaderTabsTrigger>
-        </PageCardHeaderTabsList>
-    </PageCardHeader>
-    <PageCardContent>
-
-*/
