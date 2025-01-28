@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import { Color } from '@/components/Color/Color'
+import { Color } from '@/components/Color/Color';
 
 interface GlossaryRowColorProps {
   color: string;
@@ -14,11 +14,7 @@ export const GlossaryRowColor: React.FC<GlossaryRowColorProps> = ({
 }) => {
   return (
     <Color
-      className={classNames(
-        '',
-        className,
-        'GlossaryRowColor-root'
-      )}
+      className={classNames('', className, 'GlossaryRowColor-root')}
       color={color}
     />
   );
