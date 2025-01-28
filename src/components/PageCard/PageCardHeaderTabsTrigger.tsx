@@ -14,7 +14,11 @@ export const PageCardHeaderTabsTrigger: React.FC<
   return (
     <TabsTrigger
       value={value}
-      className={classNames('', className, 'PageCardHeaderTabsTrigger-root')}
+      className={classNames(
+        'data-[state=active]:shadow-none',
+        className,
+        'PageCardHeaderTabsTrigger-root'
+      )}
     >
       <Typography variant="s2">{value}</Typography>
     </TabsTrigger>

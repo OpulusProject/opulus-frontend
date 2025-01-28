@@ -15,7 +15,11 @@ export const PageCardContent: React.FC<PageCardContentProps> = ({
   return (
     <TabsContent
       value={value}
-      className={classNames('', className, 'PageCardContent-root')}
+      className={classNames(
+        'flex flex-col gap-8 items-center justify-center',
+        className,
+        'PageCardContent-root'
+      )}
     >
       {children}
     </TabsContent>

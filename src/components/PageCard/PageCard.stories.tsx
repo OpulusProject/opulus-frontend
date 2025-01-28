@@ -84,7 +84,7 @@ type Story = StoryObj<typeof PageCard>;
 
 export const Default: Story = {
   render: () => (
-    <PageCard>
+    <PageCard defaultValue="Spending Insights">
       <PageCardHeader>
         <PageCardHeaderTabsList defaultValue="Spending Insights">
           <PageCardHeaderTabsTrigger value="Spending Insights" />

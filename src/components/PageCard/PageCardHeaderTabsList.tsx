@@ -15,7 +15,11 @@ export const PageCardHeaderTabsList: React.FC<PageCardHeaderTabsListProps> = ({
   return (
     <TabsList
       defaultValue={defaultValue}
-      className={classNames('', className, 'PageCardHeaderTabsList-root')}
+      className={classNames(
+        'border-none bg-transparent',
+        className,
+        'PageCardHeaderTabsList-root'
+      )}
     >
       {children}
     </TabsList>

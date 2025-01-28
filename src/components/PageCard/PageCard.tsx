@@ -5,14 +5,19 @@ import { Card } from '@/components/ui/card';
 
 interface PageCardProps extends React.PropsWithChildren {
   className?: string;
+  defaultValue?: string;
 }
 
-export const PageCard: React.FC<PageCardProps> = ({ className, children }) => {
+export const PageCard: React.FC<PageCardProps> = ({
+  className,
+  children,
+  defaultValue,
+}) => {
   return (
     <Card
       className={classNames('flex flex-col p-8', className, 'PageCard-root')}
     >
-      <Tabs>{children}</Tabs>
+      <Tabs defaultValue={defaultValue}>{children}</Tabs>
     </Card>
   );
 };

@@ -16,16 +16,3 @@ export const PageCardHeader: React.FC<PageCardHeaderProps> = ({
     </div>
   );
 };
-
-/*
-
-<PageCard>
-    <PageCardHeader>
-        <PageCardHeaderTabsList>
-            <PageCardHeaderTabsTrigger>
-            <PageCardHeaderTabsTrigger>
-        </PageCardHeaderTabsList>
-    </PageCardHeader>
-    <PageCardContent>
-
-*/
