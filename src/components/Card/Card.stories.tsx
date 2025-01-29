@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Calendar } from 'lucide-react';
 
+import { Color } from '@/components/Color/Color';
 import { Glossary } from '@/components/Glossary/Glossary';
 import { GlossaryColumn } from '@/components/Glossary/GlossaryColumn';
 import { GlossaryRow } from '@/components/Glossary/GlossaryRow';
-import { GlossaryRowColor } from '@/components/Glossary/GlossaryRowColor';
 import { GlossaryRowLabel } from '@/components/Glossary/GlossaryRowLabel';
 import { GlossaryRowValue } from '@/components/Glossary/GlossaryRowValue';
 import { PieGraph } from '@/components/PieGraph/PieGraph';
@@ -21,44 +21,44 @@ const CardGlossary: React.FC = () => (
   <Glossary>
     <GlossaryColumn>
       <GlossaryRow>
-        <GlossaryRowColor color={'#14B8A6'} />
+        <Color color={'#14B8A6'} />
         <GlossaryRowLabel>Housing</GlossaryRowLabel>
         <GlossaryRowValue>36.1%</GlossaryRowValue>
       </GlossaryRow>
       <GlossaryRow>
-        <GlossaryRowColor color={'#F4A261'} />
+        <Color color={'#F4A261'} />
         <GlossaryRowLabel>Debt & Fees</GlossaryRowLabel>
         <GlossaryRowValue>13.3%</GlossaryRowValue>
       </GlossaryRow>
       <GlossaryRow>
-        <GlossaryRowColor color={'#E35D6A'} />
+        <Color color={'#E35D6A'} />
         <GlossaryRowLabel>Food</GlossaryRowLabel>
         <GlossaryRowValue>13.2%</GlossaryRowValue>
       </GlossaryRow>
       <GlossaryRow>
-        <GlossaryRowColor color={'#3B82F6'} />
+        <Color color={'#3B82F6'} />
         <GlossaryRowLabel>Shopping</GlossaryRowLabel>
         <GlossaryRowValue>12.6%</GlossaryRowValue>
       </GlossaryRow>
     </GlossaryColumn>
     <GlossaryColumn>
       <GlossaryRow>
-        <GlossaryRowColor color={'#6366F1'} />
+        <Color color={'#6366F1'} />
         <GlossaryRowLabel>Entertainment</GlossaryRowLabel>
         <GlossaryRowValue>10.9%</GlossaryRowValue>
       </GlossaryRow>
       <GlossaryRow>
-        <GlossaryRowColor color={'#EC4899'} />
+        <Color color={'#EC4899'} />
         <GlossaryRowLabel>Transport & Travel</GlossaryRowLabel>
         <GlossaryRowValue>5.2%</GlossaryRowValue>
       </GlossaryRow>
       <GlossaryRow>
-        <GlossaryRowColor color={'#F59E0B'} />
+        <Color color={'#F59E0B'} />
         <GlossaryRowLabel>Health & Wellness</GlossaryRowLabel>
         <GlossaryRowValue>5.7%</GlossaryRowValue>
       </GlossaryRow>
       <GlossaryRow>
-        <GlossaryRowColor color={'#FACC15'} />
+        <Color color={'#FACC15'} />
         <GlossaryRowLabel>Other</GlossaryRowLabel>
         <GlossaryRowValue>2.8%</GlossaryRowValue>
       </GlossaryRow>
