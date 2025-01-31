@@ -49,7 +49,7 @@ export const General: Story = {
       data={days}
       dataKey="value"
       label="Net Worth"
-      showXAxis={false}
+      showXAxis={true}
       showGridLines={false}
     />
   ),

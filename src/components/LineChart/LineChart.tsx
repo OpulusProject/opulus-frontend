@@ -14,14 +14,19 @@ import {
   ChartTooltipContent,
 } from '@/components/ui/chart';
 
-type LineChartProps = {
-  data: { month: string; [key: string]: number }[];
+interface LineChartData {
+  date: Date; // Use Date object for the date field
+  [key: string]: number;
+}
+
+interface LineChartProps {
+  data: LineChartData[];
   dataKey: string;
   label: string;
   color?: string;
   showXAxis?: boolean;
   showGridLines?: boolean;
-};
+}
 
 export const LineChart: React.FC<LineChartProps> = ({
   data,
@@ -65,20 +70,29 @@ export const LineChart: React.FC<LineChartProps> = ({
           top: 200,
         }}
       >
-        {showGridLines && <CartesianGrid vertical={false} />}{' '}
-        {/* Conditionally render gridlines */}
+        {showGridLines && <CartesianGrid vertical={false} />}
         {showXAxis && (
           <XAxis
-            dataKey="month"
+            dataKey="date"
             tickLine={false}
             axisLine={false}
             tickMargin={8}
-            tickFormatter={(value) => value.slice(0, 3)} // Shorten the month name (e.g., "January" -> "Jan")
+            tickFormatter={(date) => {
+              // Assuming value is a Date object
+
+              // Extract month abbreviation (e.g., "Jan", "Feb")
+              if (date instanceof Date) {
+                return date.toLocaleString('en-US', { month: 'short' });
+              }
+              return '';
+            }}
           />
         )}
         <ChartTooltip
           cursor={false}
           content={<ChartTooltipContent hideLabel />}
+          
+
         />
         <Line
           dataKey={dataKey}
@@ -91,8 +105,18 @@ export const LineChart: React.FC<LineChartProps> = ({
           <LabelList
             dataKey={dataKey}
             position="top"
-            content={({ x, y, value, index }) =>
-              value === maxData && data[index].month === maxDataPoint.month ? (
+            content={({
+              x,
+              y,
+              value,
+              index,
+            }: {
+              x: number;
+              y: number;
+              value: number;
+              index: number;
+            }) =>
+              value === maxData && data[index].date === maxDataPoint.date ? (
                 <text
                   x={x}
                   y={y - 10}
@@ -109,8 +133,18 @@ export const LineChart: React.FC<LineChartProps> = ({
           <LabelList
             dataKey={dataKey}
             position="bottom"
-            content={({ x, y, value, index }) =>
-              value === minData && data[index].month === minDataPoint.month ? (
+            content={({
+              x,
+              y,
+              value,
+              index,
+            }: {
+              x: number;
+              y: number;
+              value: number;
+              index: number;
+            }) =>
+              value === minData && data[index].date === minDataPoint.date ? (
                 <text
                   x={x}
                   y={y + 20}
