@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { Cover } from '@/components/src/Cover';
+import { Cover } from '@/components/src/Cover/Cover';
 
 import styles from './Auth.module.scss';
 

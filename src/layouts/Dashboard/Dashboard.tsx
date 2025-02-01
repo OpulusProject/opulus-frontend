@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { Navrail } from '@/components/src/Navrail';
+import { Navrail } from '@/components/src/Navrail/Navrail';
 import { SidebarProvider } from '@/components/ui/sidebar';
 
 import styles from './Dashboard.module.scss';
