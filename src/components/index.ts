@@ -23,5 +23,12 @@ export * from '@/components/Glossary/GlossaryRowValue';
 // LineChart
 export * from '@/components/LineChart/LineChart';
 
+// Page
+export * from '@/components/Page/Page';
+export * from '@/components/Page/PageContent';
+export * from '@/components/Page/PageDate';
+export * from '@/components/Page/PageHeader';
+export * from '@/components/Page/PageHeaderTitle';
+
 // PieGraph
 export * from '@/components/PieGraph/PieGraph';
