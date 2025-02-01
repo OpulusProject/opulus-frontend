@@ -20,6 +20,9 @@ export * from '@/components/Glossary/GlossaryRow';
 export * from '@/components/Glossary/GlossaryRowLabel';
 export * from '@/components/Glossary/GlossaryRowValue';
 
+// LineChart
+export * from '@/components/LineChart/LineChart';
+
 // Page
 export * from '@/components/Page/Page';
 export * from '@/components/Page/PageContent';
