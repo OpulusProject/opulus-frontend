@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 
-import { Typography } from '@/components/Typography';
+import { Typography } from '@/components/custom/Typography';
 import { Button } from '@/components/ui/button';
 import {
   Form,

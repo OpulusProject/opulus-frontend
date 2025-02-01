@@ -1,7 +1,7 @@
 import React from 'react';
 import { z } from 'zod';
 
-import { Typography } from '@/components/Typography';
+import { Typography } from '@/components/custom/Typography';
 import { columns } from '@/pages/Transactions/components/columns';
 import { DataTable } from '@/pages/Transactions/components/data-table';
 import { taskSchema } from '@/pages/Transactions/data/schema';

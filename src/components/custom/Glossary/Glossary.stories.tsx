@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Color } from '@/components/Color/Color';
+import { Color } from '@/components/custom/Color/Color';
 
 import { Glossary } from './Glossary';
 import { GlossaryColumn } from './GlossaryColumn';

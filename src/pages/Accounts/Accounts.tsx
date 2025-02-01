@@ -1,8 +1,8 @@
 import { Plus } from 'lucide-react';
 import React from 'react';
 
-import { LaunchLink } from '@/components/LaunchLink/LaunchLink';
-import { Typography } from '@/components/Typography';
+import { Typography } from '@/components/custom/Typography';
+import { LaunchLink } from '@/components/src/LaunchLink/LaunchLink';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
