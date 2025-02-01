@@ -10,8 +10,8 @@ export * from '@/components/custom/Card/CardHeaderTabsTrigger';
 export * from '@/components/custom/Color/Color';
 
 // Distribution Bar
-export * from '@/components/DistributionBar/DistributionBar';
-export * from '@/components/DistributionBar/DistributionBarSegment';
+export * from '@/components/custom/DistributionBar/DistributionBar';
+export * from '@/components/custom/DistributionBar/DistributionBarSegment';
 
 // Glossary
 export * from '@/components/custom/Glossary/Glossary';
@@ -20,15 +20,9 @@ export * from '@/components/custom/Glossary/GlossaryRow';
 export * from '@/components/custom/Glossary/GlossaryRowLabel';
 export * from '@/components/custom/Glossary/GlossaryRowValue';
 
-// LineChart
-export * from '@/components/LineChart/LineChart';
-
 // Page
 export * from '@/components/custom/Page/Page';
 export * from '@/components/custom/Page/PageContent';
 export * from '@/components/custom/Page/PageDate';
 export * from '@/components/custom/Page/PageHeader';
 export * from '@/components/custom/Page/PageHeaderTitle';
-
-// PieGraph
-export * from '@/components/PieGraph/PieGraph';

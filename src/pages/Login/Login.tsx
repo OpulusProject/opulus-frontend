@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 
-import { GoogleOAuthButton } from '@/components/GoogleOAuthButton';
 import { Typography } from '@/components/custom/Typography';
+import { GoogleOAuthButton } from '@/components/src/GoogleOAuthButton';
 import { Button } from '@/components/ui/button';
 import {
   Form,

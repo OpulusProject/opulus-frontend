@@ -7,7 +7,7 @@ import { GlossaryColumn } from '@/components/custom/Glossary/GlossaryColumn';
 import { GlossaryRow } from '@/components/custom/Glossary/GlossaryRow';
 import { GlossaryRowLabel } from '@/components/custom/Glossary/GlossaryRowLabel';
 import { GlossaryRowValue } from '@/components/custom/Glossary/GlossaryRowValue';
-import { PieGraph } from '@/components/PieGraph/PieGraph';
+import { PieGraph } from '@/components/charts/PieGraph/PieGraph';
 import { Typography } from '@/components/custom/Typography';
 import { Button } from '@/components/ui/button';
 
