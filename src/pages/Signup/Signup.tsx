@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 
 import { GoogleOAuthButton } from '@/components/GoogleOAuthButton';
-import { Typography } from '@/components/Typography';
+import { Typography } from '@/components/custom/Typography';
 import { Button } from '@/components/ui/button';
 import {
   Form,

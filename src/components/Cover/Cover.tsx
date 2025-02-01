@@ -1,6 +1,6 @@
 import { Gem } from 'lucide-react';
 
-import { Typography } from '@/components/Typography';
+import { Typography } from '@/components/custom/Typography';
 
 import styles from './Cover.module.scss';
 

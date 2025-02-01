@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Calendar } from 'lucide-react';
 
-import { Color } from '@/components/Color/Color';
-import { Glossary } from '@/components/Glossary/Glossary';
-import { GlossaryColumn } from '@/components/Glossary/GlossaryColumn';
-import { GlossaryRow } from '@/components/Glossary/GlossaryRow';
-import { GlossaryRowLabel } from '@/components/Glossary/GlossaryRowLabel';
-import { GlossaryRowValue } from '@/components/Glossary/GlossaryRowValue';
+import { Color } from '@/components/custom/Color/Color';
+import { Glossary } from '@/components/custom/Glossary/Glossary';
+import { GlossaryColumn } from '@/components/custom/Glossary/GlossaryColumn';
+import { GlossaryRow } from '@/components/custom/Glossary/GlossaryRow';
+import { GlossaryRowLabel } from '@/components/custom/Glossary/GlossaryRowLabel';
+import { GlossaryRowValue } from '@/components/custom/Glossary/GlossaryRowValue';
 import { PieGraph } from '@/components/PieGraph/PieGraph';
-import { Typography } from '@/components/Typography';
+import { Typography } from '@/components/custom/Typography';
 import { Button } from '@/components/ui/button';
 
 import { Card } from './Card';
