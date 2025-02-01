@@ -11,7 +11,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
   return (
     <div
       className={classNames(
-        'flex flex-col gap-2',
+        'flex flex-row justify-between gap-2',
         className,
         'PageHeader-root'
       )}

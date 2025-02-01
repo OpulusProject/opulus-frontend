@@ -23,8 +23,8 @@ export * from '@/components/Glossary/GlossaryRowValue';
 // Page
 export * from '@/components/Page/Page';
 export * from '@/components/Page/PageContent';
+export * from '@/components/Page/PageDate';
 export * from '@/components/Page/PageHeader';
-export * from '@/components/Page/PageHeaderDate';
 export * from '@/components/Page/PageHeaderTitle';
 
 // PieGraph

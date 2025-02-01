@@ -4,8 +4,8 @@ import { Card } from '@/components/Card/Card';
 
 import { Page } from './Page';
 import { PageContent } from './PageContent';
+import { PageDate } from './PageDate';
 import { PageHeader } from './PageHeader';
-import { PageHeaderDate } from './PageHeaderDate';
 import { PageHeaderTitle } from './PageHeaderTitle';
 
 const meta: Meta<typeof Page> = {
@@ -18,8 +18,8 @@ type Story = StoryObj<typeof Page>;
 export const Accounts: Story = {
   render: () => (
     <Page>
+      <PageDate />
       <PageHeader>
-        <PageHeaderDate />
         <PageHeaderTitle>Accounts</PageHeaderTitle>
       </PageHeader>
       <PageContent className="gap-8">
