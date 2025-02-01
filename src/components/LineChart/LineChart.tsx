@@ -90,9 +90,8 @@ export const LineChart: React.FC<LineChartProps> = ({
         )}
         <ChartTooltip
           cursor={false}
-          content={<ChartTooltipContent hideLabel />}
-          
-
+          content={<ChartTooltipContent />}
+          hideIndicator = {true}
         />
         <Line
           dataKey={dataKey}

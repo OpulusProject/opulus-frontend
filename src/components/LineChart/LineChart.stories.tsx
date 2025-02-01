@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { LineChart } from '@/components/LineChart/LineChart';
+import { Card } from '../ui/card';
 
 const meta: Meta<typeof LineChart> = {
-  title: 'Components/TrendLine',
+  title: 'Components/LineChart',
   component: LineChart,
 };
 
@@ -11,46 +12,38 @@ export default meta;
 type Story = StoryObj<typeof LineChart>;
 
 const days = [
-  { month: 'January', value: 500 },
-  { month: 'February', value: 400 },
-  { month: 'March', value: 300 },
-  { month: 'April', value: 600 },
-  { month: 'May', value: 700 },
-  { month: 'June', value: 800 },
-  { month: 'July', value: 950 },
-  { month: 'August', value: 850 },
-  { month: 'September', value: 1000 },
-  { month: 'October', value: 950 },
-  { month: 'January', value: 900 },
-  { month: 'February', value: 700 },
-  { month: 'March', value: 500 },
-  { month: 'April', value: 600 },
-  { month: 'May', value: 700 },
-  { month: 'June', value: 800 },
-  { month: 'July', value: 950 },
-  { month: 'August', value: 850 },
-  { month: 'September', value: 900 },
-  { month: 'October', value: 950 },
-  { month: 'January', value: 1000 },
-  { month: 'February', value: 1200 },
-  { month: 'March', value: 1250 },
-  { month: 'April', value: 1100 },
-  { month: 'May', value: 1000 },
-  { month: 'June', value: 1050 },
-  { month: 'July', value: 1100 },
-  { month: 'August', value: 1200 },
-  { month: 'September', value: 1400 },
-  { month: 'October', value: 1200 },
+  { date: new Date(2023, 0, 1), value: 500 },
+  { date: new Date(2023, 1, 1), value: 400 },
+  { date: new Date(2023, 2, 1), value: 300 },
+  { date: new Date(2023, 3, 1), value: 600 }, 
+  { date: new Date(2023, 4, 1), value: 700 }, 
+  { date: new Date(2023, 5, 1), value: 800 }, 
+  { date: new Date(2023, 6, 1), value: 950 },
+  { date: new Date(2023, 7, 1), value: 850 },
+  { date: new Date(2023, 8, 1), value: 1000 },
+  { date: new Date(2023, 9, 1), value: 950 }, 
+  { date: new Date(2023, 10, 1), value: 900 },
+  { date: new Date(2023, 11, 1), value: 700 },
+  { date: new Date(2024, 0, 1), value: 500 }, 
+  { date: new Date(2024, 1, 1), value: 600 }, 
+  { date: new Date(2024, 2, 1), value: 700 }, 
+  { date: new Date(2024, 3, 1), value: 800 }, 
+  { date: new Date(2024, 4, 1), value: 900 }, 
+  { date: new Date(2024, 5, 1), value: 1000 },
+  { date: new Date(2024, 6, 1), value: 1100 },
+  { date: new Date(2024, 7, 1), value: 1400 },
+  { date: new Date(2024, 8, 1), value: 1300 },
+  { date: new Date(2024, 9, 1), value: 1200 },
 ];
 
-export const General: Story = {
+export const Default: Story = {
   render: () => (
+    <Card className='w-[530px] h-[530px]'>
     <LineChart
       data={days}
       dataKey="value"
       label="Net Worth"
-      showXAxis={true}
-      showGridLines={false}
     />
+    </Card>
   ),
 };
