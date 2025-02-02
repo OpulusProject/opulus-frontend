@@ -92,6 +92,7 @@ export const LineChart: React.FC<LineChartProps> = ({
           cursor={false}
           content={<ChartTooltipContent />}
           hideIndicator={true}
+          hideLabel={true}
         />
         <Line
           dataKey={dataKey}

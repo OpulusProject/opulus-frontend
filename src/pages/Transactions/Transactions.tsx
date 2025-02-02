@@ -5,7 +5,20 @@ import { Typography } from '@/components/custom/Typography';
 import { columns } from '@/pages/Transactions/components/columns';
 import { DataTable } from '@/pages/Transactions/components/data-table';
 import { taskSchema } from '@/pages/Transactions/data/schema';
-import { Page, PageDate, PageHeader, PageHeaderTitle, PageContent, Card, Color, Glossary, GlossaryColumn, GlossaryRow, GlossaryRowLabel, GlossaryRowValue } from '@/components/custom/index';
+import {
+  Page,
+  PageDate,
+  PageHeader,
+  PageHeaderTitle,
+  PageContent,
+  Card,
+  Color,
+  Glossary,
+  GlossaryColumn,
+  GlossaryRow,
+  GlossaryRowLabel,
+  GlossaryRowValue,
+} from '@/components/custom/index';
 
 const data = [
   {
@@ -79,21 +92,17 @@ export const Transactions: React.FC = () => {
   return (
     <div>
       <Page>
-      <PageDate />
-      <PageHeader>
-        <PageHeaderTitle>Transactions</PageHeaderTitle>
-      </PageHeader>
-      <PageContent>
-        <div className = 'flex flex-row'>
-        <Card>
-
-        </Card>
-        <Card>
-          
-        </Card>
-        </div>
-      </PageContent>
-    </Page>
+        <PageDate />
+        <PageHeader>
+          <PageHeaderTitle>Transactions</PageHeaderTitle>
+        </PageHeader>
+        <PageContent>
+          <div className="flex flex-row">
+            <Card></Card>
+            <Card></Card>
+          </div>
+        </PageContent>
+      </Page>
       {/* <DataTable data={tasks} columns={columns} /> */}
     </div>
   );
