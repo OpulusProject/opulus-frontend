@@ -9,7 +9,7 @@ export const PageContent: React.FC<PageContentProps> = ({
   children,
 }) => {
   return (
-    <div className={classNames('flex', className, 'PageContent-root')}>
+    <div className={classNames('flex flex-col', className, 'PageContent-root')}>
       {children}
     </div>
   );
