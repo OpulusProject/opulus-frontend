@@ -38,7 +38,7 @@ const data = [
 
 export const Default: Story = {
   render: () => (
-    <Card className="w-[530px] h-[530px]">
+    <Card className="w-[50%] h-[50%]">
       <LineChart data={data} dataKey="value" label="Net Worth" />
     </Card>
   ),

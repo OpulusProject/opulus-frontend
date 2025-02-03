@@ -4,6 +4,7 @@ import {
   Card,
   DistributionBar,
   DistributionBarSegment,
+  DollarValueChange,
   Page,
   PageContent,
   PageDate,
@@ -13,6 +14,7 @@ import {
 import { Typography } from '@/components/custom/Typography';
 import { useGetUser } from '@/hooks/user/useGetUser';
 import { LineChart } from '@/components/charts/LineChart/LineChart';
+import { DollarValue } from '@/components/custom/DollarValue/DollarValue';
 
 export const Overview: React.FC = () => {
   const { data: user } = useGetUser();
@@ -26,19 +28,40 @@ export const Overview: React.FC = () => {
       <PageContent>
         <div className="flex flex-row gap-8 h-[70%]">
           <Card className="w-[65%] h-full p-0">
+            <div className="m-8">
+              <Typography variant={'l2'} className="mb-3">
+                Cash Flow
+              </Typography>
+              <DollarValue value={'1486980.56'}></DollarValue>
+              <DollarValueChange
+                value={'1486980.56'}
+                delta={'2000'}
+              ></DollarValueChange>
+            </div>
+
+          </Card>
+          <Card className="w-[35%] h-full gap-8">
+            <div>
+              <Typography variant={'l2'} className="mb-3">
+                Assets
+              </Typography>
+              <DollarValue value={'1486980.56'}></DollarValue>
+              <DollarValueChange
+                value={'1486980.56'}
+                delta={'2000'}
+              ></DollarValueChange>
+            </div>
+            <DistributionBar total={100} className="mt-8">
+              <DistributionBarSegment value={65} color="#65FC9F" />
+              <DistributionBarSegment value={25} color="#A2FDC5" />
+              <DistributionBarSegment value={10} color="#E0FEEC" />
+            </DistributionBar>
             <LineChart
               className="h-full"
               data={DATA}
               dataKey="value"
               label="Net Worth"
             />
-          </Card>
-          <Card className="w-[35%] h-full">
-            <DistributionBar total={100}>
-              <DistributionBarSegment value={65} color="#65FC9F" />
-              <DistributionBarSegment value={25} color="#A2FDC5" />
-              <DistributionBarSegment value={10} color="#E0FEEC" />
-            </DistributionBar>
           </Card>
         </div>
       </PageContent>

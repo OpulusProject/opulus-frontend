@@ -97,9 +97,9 @@ export const Transactions: React.FC = () => {
           <PageHeaderTitle>Transactions</PageHeaderTitle>
         </PageHeader>
         <PageContent>
-          <div className="flex flex-row">
-            <Card></Card>
-            <Card></Card>
+          <div className="flex flex-row gap-8 h-[70%]">
+            <Card className="w-[65%] h-full"></Card>
+            <Card className="w-[35%] h-full gap-8"></Card>
           </div>
         </PageContent>
       </Page>

@@ -9,6 +9,10 @@ export * from '@/components/custom/Card/CardHeaderTabsTrigger';
 // Color
 export * from '@/components/custom/Color/Color';
 
+// DollarValue
+export * from '@/components/custom/DollarValue/DollarValue';
+export * from '@/components/custom/DollarValue/DollarValueChange';
+
 // Distribution Bar
 export * from '@/components/custom/DistributionBar/DistributionBar';
 export * from '@/components/custom/DistributionBar/DistributionBarSegment';

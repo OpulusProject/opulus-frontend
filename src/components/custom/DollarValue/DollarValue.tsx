@@ -18,12 +18,14 @@ export const DollarValue: React.FC<DollarValueProps> = ({
 
   const [dollars, cents] = amount.split('.');
 
+  const formattedDollars = Number(dollars).toLocaleString();
+
   return (
     <span
       className={classNames('flex flex-row', className, 'DollarValue-root')}
     >
-      <Typography variant={variant}>{dollars}.</Typography>
-      <Typography variant={variant} className="text-[#000000B3]">
+      <Typography variant={variant}>${formattedDollars}.</Typography>
+      <Typography variant={variant} className="text-[#b3b3b3]">
         {cents}
       </Typography>
     </span>
