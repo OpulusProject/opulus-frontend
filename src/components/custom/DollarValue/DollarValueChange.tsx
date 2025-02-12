@@ -14,7 +14,7 @@ export const DollarValueChange: React.FC<DollarValueChangeProps> = ({
   value,
   delta,
   className,
-  variant = 'l2',
+  variant = 'p2',
 }) => {
   const originalValue = parseFloat(value.toString());
   const difference = parseFloat(delta.toString());
@@ -29,7 +29,7 @@ export const DollarValueChange: React.FC<DollarValueChangeProps> = ({
   return (
     <span
       className={classNames(
-        'flex flex-row',
+        'flex flex-row mt-2',
         className,
         'DollarValueChange-root'
       )}
@@ -37,7 +37,7 @@ export const DollarValueChange: React.FC<DollarValueChangeProps> = ({
       <Typography variant={variant} className="text-[#65FC9F]">
         {formattedDifference} ({percentChange}%)
       </Typography>
-      <Typography variant={variant} className="ml-1">
+      <Typography variant={variant} className="ml-1 text-[#FFFFFF4C]">
         since last week
       </Typography>
     </span>

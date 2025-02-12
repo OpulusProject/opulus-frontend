@@ -25,7 +25,7 @@ export const DollarValue: React.FC<DollarValueProps> = ({
       className={classNames('flex flex-row', className, 'DollarValue-root')}
     >
       <Typography variant={variant}>${formattedDollars}.</Typography>
-      <Typography variant={variant} className="text-[#b3b3b3]">
+      <Typography variant={variant} className="text-[#FFFFFF4C]">
         {cents}
       </Typography>
     </span>

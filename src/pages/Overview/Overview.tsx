@@ -2,6 +2,8 @@ import React from 'react';
 
 import {
   Card,
+  CardContent,
+  CardHeader,
   DistributionBar,
   DistributionBarSegment,
   DollarValueChange,
@@ -29,39 +31,36 @@ export const Overview: React.FC = () => {
         <div className="flex flex-row gap-8 h-[70%]">
           <Card className="w-[65%] h-full p-0">
             <div className="m-8">
-              <Typography variant={'l2'} className="mb-3">
-                Cash Flow
-              </Typography>
-              <DollarValue value={'1486980.56'}></DollarValue>
-              <DollarValueChange
-                value={'1486980.56'}
-                delta={'2000'}
-              ></DollarValueChange>
+              <CardHeader>Cash Flow</CardHeader>
+              <CardContent className="mt-4">
+                <DollarValue value={'1486980.56'}></DollarValue>
+                <DollarValueChange
+                  value={'1486980.56'}
+                  delta={'2000'}
+                ></DollarValueChange>
+                <LineChart
+                  className="h-full"
+                  data={DATA}
+                  dataKey="value"
+                  label="Net Worth"
+                />
+              </CardContent>
             </div>
-
           </Card>
-          <Card className="w-[35%] h-full gap-8">
-            <div>
-              <Typography variant={'l2'} className="mb-3">
-                Assets
-              </Typography>
-              <DollarValue value={'1486980.56'}></DollarValue>
-              <DollarValueChange
-                value={'1486980.56'}
-                delta={'2000'}
-              ></DollarValueChange>
-            </div>
-            <DistributionBar total={100} className="mt-8">
-              <DistributionBarSegment value={65} color="#65FC9F" />
-              <DistributionBarSegment value={25} color="#A2FDC5" />
-              <DistributionBarSegment value={10} color="#E0FEEC" />
-            </DistributionBar>
-            <LineChart
-              className="h-full"
-              data={DATA}
-              dataKey="value"
-              label="Net Worth"
-            />
+          <Card className="w-[35%] h-full">
+            <CardHeader>Assets</CardHeader>
+            <CardContent className="mt-4">
+              <DollarValue value={'1486980.56'} />
+              <DollarValueChange value={'1486980.56'} delta={'2000'} />
+              <div className='mt-8'>
+              <Typography variant={'p3'}>Distribution Bar</Typography>
+              <DistributionBar total={100} className="mt-3">
+                <DistributionBarSegment value={65} color="#65FC9F" />
+                <DistributionBarSegment value={25} color="#A2FDC5" />
+                <DistributionBarSegment value={10} color="#E0FEEC" />
+              </DistributionBar>
+              </div>
+            </CardContent>
           </Card>
         </div>
       </PageContent>

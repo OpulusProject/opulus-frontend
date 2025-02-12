@@ -102,7 +102,10 @@ export const Default: Story = {
           <Typography variant="l3">Feb 2025</Typography>
         </Button>
       </CardHeader>
-      <CardContent value="Spending Insights">
+      <CardContent
+        value="Spending Insights"
+        className="gap-8 items-center justify-start"
+      >
         <PieGraph segments={segments} title="Transactions" />
         <CardGlossary />
       </CardContent>
