@@ -12,6 +12,7 @@ export const Color: React.FC<ColorProps> = ({ color, className }) => {
       className={classNames('w-2 h-2 rounded-full', className, 'Color-root')}
       style={{
         backgroundColor: color,
+        aspectRatio: '1/1',
       }}
     />
   );

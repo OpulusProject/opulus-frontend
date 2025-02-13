@@ -15,7 +15,11 @@ export const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <ShadCard
-      className={classNames('flex flex-col p-8', className, 'Card-root')}
+      className={classNames(
+        'flex flex-col p-8 overflow-hidden',
+        className,
+        'Card-root'
+      )}
     >
       <Tabs defaultValue={defaultValue}>{children}</Tabs>
     </ShadCard>

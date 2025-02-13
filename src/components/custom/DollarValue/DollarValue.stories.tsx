@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { DollarValue } from './DollarValue';
 import { DollarValueChange } from './DollarValueChange';
 
@@ -13,7 +14,7 @@ export const Default: Story = {
   render: () => (
     <div>
       <DollarValue value={'1234.50'}></DollarValue>
-      <DollarValueChange delta={200}></DollarValueChange>
+      <DollarValueChange delta={200} value={'1234.50'}></DollarValueChange>
     </div>
   ),
 };

@@ -4,15 +4,17 @@ import { Typography } from '@/components/custom/Typography';
 
 interface GlossaryRowLabelProps extends React.PropsWithChildren {
   className?: string;
+  variant?: string;
 }
 
 export const GlossaryRowLabel: React.FC<GlossaryRowLabelProps> = ({
   className,
   children,
+  variant = 'l3',
 }) => {
   return (
     <Typography
-      variant="l3"
+      variant={variant}
       className={classNames('w-full', className, 'GlossaryRowLabel-root')}
     >
       {children}
