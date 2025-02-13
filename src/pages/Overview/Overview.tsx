@@ -1,9 +1,12 @@
 import React from 'react';
 
+import { LineChart } from '@/components/charts/LineChart/LineChart';
 import {
   Card,
   CardContent,
+  CardFooter,
   CardHeader,
+  Color,
   DistributionBar,
   DistributionBarSegment,
   DollarValueChange,
@@ -13,10 +16,9 @@ import {
   PageHeader,
   PageHeaderTitle,
 } from '@/components/custom';
+import { DollarValue } from '@/components/custom/DollarValue/DollarValue';
 import { Typography } from '@/components/custom/Typography';
 import { useGetUser } from '@/hooks/user/useGetUser';
-import { LineChart } from '@/components/charts/LineChart/LineChart';
-import { DollarValue } from '@/components/custom/DollarValue/DollarValue';
 
 export const Overview: React.FC = () => {
   const { data: user } = useGetUser();
@@ -30,35 +32,38 @@ export const Overview: React.FC = () => {
       <PageContent>
         <div className="flex flex-row gap-8 h-[70%]">
           <Card className="w-[65%] h-full p-0">
-            <div className="m-8">
-              <CardHeader>Cash Flow</CardHeader>
-              <CardContent className="mt-4">
+            <CardHeader className="ml-8 mt-8">Cash Flow</CardHeader>
+            <CardContent className="mt-4">
+              <div className="ml-8">
                 <DollarValue value={'1486980.56'}></DollarValue>
                 <DollarValueChange
                   value={'1486980.56'}
                   delta={'2000'}
                 ></DollarValueChange>
-                <LineChart
-                  className="h-full"
-                  data={DATA}
-                  dataKey="value"
-                  label="Net Worth"
-                />
-              </CardContent>
-            </div>
+              </div>
+              <LineChart
+                className="h-full"
+                data={DATA}
+                dataKey="value"
+                label="Net Worth"
+              />
+            </CardContent>
+            <CardFooter className="mb-8">
+              <Color color={'#65FC9F'}></Color>
+            </CardFooter>
           </Card>
           <Card className="w-[35%] h-full">
             <CardHeader>Assets</CardHeader>
             <CardContent className="mt-4">
               <DollarValue value={'1486980.56'} />
               <DollarValueChange value={'1486980.56'} delta={'2000'} />
-              <div className='mt-8'>
-              <Typography variant={'p3'}>Distribution Bar</Typography>
-              <DistributionBar total={100} className="mt-3">
-                <DistributionBarSegment value={65} color="#65FC9F" />
-                <DistributionBarSegment value={25} color="#A2FDC5" />
-                <DistributionBarSegment value={10} color="#E0FEEC" />
-              </DistributionBar>
+              <div className="mt-8">
+                <Typography variant={'p3'}>Distribution Bar</Typography>
+                <DistributionBar total={100} className="mt-3">
+                  <DistributionBarSegment value={65} color="#65FC9F" />
+                  <DistributionBarSegment value={25} color="#A2FDC5" />
+                  <DistributionBarSegment value={10} color="#E0FEEC" />
+                </DistributionBar>
               </div>
             </CardContent>
           </Card>
