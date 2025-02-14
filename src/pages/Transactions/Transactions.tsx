@@ -1,6 +1,27 @@
+import { Separator } from '@radix-ui/react-separator';
+import { LineChart } from 'lucide-react';
 import React from 'react';
 import { z } from 'zod';
 
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  Color,
+  DistributionBar,
+  DistributionBarSegment,
+  Glossary,
+  GlossaryColumn,
+  GlossaryRow,
+  GlossaryRowLabel,
+  GlossaryRowValue,
+  Page,
+  PageContent,
+  PageDate,
+  PageHeader,
+  PageHeaderTitle,
+} from '@/components/custom';
 import { Typography } from '@/components/custom/Typography';
 import { columns } from '@/pages/Transactions/components/columns';
 import { DataTable } from '@/pages/Transactions/components/data-table';
@@ -74,11 +95,24 @@ const data = [
 ];
 
 export const Transactions: React.FC = () => {
-  const tasks = z.array(taskSchema).parse(data);
   return (
-    <div>
-      <Typography variant="h1">Transactions</Typography>
-      <DataTable data={tasks} columns={columns} />
-    </div>
+    <Page>
+      <PageDate />
+      <PageHeader>
+        <PageHeaderTitle>Transactions</PageHeaderTitle>
+      </PageHeader>
+      <PageContent>
+        <div className="flex flex-row gap-8 h-[70%]">
+          <Card className="w-[65%] h-full">
+            <CardHeader>Cash Flow</CardHeader>
+            <CardContent className="mt-4"></CardContent>
+          </Card>
+          <Card className="w-[35%] h-full">
+            <CardHeader>Assets</CardHeader>
+            <CardContent className="mt-4"></CardContent>
+          </Card>
+        </div>
+      </PageContent>
+    </Page>
   );
 };
