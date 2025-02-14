@@ -12,7 +12,6 @@ import {
   usePlaidLink,
 } from 'react-plaid-link';
 
-import { useCreateItem } from '@/hooks/item/useCreateItem';
 import { useLinkToken } from '@/hooks/plaid/useLinkToken';
 
 interface LaunchLinkProps {
@@ -26,7 +25,6 @@ export const LaunchLink: React.FC<LaunchLinkProps> = ({ itemId, onClose }) => {
     isError: isLinkTokenError,
     isSuccess: isLinkTokenSuccess,
   } = useLinkToken();
-  const { mutate: createItem } = useCreateItem();
 
   const onSuccess: PlaidLinkOnSuccess = (
     publicToken: string,
@@ -38,8 +36,6 @@ export const LaunchLink: React.FC<LaunchLinkProps> = ({ itemId, onClose }) => {
     console.log(metadata);
     if (itemId) {
       // todo: update mode - no need to exchange public token
-    } else {
-      createItem({ publicToken });
     }
   };
 
