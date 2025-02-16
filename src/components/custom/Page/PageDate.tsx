@@ -17,7 +17,7 @@ export const PageDate: React.FC<PageDateProps> = ({ className }) => {
   return (
     <Typography
       className={classNames('mb-2', className, 'PageHeaderDate-root')}
-      variant={'p2'}
+      variant={'l2'}
     >
       {formattedDate}
     </Typography>

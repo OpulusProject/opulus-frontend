@@ -158,7 +158,7 @@ export const Overview: React.FC = () => {
                         ></DollarValue>
                       </GlossaryRowValue>
                     </GlossaryRow>
-                    <GlossaryRow className="mt-1 text-[#FFFFFF4C]">
+                    <GlossaryRow className="mt-1 text-foreground">
                       <Color color={'#00000000'} />
                       <GlossaryRowLabel variant="p3">4 assets</GlossaryRowLabel>
                       <GlossaryRowValue>10%</GlossaryRowValue>
