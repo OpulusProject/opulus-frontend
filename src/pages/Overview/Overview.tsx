@@ -89,7 +89,7 @@ export const Overview: React.FC = () => {
               <DollarValue value={'1486980.56'} />
               <DollarValueChange value={'1486980.56'} delta={'2000'} />
               <div className="mt-8">
-                <Typography variant={'p3'} className="text-[#FFFFFF80]">
+                <Typography variant={'p3'} className="text-popover-foreground">
                   Distribution Bar
                 </Typography>
                 <DistributionBar total={100} className="mt-3">
@@ -99,10 +99,10 @@ export const Overview: React.FC = () => {
                 </DistributionBar>
               </div>
               <div className="flex flex-row justify-between mt-8">
-                <Typography variant={'p3'} className="text-[#FFFFFF80]">
+                <Typography variant={'p3'} className="text-popover-foreground">
                   Asset Classes
                 </Typography>
-                <Typography variant={'p3'} className="text-[#FFFFFF80]">
+                <Typography variant={'p3'} className="text-popover-foreground">
                   Weight
                 </Typography>
               </div>
@@ -120,7 +120,7 @@ export const Overview: React.FC = () => {
                       </GlossaryRowValue>
                     </GlossaryRow>
 
-                    <GlossaryRow className="mt-1 text-[#FFFFFF4C]">
+                    <GlossaryRow className="mt-1 text-popover-foreground">
                       <Color color={'#00000000'} />
                       <GlossaryRowLabel variant="p3">1 asset</GlossaryRowLabel>
                       <GlossaryRowValue>65%</GlossaryRowValue>
@@ -138,7 +138,7 @@ export const Overview: React.FC = () => {
                         ></DollarValue>
                       </GlossaryRowValue>
                     </GlossaryRow>
-                    <GlossaryRow className="mt-1 text-[#FFFFFF4C]">
+                    <GlossaryRow className="mt-1 text-popover-foreground">
                       <Color color={'#00000000'} />
                       <GlossaryRowLabel variant="p3">
                         30 assets
@@ -158,7 +158,7 @@ export const Overview: React.FC = () => {
                         ></DollarValue>
                       </GlossaryRowValue>
                     </GlossaryRow>
-                    <GlossaryRow className="mt-1 text-foreground">
+                    <GlossaryRow className="mt-1 text-popover-foreground">
                       <Color color={'#00000000'} />
                       <GlossaryRowLabel variant="p3">4 assets</GlossaryRowLabel>
                       <GlossaryRowValue>10%</GlossaryRowValue>
