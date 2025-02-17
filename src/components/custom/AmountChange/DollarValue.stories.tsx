@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { DollarValue } from './DollarValue';
-import { DollarValueChange } from './DollarValueChange';
+import { DollarValue } from '../AmountDisplay/AmountDisplay';
+import { DollarValueChange } from './AmountChange';
 
 const meta: Meta<typeof DollarValue> = {
   title: 'Components/DollarValue',

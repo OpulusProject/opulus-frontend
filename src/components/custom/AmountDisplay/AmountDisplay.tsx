@@ -3,18 +3,18 @@ import React from 'react';
 
 import { Typography } from '@/components/custom/Typography';
 
-interface DollarValueProps {
-  value: string | number;
+interface AmountDisplayProps {
+  value: number;
   className?: string;
   variant?: string;
 }
 
-export const DollarValue: React.FC<DollarValueProps> = ({
+export const AmountDisplay: React.FC<AmountDisplayProps> = ({
   value,
   className,
   variant = 'h1',
 }) => {
-  const amount = parseFloat(value.toString()).toFixed(2);
+  const amount = value.toFixed(2);
 
   const [dollars, cents] = amount.split('.');
 
@@ -25,7 +25,7 @@ export const DollarValue: React.FC<DollarValueProps> = ({
       className={classNames('flex flex-row', className, 'DollarValue-root')}
     >
       <Typography variant={variant}>${formattedDollars}.</Typography>
-      <Typography variant={variant} className="text-[#FFFFFF4C]">
+      <Typography variant={variant} className="text-popover-foreground">
         {cents}
       </Typography>
     </span>
