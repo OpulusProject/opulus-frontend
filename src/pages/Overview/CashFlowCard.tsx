@@ -36,31 +36,21 @@ const DATA = [
 ];
 
 interface CashFlowCardProps {
-  dollarValue: number;
-  previousValue: number;
-  previousDate: Date;
+  delta: number;
+  timePeriod: string;
 }
 
 export const CashFlowCard: React.FC<CashFlowCardProps> = ({
-  dollarValue,
-  previousValue,
-  previousDate,
+  delta,
+  timePeriod,
 }) => {
   return (
     <Card className="w-[65%] h-full p-0 relative">
       <CardHeader className="ml-8 mt-8">Cash Flow</CardHeader>
       <CardContent>
-        <div className="ml-8">
-          <AmountDisplay value={dollarValue} />
-          <AmountChange
-            currentValue={dollarValue}
-            previousValue={previousValue}
-            previousDate={previousDate}
-          />
-        </div>
-        <div>
-          <LineChart data={DATA} dataKey="value" label="Net Worth" />
-        </div>
+        <AmountDisplay className="ml-8" value={1486980.65} />
+        <AmountChange className="ml-8" delta={delta} timePeriod={timePeriod} />
+        <LineChart data={DATA} dataKey="value" label="Net Worth" />
       </CardContent>
       <CardFooter className="absolute bottom-8 right-8 flex justify-end items-center gap-3">
         <Color color="#65FC9F" />

@@ -23,16 +23,8 @@ export const Overview: React.FC = () => {
       </PageHeader>
       <PageContent>
         <div className="flex flex-row gap-8">
-          <CashFlowCard
-            dollarValue={1486980.56}
-            previousValue={1484980.56}
-            previousDate={new Date(2025, 0, 1)}
-          />
-          <AssetsCard
-            dollarValue={1486980.56}
-            previousValue={1484980.56}
-            previousDate={new Date(2025, 0, 1)}
-          />
+          <CashFlowCard delta={2000} timePeriod={'last week'} />
+          <AssetsCard delta={2000} timePeriod={'last week'} />
         </div>
       </PageContent>
     </Page>

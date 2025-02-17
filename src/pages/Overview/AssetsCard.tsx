@@ -18,36 +18,28 @@ import { AmountDisplay } from '@/components/custom/AmountDisplay/AmountDisplay';
 import { Typography } from '@/components/custom/Typography';
 
 interface AssetsCardProps {
-  dollarValue: number;
-  previousValue: number;
-  previousDate: Date;
+  delta: number;
+  timePeriod: string;
 }
 
 export const AssetsCard: React.FC<AssetsCardProps> = ({
-  dollarValue,
-  previousValue,
-  previousDate,
+  delta,
+  timePeriod,
 }) => {
   return (
     <Card className="w-[35%] h-full">
       <CardHeader>Assets</CardHeader>
       <CardContent>
-        <AmountDisplay value={dollarValue} />
-        <AmountChange
-          currentValue={dollarValue}
-          previousValue={previousValue}
-          previousDate={previousDate}
-        />
-        <div className="mt-8">
-          <Typography variant="p3" className="text-popover-foreground">
-            Distribution Bar
-          </Typography>
-          <DistributionBar total={100} className="mt-3">
-            <DistributionBarSegment value={65} color="#65FC9F" />
-            <DistributionBarSegment value={25} color="#A2FDC5" />
-            <DistributionBarSegment value={10} color="#E0FEEC" />
-          </DistributionBar>
-        </div>
+        <AmountDisplay value={1486980.65} />
+        <AmountChange delta={delta} timePeriod={timePeriod} className="mb-8" />
+        <Typography variant="p3" className="text-popover-foreground">
+          Distribution Bar
+        </Typography>
+        <DistributionBar total={100} className="mt-3">
+          <DistributionBarSegment value={65} color="#65FC9F" />
+          <DistributionBarSegment value={25} color="#A2FDC5" />
+          <DistributionBarSegment value={10} color="#E0FEEC" />
+        </DistributionBar>
         <div className="flex flex-row justify-between mt-8">
           <Typography variant="p3" className="text-popover-foreground">
             Asset Classes

@@ -3,46 +3,22 @@ import React from 'react';
 
 import { Typography } from '@/components/custom/Typography';
 
-interface DollarValueChangeProps {
-  currentValue: number;
-  previousValue: number;
-  previousDate: Date;
+interface AmountChangeProps {
+  delta: number;
+  timePeriod: string;
   className?: string;
 }
 
-export const AmountChange: React.FC<DollarValueChangeProps> = ({
-  currentValue,
-  previousValue,
-  previousDate,
+export const AmountChange: React.FC<AmountChangeProps> = ({
+  delta,
+  timePeriod,
   className,
 }) => {
-  const difference = currentValue - previousValue;
+  const sign = delta >= 0 ? '+' : '-';
+  const formattedDifference = `${sign} ${Math.abs(delta).toLocaleString()}`;
 
-  const percentChange = ((difference / previousValue) * 100).toFixed(2);
-
-  const sign = difference >= 0 ? '+' : '-';
-  const formattedDifference = `${sign} ${Math.abs(difference).toLocaleString()}`;
-
-  // Calculate the number of days between the current and previous date
-  const currentDate = new Date();
-  const timeDifferenceInMillis = currentDate.getTime() - previousDate.getTime();
-  const daysDifference = Math.floor(
-    timeDifferenceInMillis / (1000 * 3600 * 24)
-  );
-
-  // Determine the time period to display based on the days difference
-  let timePeriod = '';
-  if (daysDifference < 1) {
-    timePeriod = 'yesterday';
-  } else if (daysDifference < 7) {
-    timePeriod = 'last week';
-  } else if (daysDifference < 30) {
-    timePeriod = 'last month';
-  } else if (daysDifference < 365) {
-    timePeriod = 'last year';
-  } else {
-    timePeriod = 'over a year ago';
-  }
+  const percentChange =
+    delta === 0 ? '0.00' : ((delta / Math.abs(delta)) * 100).toFixed(2);
 
   return (
     <span
