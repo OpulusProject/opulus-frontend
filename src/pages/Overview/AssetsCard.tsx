@@ -17,7 +17,6 @@ import { AmountChange } from '@/components/custom/AmountChange/AmountChange';
 import { AmountDisplay } from '@/components/custom/AmountDisplay/AmountDisplay';
 import { Typography } from '@/components/custom/Typography';
 
-
 interface AssetsCardProps {
   dollarValue: number;
   previousValue: number;
@@ -32,7 +31,7 @@ export const AssetsCard: React.FC<AssetsCardProps> = ({
   return (
     <Card className="w-[35%] h-full">
       <CardHeader>Assets</CardHeader>
-      <CardContent className="mt-4">
+      <CardContent>
         <AmountDisplay value={dollarValue} />
         <AmountChange
           currentValue={dollarValue}
@@ -64,42 +63,42 @@ export const AssetsCard: React.FC<AssetsCardProps> = ({
                 <Color color="#65FC9F" />
                 <GlossaryRowLabel>Real Estate</GlossaryRowLabel>
                 <GlossaryRowValue>
-                  <AmountDisplay value={966537.42} variant="p3" />
+                  <AmountDisplay variant="p3" value={966537.42} />
                 </GlossaryRowValue>
               </GlossaryRow>
               <GlossaryRow className="mt-1 text-popover-foreground">
                 <Color color="#00000000" />
-                <GlossaryRowLabel variant="p3">1 asset</GlossaryRowLabel>
+                <GlossaryRowLabel>1 asset</GlossaryRowLabel>
                 <GlossaryRowValue>65%</GlossaryRowValue>
               </GlossaryRow>
             </div>
-            <Separator className="border-t border-[#FFFFFF1A]" />
+            <Separator className="border-t" />
             <div>
               <GlossaryRow>
                 <Color color="#A2FDC5" />
                 <GlossaryRowLabel>Investments</GlossaryRowLabel>
                 <GlossaryRowValue>
-                  <AmountDisplay value={371745.16} variant="p3" />
+                  <AmountDisplay variant="p3" value={371745.16} />
                 </GlossaryRowValue>
               </GlossaryRow>
               <GlossaryRow className="mt-1 text-popover-foreground">
                 <Color color="#00000000" />
-                <GlossaryRowLabel variant="p3">30 assets</GlossaryRowLabel>
+                <GlossaryRowLabel>30 assets</GlossaryRowLabel>
                 <GlossaryRowValue>25%</GlossaryRowValue>
               </GlossaryRow>
             </div>
-            <Separator className="border-t border-[#FFFFFF1A]" />
+            <Separator className="border-t" />
             <div>
               <GlossaryRow>
                 <Color color="#E0FEEC" />
                 <GlossaryRowLabel>Cash</GlossaryRowLabel>
                 <GlossaryRowValue>
-                  <AmountDisplay value={148698.07} variant="p3" />
+                  <AmountDisplay variant="p3" value={148698.07} />
                 </GlossaryRowValue>
               </GlossaryRow>
               <GlossaryRow className="mt-1 text-popover-foreground">
                 <Color color="#00000000" />
-                <GlossaryRowLabel variant="p3">4 assets</GlossaryRowLabel>
+                <GlossaryRowLabel>4 assets</GlossaryRowLabel>
                 <GlossaryRowValue>10%</GlossaryRowValue>
               </GlossaryRow>
             </div>

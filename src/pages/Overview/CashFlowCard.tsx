@@ -49,7 +49,7 @@ export const CashFlowCard: React.FC<CashFlowCardProps> = ({
   return (
     <Card className="w-[65%] h-full p-0 relative">
       <CardHeader className="ml-8 mt-8">Cash Flow</CardHeader>
-      <CardContent className="mt-4">
+      <CardContent>
         <div className="ml-8">
           <AmountDisplay value={dollarValue} />
           <AmountChange

@@ -26,7 +26,9 @@ export const AmountChange: React.FC<DollarValueChangeProps> = ({
   // Calculate the number of days between the current and previous date
   const currentDate = new Date();
   const timeDifferenceInMillis = currentDate.getTime() - previousDate.getTime();
-  const daysDifference = Math.floor(timeDifferenceInMillis / (1000 * 3600 * 24));
+  const daysDifference = Math.floor(
+    timeDifferenceInMillis / (1000 * 3600 * 24)
+  );
 
   // Determine the time period to display based on the days difference
   let timePeriod = '';

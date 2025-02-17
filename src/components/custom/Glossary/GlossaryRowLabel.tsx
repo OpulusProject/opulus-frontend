@@ -10,7 +10,7 @@ interface GlossaryRowLabelProps extends React.PropsWithChildren {
 export const GlossaryRowLabel: React.FC<GlossaryRowLabelProps> = ({
   className,
   children,
-  variant = 'l3',
+  variant = 'p3',
 }) => {
   return (
     <Typography
