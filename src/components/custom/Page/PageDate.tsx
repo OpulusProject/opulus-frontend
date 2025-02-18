@@ -16,7 +16,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
 export const PageDate: React.FC<PageDateProps> = ({ className }) => {
   return (
     <Typography
-      className={classNames('', className, 'PageHeaderDate-root')}
+      className={classNames('mb-2', className, 'PageHeaderDate-root')}
       variant={'l2'}
     >
       {formattedDate}
