@@ -20,21 +20,21 @@ export const Negative: Story = {
   ),
 };
 
-export const Positive: Story = {
-  render: () => (
-    <BalanceChange
-      currentValue={1200}
-      previousValue={1000}
-      timePeriod={'month'}
-    />
-  ),
-};
-
 export const Neutral: Story = {
   render: () => (
     <BalanceChange
       currentValue={1200}
       previousValue={1200}
+      timePeriod={'month'}
+    />
+  ),
+};
+
+export const Positive: Story = {
+  render: () => (
+    <BalanceChange
+      currentValue={1200}
+      previousValue={1000}
       timePeriod={'month'}
     />
   ),
