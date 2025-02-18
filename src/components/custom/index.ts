@@ -1,3 +1,9 @@
+// BalanceChange
+export * from '@/components/custom/BalanceChange/BalanceChange';
+
+// BalanceDisplay
+export * from '@/components/custom/BalanceDisplay/BalanceDisplay';
+
 // Card
 export * from '@/components/custom/Card/Card';
 export * from '@/components/custom/Card/CardContent';
