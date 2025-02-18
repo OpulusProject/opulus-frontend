@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { ReactNode } from 'react';
 
-type FontVariant =
+export type FontVariant =
   | 'd1'
   | 'd2'
   | 'd3'
