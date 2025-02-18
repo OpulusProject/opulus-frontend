@@ -29,3 +29,13 @@ export const Positive: Story = {
     />
   ),
 };
+
+export const Neutral: Story = {
+  render: () => (
+    <BalanceChange
+      currentValue={1200}
+      previousValue={1200}
+      timePeriod={'month'}
+    />
+  ),
+};

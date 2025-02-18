@@ -29,7 +29,13 @@ export const BalanceChange: React.FC<BalanceChangeProps> = ({
   const sign = delta >= 0 ? '+' : '-';
   const formattedDifference = `${sign} ${Math.abs(delta).toLocaleString()}`;
 
-  const textColor = delta < 0 ? 'text-red-500' : 'text-[#65FC9F]';
+  let textColor = '';
+  if (delta < 0) {
+    textColor = 'text-red-500';
+  } else if (delta > 0) {
+    textColor = 'text-[#65FC9F]';
+    textColor = 'text-popover-foreground';
+  }
 
   return (
     <span
