@@ -18,15 +18,18 @@ export const BalanceChange: React.FC<BalanceChangeProps> = ({
 }) => {
   const delta = currentValue - previousValue;
   const percentChange =
-    previousValue === 0 ? '' : ((delta / previousValue) * 100).toFixed(2);
+    previousValue === 0
+      ? ''
+      : `(${((delta / previousValue) * 100).toFixed(2)})%`;
   const sign = delta >= 0 ? '+' : '-';
   const formattedDifference = `${sign}${Math.abs(delta).toLocaleString()}`;
 
+  //TODO: fix color with hsl once available
   let textColor = 'text-popover-foreground';
   if (delta < 0) {
-    textColor = 'text-red-500'; //TO DO: fix color with hsl once available
+    textColor = 'text-red-500';
   } else if (delta > 0) {
-    textColor = 'text-[#65FC9F]'; //TO DO: fix color with hsl once available
+    textColor = 'text-[#65FC9F]';
   }
 
   return (
@@ -38,10 +41,10 @@ export const BalanceChange: React.FC<BalanceChangeProps> = ({
       )}
     >
       <Typography variant="p2" className={textColor}>
-        {formattedDifference} ({percentChange}%)
+        {formattedDifference} {percentChange}
       </Typography>
       <Typography variant="p2" className="ml-1 text-popover-foreground">
-        {`since last ${timePeriod}`}
+        since last {timePeriod}
       </Typography>
     </span>
   );
