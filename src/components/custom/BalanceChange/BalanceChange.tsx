@@ -23,9 +23,9 @@ export const BalanceChange: React.FC<BalanceChangeProps> = ({
 
   let textColor = 'text-popover-foreground';
   if (delta < 0) {
-    textColor = 'text-red-500';
+    textColor = 'text-red-500'; //fix color with hsl once available
   } else if (delta > 0) {
-    textColor = 'text-[#65FC9F]';
+    textColor = 'text-[#65FC9F]'; //fix color with hsl once available
   }
 
   return (
