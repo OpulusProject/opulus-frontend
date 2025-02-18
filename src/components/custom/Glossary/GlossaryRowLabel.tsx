@@ -12,7 +12,7 @@ export const GlossaryRowLabel: React.FC<GlossaryRowLabelProps> = ({
 }) => {
   return (
     <Typography
-      variant="p3"
+      variant="l3"
       className={classNames('w-full', className, 'GlossaryRowLabel-root')}
     >
       {children}
