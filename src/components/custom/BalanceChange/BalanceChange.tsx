@@ -17,15 +17,16 @@ export const BalanceChange: React.FC<BalanceChangeProps> = ({
   className,
 }) => {
   const delta = currentValue - previousValue;
-  const percentChange = previousValue === 0 ? '' : ((delta / previousValue) * 100).toFixed(2);
+  const percentChange =
+    previousValue === 0 ? '' : ((delta / previousValue) * 100).toFixed(2);
   const sign = delta >= 0 ? '+' : '-';
-  const formattedDifference = `${sign} ${Math.abs(delta).toLocaleString()}`;
+  const formattedDifference = `${sign}${Math.abs(delta).toLocaleString()}`;
 
   let textColor = 'text-popover-foreground';
   if (delta < 0) {
-    textColor = 'text-red-500'; //fix color with hsl once available
+    textColor = 'text-red-500'; //TO DO: fix color with hsl once available
   } else if (delta > 0) {
-    textColor = 'text-[#65FC9F]'; //fix color with hsl once available
+    textColor = 'text-[#65FC9F]'; //TO DO: fix color with hsl once available
   }
 
   return (
