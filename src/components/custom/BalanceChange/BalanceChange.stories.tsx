@@ -10,12 +10,22 @@ const meta: Meta<typeof BalanceChange> = {
 export default meta;
 type Story = StoryObj<typeof BalanceChange>;
 
-export const Default: Story = {
+export const Negative: Story = {
   render: () => (
     <BalanceChange
-      delta={2000}
-      percentChange={'12.01%'}
-      timePeriod={'last week'}
+      currentValue={200}
+      previousValue={1000}
+      timePeriod={'month'}
+    />
+  ),
+};
+
+export const Positive: Story = {
+  render: () => (
+    <BalanceChange
+      currentValue={1200}
+      previousValue={1000}
+      timePeriod={'month'}
     />
   ),
 };

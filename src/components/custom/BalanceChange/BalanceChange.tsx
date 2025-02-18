@@ -3,35 +3,47 @@ import React from 'react';
 
 import { Typography } from '@/components/custom/Typography';
 
+enum TimePeriod {
+  Day = 'day',
+  Week = 'week',
+  Month = 'month',
+  Year = 'year',
+}
+
 interface BalanceChangeProps {
-  delta: number;
-  percentChange: string;
-  timePeriod: string;
+  currentValue: number;
+  previousValue: number;
+  timePeriod: TimePeriod;
   className?: string;
 }
 
 export const BalanceChange: React.FC<BalanceChangeProps> = ({
-  delta,
-  percentChange,
+  currentValue,
+  previousValue,
   timePeriod,
   className,
 }) => {
+  const delta = currentValue - previousValue;
+  const percentChange =
+    previousValue === 0 ? '0.00' : ((delta / previousValue) * 100).toFixed(2);
   const sign = delta >= 0 ? '+' : '-';
   const formattedDifference = `${sign} ${Math.abs(delta).toLocaleString()}`;
+
+  const textColor = delta < 0 ? 'text-red-500' : 'text-[#65FC9F]';
 
   return (
     <span
       className={classNames(
         'flex flex-row mt-2',
         className,
-        'DollarValueChange-root'
+        'BalanceChange-root'
       )}
     >
-      <Typography variant="p2" className="text-[#65FC9F]">
+      <Typography variant="p2" className={textColor}>
         {formattedDifference} ({percentChange}%)
       </Typography>
       <Typography variant="p2" className="ml-1 text-popover-foreground">
-        {`since ${timePeriod}`}
+        {`since last ${timePeriod}`}
       </Typography>
     </span>
   );
