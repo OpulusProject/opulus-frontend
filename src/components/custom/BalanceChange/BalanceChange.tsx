@@ -3,17 +3,10 @@ import React from 'react';
 
 import { Typography } from '@/components/custom/Typography';
 
-enum TimePeriod {
-  Day = 'day',
-  Week = 'week',
-  Month = 'month',
-  Year = 'year',
-}
-
 interface BalanceChangeProps {
   currentValue: number;
   previousValue: number;
-  timePeriod: TimePeriod;
+  timePeriod: 'day' | 'week' | 'month' | 'year';
   className?: string;
 }
 
@@ -29,12 +22,11 @@ export const BalanceChange: React.FC<BalanceChangeProps> = ({
   const sign = delta >= 0 ? '+' : '-';
   const formattedDifference = `${sign} ${Math.abs(delta).toLocaleString()}`;
 
-  let textColor = '';
+  let textColor = 'text-popover-foreground';
   if (delta < 0) {
     textColor = 'text-red-500';
   } else if (delta > 0) {
     textColor = 'text-[#65FC9F]';
-    textColor = 'text-popover-foreground';
   }
 
   return (
