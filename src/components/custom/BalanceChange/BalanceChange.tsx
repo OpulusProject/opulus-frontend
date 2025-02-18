@@ -17,7 +17,7 @@ export const BalanceChange: React.FC<BalanceChangeProps> = ({
   className,
 }) => {
   const delta = currentValue - previousValue;
-  const percentChange = ((delta / previousValue) * 100).toFixed(2);
+  const percentChange = previousValue === 0 ? '' : ((delta / previousValue) * 100).toFixed(2);
   const sign = delta >= 0 ? '+' : '-';
   const formattedDifference = `${sign} ${Math.abs(delta).toLocaleString()}`;
 
