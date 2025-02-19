@@ -11,7 +11,7 @@ export const CardHeader: React.FC<CardHeaderProps> = ({
   return (
     <div
       className={classNames(
-        'flex flex-row justify-between',
+        'flex flex-row justify-between text-popover-foreground',
         className,
         'CardHeader-root'
       )}

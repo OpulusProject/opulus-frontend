@@ -16,7 +16,7 @@ export const CardContent: React.FC<CardContentProps> = ({
     <TabsContent
       value={value}
       className={classNames(
-        'flex flex-col gap-8 items-center justify-center mt-8',
+        'flex flex-col mt-8',
         className,
         'CardContent-root'
       )}
