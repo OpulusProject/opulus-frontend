@@ -1,3 +1,11 @@
+// AssetTable
+export * from '@/components/custom/AssetTable/AssetTable';
+export * from '@/components/custom/AssetTable/AssetTableBody';
+export * from '@/components/custom/AssetTable/AssetTableCell';
+export * from '@/components/custom/AssetTable/AssetTableHead';
+export * from '@/components/custom/AssetTable/AssetTableHeader';
+export * from '@/components/custom/AssetTable/AssetTableRow';
+
 // BalanceChange
 export * from '@/components/custom/BalanceChange/BalanceChange';
 
