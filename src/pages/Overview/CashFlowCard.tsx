@@ -38,7 +38,7 @@ const DATA = [
 interface CashFlowCardProps {
   currentValue: number;
   previousValue: number;
-  timePeriod: string;
+  timePeriod: 'day' | 'week' | 'month' | 'year';
 }
 
 export const CashFlowCard: React.FC<CashFlowCardProps> = ({
@@ -59,6 +59,7 @@ export const CashFlowCard: React.FC<CashFlowCardProps> = ({
         />
         <LineChart data={DATA} dataKey="value" label="Net Worth" />
       </CardContent>
+      {/* TODO: Update hex codes with HSL */}
       <CardFooter className="absolute bottom-8 right-8 flex justify-end items-center gap-3">
         <Color color="#65FC9F" />
         <Typography variant="p3" className="text-[#FFFFFF4C]">

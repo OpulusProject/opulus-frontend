@@ -12,7 +12,7 @@ import { Typography } from '@/components/custom/Typography';
 interface AssetsCardProps {
   currentValue: number;
   previousValue: number;
-  timePeriod: string;
+  timePeriod: 'day' | 'week' | 'month' | 'year';
 }
 
 export const AssetsCard: React.FC<AssetsCardProps> = ({
