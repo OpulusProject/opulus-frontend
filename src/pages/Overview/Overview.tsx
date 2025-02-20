@@ -8,7 +8,6 @@ import {
   PageHeader,
   PageHeaderTitle,
 } from '@/components/custom';
-import { useGetUser } from '@/hooks/user/useGetUser';
 
 import { AssetsCard } from './AssetsCard';
 import { CashFlowCard } from './CashFlowCard';
