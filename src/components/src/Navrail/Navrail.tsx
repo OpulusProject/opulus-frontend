@@ -12,7 +12,7 @@ import {
 import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Typography } from '@/components/custom/Typography';
+import { Typography } from '@/components/custom/Typography/Typography';
 import { Button } from '@/components/ui/button';
 import {
   Sidebar,

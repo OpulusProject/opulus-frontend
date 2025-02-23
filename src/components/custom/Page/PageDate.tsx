@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { Typography } from '@/components/custom/Typography';
+import { Typography } from '@/components/custom/Typography/Typography';
 
 interface PageDateProps {
   className?: string;

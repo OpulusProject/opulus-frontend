@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { Typography } from '@/components/custom/Typography';
+import { Typography } from '@/components/custom/Typography/Typography';
 
 interface PageHeaderTitleProps extends React.PropsWithChildren {
   className?: string;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Typography } from '@/components/custom/Typography';
+import { Typography } from '@/components/custom/Typography/Typography';
 import { useGetUser } from '@/hooks/user/useGetUser';
 
 export const Overview: React.FC = () => {

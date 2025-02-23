@@ -8,7 +8,7 @@ import { GlossaryColumn } from '@/components/custom/Glossary/GlossaryColumn';
 import { GlossaryRow } from '@/components/custom/Glossary/GlossaryRow';
 import { GlossaryRowLabel } from '@/components/custom/Glossary/GlossaryRowLabel';
 import { GlossaryRowValue } from '@/components/custom/Glossary/GlossaryRowValue';
-import { Typography } from '@/components/custom/Typography';
+import { Typography } from '@/components/custom/Typography/Typography';
 import { Button } from '@/components/ui/button';
 
 import { Card } from './Card';
