@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { Typography } from '@/components/custom/Typography';
+import { Typography } from '@/components/custom/Typography/Typography';
 import { TabsTrigger } from '@/components/ui/tabs';
 
 interface CardHeaderTabsTriggerProps {
