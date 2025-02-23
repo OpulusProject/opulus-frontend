@@ -5,7 +5,8 @@ import {
   Card,
   CardContent,
   CardFooter,
-  CardHeader,
+  CardHeaderTabsList,
+  CardHeaderTabsTrigger,
   Color,
 } from '@/components/custom';
 import { Typography } from '@/components/custom/Typography';
@@ -47,9 +48,13 @@ export const CashFlowCard: React.FC<CashFlowCardProps> = ({
   timePeriod,
 }) => {
   return (
-    <Card className="w-[65%] h-full p-0 relative">
-      <CardHeader className="ml-8 mt-8">Cash Flow</CardHeader>
-      <CardContent className="mt-4">
+    <Card defaultValue="Cash Flow" className="w-[65%] h-full p-0 relative">
+      {/* TODO: remove tabs trigger once that logic is removed */}
+      {/* <CardHeader className="ml-8 mt-8">Cash Flow</CardHeader> */}
+      <CardHeaderTabsList defaultValue="Cash Flow">
+        <CardHeaderTabsTrigger value="Cash Flow" />
+      </CardHeaderTabsList>
+      <CardContent className="mt-4" value={'Cash Flow'}>
         <BalanceDisplay className="ml-8" value={1486980.65} />
         <BalanceChange
           className="ml-8"

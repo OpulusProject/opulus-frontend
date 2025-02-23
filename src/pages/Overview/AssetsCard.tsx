@@ -3,7 +3,8 @@ import {
   BalanceDisplay,
   Card,
   CardContent,
-  CardHeader,
+  CardHeaderTabsList,
+  CardHeaderTabsTrigger,
   DistributionBar,
   DistributionBarSegment,
 } from '@/components/custom';
@@ -21,9 +22,12 @@ export const AssetsCard: React.FC<AssetsCardProps> = ({
   timePeriod,
 }) => {
   return (
-    <Card className="w-[35%] h-full">
-      <CardHeader>Assets</CardHeader>
-      <CardContent className="mt-4">
+    //TODO: remove tabs trigger once that logic is removed
+    <Card defaultValue="Assets" className="w-[35%] h-full">
+      <CardHeaderTabsList defaultValue="Assets">
+        <CardHeaderTabsTrigger value="Assets" />
+      </CardHeaderTabsList>
+      <CardContent className="mt-4" value={'Assets'}>
         <BalanceDisplay value={1486980.65} />
         <BalanceChange
           className="mb-8"
