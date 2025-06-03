@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { AlertTriangle } from 'lucide-react';
 
-import { Typography } from '@/components/custom/Typography';
+import { Typography } from '@/components/custom/Typography/Typography';
 import { Badge } from '@/components/ui/badge';
 
 interface InstitutionCardBadgeProps extends React.PropsWithChildren {

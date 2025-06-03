@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Typography } from '@/components/custom/Typography/Typography';
-import { useGetUser } from '@/hooks/user/useGetUser';
 import {
   Page,
   PageContent,

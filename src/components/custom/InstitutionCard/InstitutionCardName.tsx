@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { Typography } from '@/components/custom/Typography';
+import { Typography } from '@/components/custom/Typography/Typography';
 
 interface InstitutionCardNameProps extends React.PropsWithChildren {
   className?: string;
