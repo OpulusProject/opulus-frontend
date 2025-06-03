@@ -1,7 +1,10 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import { FontVariant, Typography } from '@/components/custom/Typography';
+import {
+  FontVariant,
+  Typography,
+} from '@/components/custom/Typography/Typography';
 
 interface BalanceDisplayProps {
   value: number;

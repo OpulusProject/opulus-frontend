@@ -9,7 +9,7 @@ import {
   CardHeaderTabsTrigger,
   Color,
 } from '@/components/custom';
-import { Typography } from '@/components/custom/Typography';
+import { Typography } from '@/components/custom/Typography/Typography';
 
 const DATA = [
   { date: new Date(2023, 0, 1), value: 500 },

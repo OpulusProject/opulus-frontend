@@ -32,3 +32,6 @@ export * from '@/components/custom/Page/PageContent';
 export * from '@/components/custom/Page/PageDate';
 export * from '@/components/custom/Page/PageHeader';
 export * from '@/components/custom/Page/PageHeaderTitle';
+
+// Typography
+export * from '@/components/custom/Typography/Typography';

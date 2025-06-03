@@ -3,7 +3,7 @@
 import { ColumnDef } from '@tanstack/react-table';
 import { format } from 'date-fns';
 
-import { Typography } from '@/components/custom/Typography';
+import { Typography } from '@/components/custom/Typography/Typography';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Task } from '@/pages/Transactions/data/schema.ts';
 

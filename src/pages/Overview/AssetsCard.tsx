@@ -8,7 +8,7 @@ import {
   DistributionBar,
   DistributionBarSegment,
 } from '@/components/custom';
-import { Typography } from '@/components/custom/Typography';
+import { Typography } from '@/components/custom/Typography/Typography';
 
 interface AssetsCardProps {
   currentValue: number;
